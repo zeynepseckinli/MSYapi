@@ -1,0 +1,11 @@
+proje açmak için sırayla yapılacaklar
+	1-npm create vite@latest
+	2-enter ile girip react seçip oradan javascript + swc seçiyoruz
+    3-vite-project diye bir klasör oluşturuyor oradan taşıyoruz
+	4-npm i
+	5-npm run dev > başlatmak için
+    6- npm install @mui/material @emotion/react @emotion/styled
+     - npm install react-router-dom
+     - npm install react-toastify
+
+    7- App.jsx içeriği tam olarka böyle olmalı: 

@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef  } from "react";
-import { Box, Typography, Button,  Dialog  } from "@mui/material";
+import React, { useEffect, useState, useRef, useCallback } from "react";
+import { Box, Typography, Button, Dialog } from "@mui/material";
 import ContactBox from "../../components/contactBox/ContactBox";
 import FotografVideo from "../../components/portfolio/FotografVideo";
 import WebTasarim from "../../components/portfolio/WebTasarim";
@@ -7,11 +7,31 @@ import SosyalMedya from "../../components/portfolio/SosyalMedya";
 import VariantButton from "../../components/buttons/VariantButton";
 
 const Portfolio = () => {
-    const [selectedTab, setSelectedTab] = useState("fotografVideo");
-const videoRef = useRef(null);
+  const [selectedTab, setSelectedTab] = useState("fotografVideo");
+  const videoRef = useRef(null);
   const [videoFailed, setVideoFailed] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-     // Seçili butona göre gösterilecek component
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Sayfa yüklendiğinde en üste kaydır
+  }, []);
+
+  // Ekran boyutunu optimize edilmiş şekilde dinle
+  const checkMobile = useCallback(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", checkMobile);
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, [checkMobile]);
+
+  const handleVideoError = () => {
+    setVideoFailed(true);
+  };
+
   const renderComponent = () => {
     switch (selectedTab) {
       case "fotografVideo":
@@ -25,30 +45,20 @@ const videoRef = useRef(null);
     }
   };
 
-  useEffect(() => {
-      // Mobil cihaz olup olmadığını kontrol eden fonksiyon
-      const checkMobile = () => setIsMobile(window.innerWidth < 768);
-      checkMobile();
-      window.addEventListener("resize", checkMobile);
-    
-      // Cleanup function
-      return () => {
-        window.removeEventListener("resize", checkMobile);
-      };
-    }, []);
-    
-  
-    const handleVideoError = () => {
-      setVideoFailed(true); // Video yüklenemezse img göster
-    };
       return (
-        <div style={{ margin: 0, padding: 0 }}>
+<div style={{ 
+  margin: 0, 
+  padding: 0, 
+  overflowX: "hidden", 
+  width: "100%", 
+  maxWidth: "100vw" 
+}}>
 
-            <div style={{ margin: 0, padding: 0, maxWidth: "2000px", height: "400px", display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#EDEFF3", }}>
+            <div style={{ margin: 0, padding: 0, maxWidth: "100%", height: "400px", display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#EDEFF3", }}>
                   <Box
                     sx={{
                       position: "relative", // Mutlaka relative olsun
-                      maxWidth: "2000px",
+                      maxWidth: "100%",
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "center",
@@ -142,7 +152,7 @@ const videoRef = useRef(null);
     }}
   onClick={() => setSelectedTab("fotografVideo")}
 >
-  Sosyal Medya Yönetimi
+Fotoğraf ve Vİdeo Prodüksİyon
 </Button>
 
           <Button 
@@ -189,7 +199,7 @@ const videoRef = useRef(null);
     }}
   onClick={() => setSelectedTab("sosyalMedya")}
 >
-  Sosyal Medya Yönetimi
+  Sosyal Medya Yönetİmİ
 </Button>
           
         </Box>

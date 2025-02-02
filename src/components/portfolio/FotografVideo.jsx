@@ -47,7 +47,6 @@ const FotografVideo = () => {
     width: "1200px",
     justifyContent: "space-between",
     flexWrap: "wrap",
-    marginBottom: "20px",
     borderBottom: "2px solid #10375C", // Yatay çizgi ekleme
     boxShadow:  "0px 4px 10px rgba(0, 0, 0, 0.2)",
     marginBottom: "40px",

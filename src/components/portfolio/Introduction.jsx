@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography, Button,  Dialog  } from "@mui/material";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow"; 
+import ClassicButton from "../buttons/ClasicButton";
+import { useNavigate } from "react-router-dom";
+
+
 
 
 const mediaItems = [
@@ -16,6 +20,7 @@ const mediaItems = [
   
   const Introduction = () => {
     const [selectedMedia, setSelectedMedia] = useState(null);
+    const navigate = useNavigate();
 
   
    
@@ -59,17 +64,18 @@ const mediaItems = [
                       }}
                     >
                       <Box
-                      sx={{
-                        display: "flex", // Flexbox kullan
-                        flexDirection: "column", // Elemanları dikey hizala
-                        alignItems: "flex-start", // Sol tarafa hizala
-                        gap: "24px", // Yazılar arasında boşluk
-                        width: "1200px", // İçeriğin genişliği
-                        paddingTop: "70px",
-                        paddingBottom: "40px",
-
-                      }}
-                    >
+                        sx={{
+                          display: "flex",
+                          flexDirection: "row", // Yatay hizalama
+                          justifyContent: "space-between", // Elemanlar arasında eşit boşluk bırak
+                          alignItems: "center", // Dikeyde hizala
+                          gap: "24px",
+                          width: "1200px",
+                          paddingTop: "70px",
+                          paddingBottom: "40px",
+                          paddingRight: "100px",
+                        }}
+                      >
                       <Typography
                         variant="h3"
                         sx={{
@@ -79,6 +85,13 @@ const mediaItems = [
                       >
                         Neler Yaptık?        
                       </Typography>
+
+                      <ClassicButton
+                                  sx={{width: "200px" }}
+                                  text="Portfolyo"
+                                  onClick={() => navigate("/portfolio")}
+                      
+                                />
                     
                       
                     </Box>
@@ -117,7 +130,7 @@ const mediaItems = [
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              backgroundColor: "rgba(0, 0, 0, 0.6)",
+              backgroundColor: "#10375C99",
               borderRadius: "50%",
               width: "60px",
               height: "60px",
@@ -138,7 +151,7 @@ const mediaItems = [
           bottom: "0",
           width: "100%",
           height: "50px",
-          backgroundColor: "rgba(0, 0, 0, 0.6)", // Yarı saydam siyah arka plan
+          backgroundColor: "#10375C99", // Yarı saydam siyah arka plan
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

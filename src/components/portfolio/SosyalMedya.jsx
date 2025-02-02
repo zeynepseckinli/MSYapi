@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Box } from "@mui/material";
 
 const mediaItems = [
-  { id: 1, name: "The Cocktail Talks", src: "https://res.cloudinary.com/dirsnej9m/image/upload/v1735577093/dn2upkrlzkduwk7tjrm9.jpg", url: "https://www.instagram.com/thecocktailtalks/" },
-  { id: 2, name: "Maria Nila", src: "https://res.cloudinary.com/dirsnej9m/image/upload/v1735577093/dn2upkrlzkduwk7tjrm9.jpg", url: "https://www.instagram.com/marianilaturkiye/" },
-  { id: 3, name: "Balmain Hair Turkiye", src: "https://res.cloudinary.com/dirsnej9m/image/upload/v1735577093/dn2upkrlzkduwk7tjrm9.jpg", url: "https://www.instagram.com/haircouture_tr/" },
+  { id: 1, name: "The Cocktail Talks", src: "https://res.cloudinary.com/dy20zavvv/image/upload/v1738486582/113_sbh92y.jpg", url: "https://www.instagram.com/thecocktailtalks/" },
+  { id: 2, name: "Maria Nila", src: "https://res.cloudinary.com/dy20zavvv/image/upload/v1738486581/112_qjstnb.jpg", url: "https://www.instagram.com/marianilaturkiye/" },
+  { id: 3, name: "Balmain Hair Turkiye", src: "https://res.cloudinary.com/dy20zavvv/image/upload/v1738486581/111_h2uuh7.jpg", url: "https://www.instagram.com/haircouture_tr/" },
 ];
 
 const SosyalMedya = () => {

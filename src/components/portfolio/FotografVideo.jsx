@@ -36,16 +36,19 @@ const FotografVideo = () => {
       : mediaItems.filter((item) => item.category === selectedCategory);
 
   return (
-    <div style={{ margin: 0, paddingBottom: "80px", display: "flex", justifyContent: "center" }}>
-      <Box sx={{ width: "100%", maxWidth: "1500px", display: "flex", flexDirection: "column", // Elemanları yatay sırala
+    <div style={{ margin: 0,  display: "flex", justifyContent: "center" }}>
+      <Box sx={{ width: "100%", maxWidth: "1500px",
+      paddingBottom: { xs: "24px", sm: "80px" },
+      display: "flex", flexDirection: "column", // Elemanları yatay sırala
               alignItems: "center", // Dikeyde hizala
               justifyContent: "center", textAlign: "center", backgroundColor: "background.default" }}>
         {/* Kategori Butonları */}
         <Box
   sx={{
     display: "flex",
-    width: "1200px",
-    justifyContent: "space-between",
+    width: "100%",
+    maxWidth: "1200px",
+    justifyContent: { xs: "center", sm: "space-between" },
     flexWrap: "wrap",
     borderBottom: "2px solid #10375C", // Yatay çizgi ekleme
     boxShadow:  "0px 4px 10px rgba(0, 0, 0, 0.2)",
@@ -60,11 +63,12 @@ const FotografVideo = () => {
       onClick={() => handleCategoryChange(category)}
       
       sx={{
-        width: "150px", // Buton genişliği
+        width: "33%",
+        maxWidth: "150px",
         height: "50px",
         borderColor: "#EDEFF3",
         borderRadius: "0px",
-        boxShadow: selectedCategory === category ? "0px 4px 10px rgba(0, 0, 0, 0.2)" : "none",
+        boxShadow: selectedCategory === category ? "0px 4px 10px rgba(0, 0, 0, 0.3)" : "none",
         "&:hover": {
           boxShadow: selectedCategory === category ? "0px 4px 12px rgba(0, 0, 0, 0.3)" : "none",
           color: "#EDEFF3",
@@ -81,13 +85,15 @@ const FotografVideo = () => {
 
 
         {/* İçerik Gösterimi */}
-        <Box sx={{ display: "flex", flexWrap: "wrap", gap: "20px", justifyContent: "center", marginTop: "20px" }}>
+        <Box sx={{ display: "flex", flexWrap: "wrap", gap: "24px", justifyContent: "center", marginTop: "20px",
+          padding: { xs: "0px 24px", sm: "0px 80px" },
+         }}>
           {filteredMedia.map((item) => (
             <Box
               key={item.id}
               sx={{
                 position: "relative",
-                width: "400px",
+                width: { xs: "100%", sm: "400px" },
                 maxWidth: "400px",
                 height: "300px",
                 borderRadius: "8px",

@@ -10,23 +10,30 @@ const Portfolio = () => {
   const [selectedTab, setSelectedTab] = useState("fotografVideo");
   const videoRef = useRef(null);
   const [videoFailed, setVideoFailed] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0); // Sayfa yüklendiğinde en üste kaydır
   }, []);
 
-  // Ekran boyutunu optimize edilmiş şekilde dinle
-  const checkMobile = useCallback(() => {
-    setIsMobile(window.innerWidth < 768);
-  }, []);
+  
 
   useEffect(() => {
-    window.addEventListener("resize", checkMobile);
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, [checkMobile]);
+      // Mobil cihaz olup olmadığını kontrol eden fonksiyon
+      console.log("Ekran genişliği:", window.innerWidth);
+  
+      const checkMobile = () => {
+        const mobile = window.matchMedia("(max-width: 850px)").matches;
+        console.log("isMobile değeri güncellendi:", mobile);
+        setIsMobile(mobile);
+      };
+      checkMobile();
+      window.addEventListener("resize", checkMobile);
+
+      return () => {
+        window.removeEventListener("resize", checkMobile);
+      };
+    }, []);
 
   const handleVideoError = () => {
     setVideoFailed(true);
@@ -54,7 +61,9 @@ const Portfolio = () => {
   maxWidth: "100vw" 
 }}>
 
-            <div style={{ margin: 0, padding: 0, maxWidth: "100%", height: "400px", display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#EDEFF3", }}>
+            <div style={{ margin: 0, padding: 0, maxWidth: "100%", 
+              height: "400px" ,
+              display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#EDEFF3", }}>
                   <Box
                     sx={{
                       position: "relative", // Mutlaka relative olsun
@@ -77,8 +86,9 @@ const Portfolio = () => {
                         
                         paddingBottom: "0px",
                         marginBottom: "0px",
-                        width: "2000px",
-                        height: "400px",
+                        width: "100%",
+                        maxWidth: "2000px",
+                        height:  "400px",
                         objectFit: "cover",
                         zIndex: 1,
                         transition: "opacity 0.3s ease-in-out",
@@ -114,27 +124,30 @@ const Portfolio = () => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)", // Ortalamayı garanti eder
-    width: "1200px",
+    width: "100%",
+    maxWidth: "1200px",
     height: "300px",
     display: "flex",
-    flexDirection: "column",
+    flexDirection: { xs: "row", sm: "column" },
     alignItems: "center", // Ortaya hizalama
     justifyContent: "center", // Dikey ortalama
     zIndex: 10, // Videonun üstüne çıkmasını sağla
   }}
 >
 <Box
-          sx={{
-            display: "flex",
-            gap: 2,
-            position: "absolute",
-          }}
-        >
+  sx={{
+    display: "flex",
+    gap: 2,
+    flexDirection: { xs: "column", sm: "row" }, // xs için column, sm ve üstü için row
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
          
 <Button 
   variant={selectedTab === "fotografVideo" ? "contained" : "outlined"}
   sx={{
-      width: "350px",
+      width:  { xs: "310px", sm: "350px" },
       height: "50px",
       borderColor: "#10375C",
       borderRadius: "50px",
@@ -158,7 +171,7 @@ Fotoğraf ve Vİdeo Prodüksİyon
           <Button 
   variant={selectedTab === "webTasarim" ? "contained" : "outlined"}
   sx={{
-      width: "350px",
+      width: { xs: "310px", sm: "350px" },
       height: "50px",
       borderColor: "#10375C",
       borderRadius: "50px",
@@ -181,7 +194,7 @@ Fotoğraf ve Vİdeo Prodüksİyon
 <Button 
   variant={selectedTab === "sosyalMedya" ? "contained" : "outlined"}
   sx={{
-      width: "350px",
+      width: { xs: "310px", sm: "350px" },
       height: "50px",
       borderColor: "#10375C",
       borderRadius: "50px",

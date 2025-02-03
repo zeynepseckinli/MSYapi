@@ -40,9 +40,10 @@ const mediaItems = [
       return (
         <div style={{ margin: 0, padding: 0 }}>
           
-<Box id="services"
+      <Box id="services"
         sx={{
           width: "100%", // Sayfanın tamamını kapla (genişlik)
+          height: "100%",
           display: 'flex', // İçeriği yerleştirmek için flex kullan
           justifyContent: 'center', // Sol tarafa hizala
           alignItems: 'center', // Dikeyde ortalamak için center
@@ -50,39 +51,42 @@ const mediaItems = [
           paddingBottom: "50px",
         }}
       >
-            
-            <Box
+        <Box
                       sx={{
                         display: "flex", // Flexbox kullan
-                        width: "1500px", // İçeriğin genişliği
+                        width: "100%", // Sayfanın tamamını kapla (genişlik)
+                        maxWidth: "1500px", // İçeriğin genişliği
                         flexDirection: "column", // Elemanları dikey hizala
                         alignItems: "center", // Yatayda ortala
                         justifyContent: "center", // Dikeyde ortala
                         margin: "0 auto", // Tüm Box'ı ortalamak için margin ayarı
                         gap: "24px", // Yazılar arasında boşluk
                         backgroundColor: "background.default",
+                        padding: { xs: "36px 24px", sm: "0rem" },
                       }}
                     >
                       <Box
                         sx={{
                           display: "flex",
-                          flexDirection: "row", // Yatay hizalama
-                          justifyContent: "space-between", // Elemanlar arasında eşit boşluk bırak
-                          alignItems: "center", // Dikeyde hizala
+                          flexDirection: { xs: "column", sm: "row" }, // Yatay hizalama
+                          justifyContent: { xs: "flex-start", sm: "space-between" }, // Elemanlar arasında eşit boşluk bırak
+                          alignItems: { xs: "flex-start", sm: "center" }, // Dikeyde hizala
                           gap: "24px",
-                          width: "1200px",
-                          paddingTop: "70px",
-                          paddingBottom: "40px",
-                          paddingRight: "100px",
+                          width: "100%",
+                          maxWidth: "1200px",
+                          paddingTop: { xs: "0px", sm:"70px" },
+                          paddingBottom: { xs: "0px", sm:"40px" },
+                          paddingRight: { xs: "0px", sm:"100px" },
                         }}
                       >
                       <Typography
-                        variant="h3"
-                        sx={{
-                          color: "text.primary", // Tema rengi
-                          fontWeight: 500, // Kalın yazı
-                        }}
-                      >
+                                  variant="h3"
+                                  sx={{
+                                    color: "text.primary",
+                                    fontWeight: 500,
+                                    fontSize: { xs: "2.5rem", sm: "3rem" }, // Burada fontSize'ı responsive hale getirebilirsiniz
+                                  }}
+                                >
                         Neler Yaptık?        
                       </Typography>
 

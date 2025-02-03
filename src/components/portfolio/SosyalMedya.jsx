@@ -13,10 +13,12 @@ const SosyalMedya = () => {
   };
 
   return (
-    <div style={{ margin: 0, padding: "80px", display: "flex", justifyContent: "center" }}>
-      <Box sx={{ width: "100%", textAlign: "center", backgroundColor: "background.default" }}>
+    <div style={{ margin: 0, display: "flex", justifyContent: "center" }}>
+      <Box sx={{ width: "100%", textAlign: "center",
+        padding: { xs: "24px", sm: "80px" },
+        backgroundColor: "background.default" }}>
         {/* İçerik Gösterimi */}
-        <Box sx={{ display: "flex", flexWrap: "wrap", gap: "40px", justifyContent: "center" }}>
+        <Box sx={{ display: "flex", flexWrap: "wrap", gap: { xs: "24px", sm:"40px" }, justifyContent: "center" }}>
           {mediaItems.map((item) => (
             <Box
               key={item.id}

@@ -1,10 +1,14 @@
 import { Outlet } from "react-router-dom";
-import { AppBar, Toolbar, Typography, Container, Box, Button } from "@mui/material";
+import { AppBar, Toolbar, Typography, Container, Box, Button, Drawer, IconButton } from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
 const Layout = () => {
   const menuItems = ["Hakkımızda", "Hizmetlerimiz", "Portfolyo", "İletişim"];
+  const menuItemsMobil = ["Anasayfa", "Hakkımızda", "Hizmetlerimiz", "Portfolyo", "İletişim"];
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false); // Menü durumunu kontrol etmek için state
 
   const handleContactClick = () => {
     navigate("/"); // Önce anasayfaya yönlendir
@@ -27,11 +31,17 @@ const Layout = () => {
     }, 100); // Kısa bir gecikme ekle
   };
 
+  const handleMenuToggle = () => {
+    setOpen(!open); // Menü açma / kapama
+  };
+
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
         minHeight: "100vh",
         minWidth: "100%",
         margin: 0,
@@ -43,9 +53,11 @@ const Layout = () => {
       <AppBar
         position="static"
         sx={{
-          width: "1200px",
-          maxWidth: "1200px",
-          margin: "0 auto",
+          width: "100%",
+          display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
           boxShadow: "none",
           backgroundColor: "transparent",
           height: "50px",
@@ -56,10 +68,12 @@ const Layout = () => {
           sx={{
             display: "flex",
             alignItems: "center",
+            justifyContent: { xs: "space-between", sm: "flex-start" },
+            padding: { xs: "20px", sm: "0px" },
+            marginTop: { xs: "20px", sm: "0px" },
             gap: 4,
-            padding: 0,
-            minHeight: "50px",
             height: "50px",
+            width: { xs: "100%", sm: "1200px" },
           }}
         >
           {/* Başlık */}
@@ -68,15 +82,29 @@ const Layout = () => {
             sx={{
               flexShrink: 0,
               color: "text.primary",
-              cursor: "pointer", // Tıklanabilir yapmak için
+              cursor: "pointer",
+              fontSize: { xs: "1.5rem", sm: "1.5rem" },
             }}
             onClick={handleLogoClick} // Tıklanırsa anasayfaya git
           >
             StudioBal
           </Typography>
 
-          {/* Menü Butonları */}
-          <Box sx={{ display: "flex", gap: 2 }}>
+          <Box sx={{ display: { xs: "flex", sm: "none" } }}>
+            <IconButton
+              onClick={handleMenuToggle}
+              color="#10375C"
+              sx={{
+                fontSize: "3rem", // İkonu büyütmek için
+                color: "#10375C", // İkon rengini değiştirmek için
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Box>
+
+          {/* Menü Butonları (Desktop için) */}
+          <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
             {menuItems.map((item) => (
               <Button
                 key={item}
@@ -88,6 +116,7 @@ const Layout = () => {
                 }}
                 onClick={item === "İletişim" ? handleContactClick : item === "Hizmetlerimiz" ? handleHizmetlerimizClick : () => navigate(
                   item === "Hakkımızda" ? "/about" :
+                  item === "Anasayfa" ? "/" :
                   item === "Portfolyo" ? "/portfolio" :
                   "/"
                 )}
@@ -98,6 +127,65 @@ const Layout = () => {
           </Box>
         </Toolbar>
       </AppBar>
+
+      {/* Drawer (Mobil Menü) */}
+      <Drawer
+  anchor="right"
+  open={open}
+  onClose={handleMenuToggle} // Menü dışına tıklayınca kapanacak
+  sx={{
+    display: { xs: "block", sm: "none" },
+    height: "100vh", // Menü yüksekliği ekranın tamamı kadar olacak
+    overflow: "hidden", // Kaydırma engelleniyor
+  }}
+>
+  <Box
+    sx={{
+      width: 300,
+      height: "100%", // Yüksekliği %100 yaparak ekranı kaplamasını sağlıyoruz
+      padding: 2,
+      backgroundColor: "background.paper", // Arka plan rengi
+      marginTop: 4,
+    }}
+  >
+    {menuItemsMobil.map((item) => (
+      <Button
+        key={item}
+        color="inherit"
+        sx={{
+          width: "100%",
+          textTransform: "capitalize",
+          fontSize: "1.3rem",
+          padding: "10px 0",
+          color: "text.secondary", // Metin rengi
+        }}
+        
+        onClick={() => {
+          // Yönlendirmeler
+          if (item === "İletişim") {
+            handleContactClick();
+          } else if (item === "Hizmetlerimiz") {
+            handleHizmetlerimizClick();
+          } else {
+            navigate(
+              item === "Hakkımızda" ? "/about" :
+              item === "Portfolyo" ? "/portfolio" :
+              "/"
+            );
+          }
+      
+          // Menü kapanacak
+          handleMenuToggle();
+        }}
+        
+      >
+        {item}
+      </Button>
+    ))}
+  </Box>
+</Drawer>
+
+
 
       {/* İçerik Alanı */}
       <Container
@@ -124,7 +212,7 @@ const Layout = () => {
           marginTop: "auto",
         }}
       >
-        <Typography variant="body2">
+        <Typography variant="body2" sx={{ fontSize: { xs: "0.75rem", sm: "1rem" } }}>
           © 2025 Journey. Made by{" "}
           <a
             href="https://www.zeynepse.com"

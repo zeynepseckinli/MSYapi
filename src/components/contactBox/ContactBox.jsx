@@ -17,18 +17,21 @@ const ContactBox = () => {
       <Box
         sx={{
           display: "flex",
-          width: "1200px",
+          width: "100%",
+          maxWidth: "1200px",          
           flexDirection: "column",
           alignItems: "flex-end",
           justifyContent: "center",
           margin: "0 auto",
           gap: "24px",
+          padding: { xs: "36px 24px", sm: "0rem" },
         }}
       >
         <Box
           sx={{
             display: "flex",
-            width: "600px",
+            width: "100%",
+            maxWidth: "600px",             
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "16px",

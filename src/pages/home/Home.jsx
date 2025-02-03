@@ -14,9 +14,18 @@ const Home = () => {
   const [videoFailed, setVideoFailed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  
   useEffect(() => {
     // Mobil cihaz olup olmadığını kontrol eden fonksiyon
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    console.log("Ekran genişliği:", window.innerWidth);
+
+    const checkMobile = () => {
+      const mobile = window.matchMedia("(max-width: 850px)").matches;
+      console.log("isMobile değeri güncellendi:", mobile);
+      setIsMobile(mobile);
+    };
+    
+  
     checkMobile();
     window.addEventListener("resize", checkMobile);
   
@@ -36,6 +45,7 @@ const Home = () => {
       window.removeEventListener("scrollToContact", handleScrollEvent);
     };
   }, []);
+
   const handleVideoEnd = () => {
     if (videoRef.current) {
       videoRef.current.pause(); // Video bitince durdur
@@ -47,12 +57,16 @@ const Home = () => {
   };
 
   return (
-    <div style={{ margin: 0, padding: 0, backgroundColor: "red", }}>
+    <div style={{ margin: 0, padding: 0, width: "100vw", // Ekran genişliği kadar sınırla
+      maxWidth: "100vw", // Aşırı genişlemeyi önle
+      overflowX: "hidden", // Yatay taşmayı engelle
+       backgroundColor: "secondary", }}>
     <div style={{ margin: 0, padding: 0, height: "800px", display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#EDEFF3", }}>
       <Box
         sx={{
           position: "relative", // Mutlaka relative olsun
-          width: "1200px",
+          width: "100%",
+          maxWidth: "1200px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -71,7 +85,7 @@ const Home = () => {
             
             paddingBottom: "0px",
             marginBottom: "0px",
-            width: "1200px",
+            width: { xs: "100%", sm: "1200px" },
             height: "800px",
             objectFit: "cover",
             zIndex: 1,
@@ -89,7 +103,7 @@ const Home = () => {
           style={{
             paddingTop: "0px",
             marginBottom: "0px",
-            width: "1200px",
+            width: { xs: "100%", sm: "1200px" },
             height: "800px",
             objectFit: "contain",
             zIndex: 0,
@@ -111,7 +125,7 @@ const Home = () => {
               position: "absolute",
               top: 0,
               left: 0,
-              width: "1200px",
+              width: { xs: "100%", sm: "1200px" },
               height: "800px",
               objectFit: "cover",
               zIndex: 1,
@@ -128,7 +142,7 @@ const Home = () => {
               position: "absolute",
               top: 0,
               left: 0,
-              width: "1200px",
+              width: { xs: "100%", sm: "1200px" },
               height: "800px",
               objectFit: "cover",
               zIndex: 1,
@@ -144,8 +158,9 @@ const Home = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)", // Ortalamayı garanti eder
-            width: "1200px",
-            display: "flex",
+            width: "100%",
+            maxWidth: "1200px",
+            display: { xs: "none", md: "flex" },
             flexDirection: "column",
             alignItems: "flex-start",
             zIndex: 2,
@@ -168,8 +183,9 @@ const Home = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)", // Ortalamayı garanti eder
-            width: "1200px",
-            display: "flex",
+            width: "100%",
+            maxWidth: "1200px",
+            display: { xs: "none", md: "flex" },
             flexDirection: "column",
             alignItems: "flex-end",
             zIndex: 2,
@@ -194,7 +210,7 @@ const Home = () => {
       <Box id="services"
         sx={{
           width: "100%", // Sayfanın tamamını kapla (genişlik)
-          height: "600px", // Tam ekran yüksekliği
+          height: { xs: "100%", sm: "600px" }, // Tam ekran yüksekliği
           display: 'flex', // İçeriği yerleştirmek için flex kullan
           justifyContent: 'center', // Sol tarafa hizala
           alignItems: 'center', // Dikeyde ortalamak için center
@@ -205,12 +221,14 @@ const Home = () => {
         <Box
           sx={{
             display: "flex", // Flexbox kullan
-            width: "1200px", // İçeriğin genişliği
+            width: "100%", // Sayfanın tamamını kapla (genişlik)
+            maxWidth: "1200px", // İçeriğin genişliği
             flexDirection: "column", // Elemanları dikey hizala
             alignItems: "flex-start", // Yatayda ortala
             justifyContent: "center", // Dikeyde ortala
             margin: "0 auto", // Tüm Box'ı ortalamak için margin ayarı
             gap: "24px", // Yazılar arasında boşluk
+            padding: { xs: "36px 24px", sm: "0rem" },
           }}
         >
           <Box
@@ -224,11 +242,12 @@ const Home = () => {
           <Typography
             variant="h3"
             sx={{
-              color: "text.primary", // Tema rengi
-              fontWeight: 500, // Kalın yazı
+              color: "text.primary",
+              fontWeight: 500,
+              fontSize: { xs: "2.5rem", sm: "3rem" }, // Burada fontSize'ı responsive hale getirebilirsiniz
             }}
           >
-            Nasıl yardımcı olabiliriz?          
+            Nasıl yardımcı olabiliriz?
           </Typography>
         
           
@@ -236,8 +255,9 @@ const Home = () => {
         <Box 
             sx={{
               display: "flex", // Flexbox kullan
-              width: "1200px",
-              flexDirection: "row", // Elemanları yatay sırala
+              width: "100%",
+              maxWidth: "1200px",
+              flexDirection: { xs: "column", sm: "row" }, // Elemanları yatay sırala
               alignItems: "center", // Dikeyde hizala
               justifyContent: "center", // Elemanlar arasındaki boşluğu ayarla
               gap: "40px", // Elemanlar arasındaki boşluk
@@ -284,16 +304,7 @@ const Home = () => {
 
                 }}
               >
-                {/* Kart Üst Kısmı (Resim) */}
-                <Box
-                  sx={{
-                    // height: "50%", // Kartın üst yarısı
-                    // backgroundImage: card.image,
-                    // backgroundSize: "cover", // Resmin boyutunu karta göre ayarla
-                    // backgroundPosition: "center", // Resmi ortala
-                  }}
-                />
-                {/* Kart Alt Kısmı (Başlık ve Açıklama) */}
+                
                 <Box
                   sx={{
                     padding: "16px", // İçerik için boşluk
@@ -302,7 +313,6 @@ const Home = () => {
                     gap: "25px", // Başlık ve açıklama arasında boşluk
                   }}
                 >
-                  {/* Başlık için sabit alan */}
                   <Box
                     sx={{
                       height: "90px", // Sabit yükseklik (2 satır için yeterli)

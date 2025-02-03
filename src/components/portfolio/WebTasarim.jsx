@@ -13,10 +13,13 @@ const WebTasarim = () => {
   };
 
   return (
-    <div style={{ margin: 0, padding: "80px", display: "flex", justifyContent: "center" }}>
-  <Box sx={{ width: "100%", maxWidth: "1500px", textAlign: "center", backgroundColor: "background.default" }}>
+    <div style={{ margin: 0,  
+    display: "flex", justifyContent: "center" }}>
+  <Box sx={{ width: "100%", maxWidth: "1500px", 
+    padding: { xs: "24px", sm: "80px" },
+    textAlign: "center", backgroundColor: "background.default" }}>
     {/* İçerik Gösterimi */}
-    <Box sx={{ display: "flex", flexWrap: "wrap", gap: "20px", justifyContent: "center" }}>
+    <Box sx={{ display: "flex", flexWrap: "wrap", gap: "24px", justifyContent: "center" }}>
       {mediaItems.map((item) => (
         <Box
           key={item.id}

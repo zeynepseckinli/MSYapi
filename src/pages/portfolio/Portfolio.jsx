@@ -5,8 +5,12 @@ import FotografVideo from "../../components/portfolio/FotografVideo";
 import WebTasarim from "../../components/portfolio/WebTasarim";
 import SosyalMedya from "../../components/portfolio/SosyalMedya";
 import VariantButton from "../../components/buttons/VariantButton";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"; 
+
 
 const Portfolio = () => {
+    const [showScroll, setShowScroll] = useState(false);
+
   const [selectedTab, setSelectedTab] = useState("fotografVideo");
   const videoRef = useRef(null);
   const [videoFailed, setVideoFailed] = useState(false);
@@ -51,6 +55,23 @@ const Portfolio = () => {
         return null;
     }
   };
+
+  useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 300) {
+          setShowScroll(true);
+        } else {
+          setShowScroll(false);
+        }
+      };
+  
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+  
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
       return (
 <div style={{ 
@@ -237,6 +258,33 @@ Fotoğraf ve Vİdeo Prodüksİyon
           <ContactBox />
         </div>
           </Box>
+
+          {showScroll && (
+        <Button
+        color="primary"
+        onClick={scrollToTop}
+        sx={{
+          color: "#EDEFF3",
+          position: "fixed",
+          bottom: "30px",
+          right: "30px",
+          zIndex: 1000,
+          backgroundColor: "#10375C", // Buton rengi
+          "&:hover": { backgroundColor: "#0d2a46" }, // Hover efekti
+          width: "40px", // Kare buton için genişlik
+          height: "40px", // Kare buton için yükseklik
+          minWidth: "40px",
+          borderRadius: "8px", // Köşeleri hafif yuvarlatmak için
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxShadow: "0px 4px 10px rgba(0,0,0,0.2)", // Hafif gölge efekti
+        }}
+      >
+        <KeyboardArrowUpIcon fontSize="small" />
+      </Button>
+      )}
+
         </div>
       );
     };

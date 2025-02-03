@@ -24,7 +24,7 @@ const ContactBox = () => {
           justifyContent: "center",
           margin: "0 auto",
           gap: "24px",
-          padding: { xs: "36px 24px", sm: "0rem" },
+          padding: { xs: "0px 24px", sm: "0rem" },
         }}
       >
         <Box

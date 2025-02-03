@@ -1,11 +1,14 @@
 import React, { useEffect, useState, useRef  } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import ClassicButton from "../../components/buttons/ClasicButton";
 import ContactBox from "../../components/contactBox/ContactBox";
 import Introduction from "../../components/portfolio/Introduction";
 import { useNavigate } from "react-router-dom";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"; 
 
 const Home = () => {
+  const [showScroll, setShowScroll] = useState(false);
+
   const [showImage, setShowImage] = useState(false);
   const [showImageProfil, setShowImageProfil] = useState(false);
   const navigate = useNavigate();
@@ -56,10 +59,27 @@ const Home = () => {
     setVideoFailed(true); // Video yüklenemezse img göster
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScroll(true);
+      } else {
+        setShowScroll(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div style={{ margin: 0, padding: 0, width: "100vw", // Ekran genişliği kadar sınırla
-      maxWidth: "100vw", // Aşırı genişlemeyi önle
-      overflowX: "hidden", // Yatay taşmayı engelle
+      maxWidth: "100vw",  overflowX: "hidden", 
+      // Aşırı genişlemeyi önle
        backgroundColor: "secondary", }}>
     <div style={{ margin: 0, padding: 0, height: "800px", display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#EDEFF3", }}>
       <Box
@@ -378,6 +398,33 @@ const Home = () => {
       <ContactBox />
     </div>
       </Box>
+
+      {showScroll && (
+        <Button
+        color="primary"
+        onClick={scrollToTop}
+        sx={{
+          color: "#EDEFF3",
+          position: "fixed",
+          bottom: "30px",
+          right: "30px",
+          zIndex: 1000,
+          backgroundColor: "#10375C", // Buton rengi
+          "&:hover": { backgroundColor: "#0d2a46" }, // Hover efekti
+          width: "40px", // Kare buton için genişlik
+          height: "40px", // Kare buton için yükseklik
+          minWidth: "40px",
+          borderRadius: "8px", // Köşeleri hafif yuvarlatmak için
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxShadow: "0px 4px 10px rgba(0,0,0,0.2)", // Hafif gölge efekti
+        }}
+      >
+        <KeyboardArrowUpIcon fontSize="small" />
+      </Button>
+      )}
+
     </div>
   );
 };

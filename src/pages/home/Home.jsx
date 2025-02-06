@@ -3,6 +3,7 @@ import { Box, Typography, Button } from "@mui/material";
 import ClassicButton from "../../components/buttons/ClasicButton";
 import ContactBox from "../../components/contactBox/ContactBox";
 import Introduction from "../../components/portfolio/Introduction";
+import IntroductionVersion2 from "../../components/portfolio/IntroductionVersion2";
 import { useNavigate } from "react-router-dom";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"; 
 
@@ -19,30 +20,24 @@ const Home = () => {
 
   
   useEffect(() => {
-    // Mobil cihaz olup olmadığını kontrol eden fonksiyon
     console.log("Ekran genişliği:", window.innerWidth);
-
     const checkMobile = () => {
       const mobile = window.matchMedia("(max-width: 850px)").matches;
       console.log("isMobile değeri güncellendi:", mobile);
       setIsMobile(mobile);
     };
-    
-  
     checkMobile();
     window.addEventListener("resize", checkMobile);
   
-    // Özel scroll event'i için fonksiyon
     const handleScrollEvent = () => {
       const contactSection = document.getElementById("contact-section");
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: "smooth" });
       }
     };
-  
+
     window.addEventListener("scrollToContact", handleScrollEvent);
   
-    // Cleanup function
     return () => {
       window.removeEventListener("resize", checkMobile);
       window.removeEventListener("scrollToContact", handleScrollEvent);
@@ -51,12 +46,12 @@ const Home = () => {
 
   const handleVideoEnd = () => {
     if (videoRef.current) {
-      videoRef.current.pause(); // Video bitince durdur
+      videoRef.current.pause(); 
     }
   };
 
   const handleVideoError = () => {
-    setVideoFailed(true); // Video yüklenemezse img göster
+    setVideoFailed(true); 
   };
 
   useEffect(() => {
@@ -77,37 +72,39 @@ const Home = () => {
   };
 
   return (
-    <div style={{ margin: 0, padding: 0, width: "100vw", // Ekran genişliği kadar sınırla
+    <div style={{ margin: 0, padding: 0, width: "100%",
       maxWidth: "100vw",  overflowX: "hidden", 
-      // Aşırı genişlemeyi önle
-       backgroundColor: "secondary", }}>
-    <div style={{ margin: 0, padding: 0, height: "800px", display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#EDEFF3", }}>
+       backgroundColor: "#EDEFF3", }}>
+    <div style={{ margin: 0, padding: 0,  display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#EDEFF3", }}>
       <Box
         sx={{
-          position: "relative", // Mutlaka relative olsun
+          position: "relative", 
           width: "100%",
           maxWidth: "1200px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#f0f1f5",
-          
+          backgroundColor: "#EDEFF3",
+          height: { xs: "500px", sm: "800px" },
           paddingBottom: "0px",
           marginBottom: "0px",
+          overflow: "hidden", 
+          borderRight: "15px solid #EDEFF3", 
         }}
       >
         {isMobile || videoFailed ? (
         <img
-          src="/1b.png"
+          src="/3.jpg"
           alt="Background"
           style={{
-            
             paddingBottom: "0px",
             marginBottom: "0px",
             width: { xs: "100%", sm: "1200px" },
-            height: "800px",
+            height: { xs: "500px", sm: "800px" },
             objectFit: "cover",
+            objectPosition: "center bottom", 
+            transform: "scale(0.7)", 
             zIndex: 1,
             transition: "opacity 0.3s ease-in-out",
           }}
@@ -118,8 +115,8 @@ const Home = () => {
           autoPlay
           muted
           playsInline
-          onEnded={handleVideoEnd} // Video bitince durdur
-          onError={handleVideoError} // Video yüklenemezse img göster
+          onEnded={handleVideoEnd} 
+          onError={handleVideoError}
           style={{
             paddingTop: "0px",
             marginBottom: "0px",
@@ -127,6 +124,7 @@ const Home = () => {
             height: "800px",
             objectFit: "contain",
             zIndex: 0,
+            outline: "none",
           }}
         >
           <source
@@ -136,10 +134,9 @@ const Home = () => {
         </video>
       )}
 
-        {/* Hover ile Görünen Arka Plan Resmi */}
         {showImage && (
           <img
-            src="/1b.png"
+            src="/4.jpg"
             alt="Background"
             style={{
               position: "absolute",
@@ -154,9 +151,9 @@ const Home = () => {
           />
         )}
 
-{showImageProfil && (
+        {showImageProfil && (
           <img
-            src="/2b.png"
+            src="/5.jpg"
             alt="Background"
             style={{
               position: "absolute",
@@ -171,13 +168,12 @@ const Home = () => {
           />
         )}
 
-        {/* İçerik (Butonlar vb.) */}
         <Box
           sx={{
             position: "absolute",
             top: "50%",
             left: "50%",
-            transform: "translate(-50%, -50%)", // Ortalamayı garanti eder
+            transform: "translate(-50%, -50%)", 
             width: "100%",
             maxWidth: "1200px",
             display: { xs: "none", md: "flex" },
@@ -194,15 +190,13 @@ const Home = () => {
             onClick={() => navigate("/about")}
 
           />
-
-          
         </Box>
         <Box
           sx={{
             position: "absolute",
             top: "50%",
             left: "50%",
-            transform: "translate(-50%, -50%)", // Ortalamayı garanti eder
+            transform: "translate(-50%, -50%)", 
             width: "100%",
             maxWidth: "1200px",
             display: { xs: "none", md: "flex" },
@@ -211,52 +205,47 @@ const Home = () => {
             zIndex: 2,
           }}
         >
-          
-
           <ClassicButton
             sx={{marginBottom: "200px",width: "200px", }}
             text="Portfolyo"
             onMouseEnter={() => setShowImage(true)}
             onMouseLeave={() => setShowImage(false)}
             onClick={() => navigate("/portfolio")}
-
           />
         </Box>
       </Box>
       </div>
       
-
-      {/* İkinci Box */}
       <Box id="services"
         sx={{
-          width: "100%", // Sayfanın tamamını kapla (genişlik)
-          height: { xs: "100%", sm: "600px" }, // Tam ekran yüksekliği
-          display: 'flex', // İçeriği yerleştirmek için flex kullan
-          justifyContent: 'center', // Sol tarafa hizala
-          alignItems: 'center', // Dikeyde ortalamak için center
+          width: "100%", 
+          height: { xs: "100%", sm: "600px" },
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
           backgroundColor: "secondary.main",
+          zIndex: 20,
         }}
       >
-        {/* Yazı */}
         <Box
           sx={{
-            display: "flex", // Flexbox kullan
-            width: "100%", // Sayfanın tamamını kapla (genişlik)
-            maxWidth: "1200px", // İçeriğin genişliği
-            flexDirection: "column", // Elemanları dikey hizala
-            alignItems: "flex-start", // Yatayda ortala
-            justifyContent: "center", // Dikeyde ortala
-            margin: "0 auto", // Tüm Box'ı ortalamak için margin ayarı
-            gap: "24px", // Yazılar arasında boşluk
+            display: "flex", 
+            width: "100%", 
+            maxWidth: "1200px", 
+            flexDirection: "column", 
+            alignItems: "flex-start", 
+            justifyContent: "center", 
+            margin: "0 auto", 
+            gap: "24px", 
             padding: { xs: "36px 24px", sm: "0rem" },
           }}
         >
           <Box
           sx={{
-            display: "flex", // Flexbox kullan
-            flexDirection: "column", // Elemanları dikey hizala
-            alignItems: "flex-start", // Sol tarafa hizala
-            gap: "24px", // Yazılar arasında boşluk
+            display: "flex", 
+            flexDirection: "column", 
+            alignItems: "flex-start", 
+            gap: "24px", 
           }}
         >
           <Typography
@@ -264,83 +253,74 @@ const Home = () => {
             sx={{
               color: "text.primary",
               fontWeight: 500,
-              fontSize: { xs: "2.5rem", sm: "3rem" }, // Burada fontSize'ı responsive hale getirebilirsiniz
+              fontSize: { xs: "2.5rem", sm: "3rem" }, 
             }}
           >
             Nasıl yardımcı olabiliriz?
           </Typography>
-        
-          
         </Box>
         <Box 
             sx={{
-              display: "flex", // Flexbox kullan
+              display: "flex", 
               width: "100%",
               maxWidth: "1200px",
-              flexDirection: { xs: "column", sm: "row" }, // Elemanları yatay sırala
-              alignItems: "center", // Dikeyde hizala
-              justifyContent: "center", // Elemanlar arasındaki boşluğu ayarla
-              gap: "40px", // Elemanlar arasındaki boşluk
-              padding: "20px 0px", // Dış boşluk
+              flexDirection: { xs: "column", sm: "row" }, 
+              alignItems: "center", 
+              justifyContent: "center", 
+              gap: "40px", 
+              padding: "20px 0px", 
             }}
           >
-            {/* Kartlar */}
             {[
               {
-                title: "Fotoğraf ve Video Produksiyon",
+                title: "Fotoğraf ve Video Prodüksiyon",
                 description: "Tüm etkinlikleriniz, reklam ve tanıtım içerikleriniz veya özel günleriniz kısacası kayıt altına almak ve kitlelere ulaştırmak istediğiniz tüm anlar için burdayız.",
-                image: 'url(/foto2.jpg)', // Örnek resim
               },
               {
                 title: "Sosyal Medya",
                 description: "Strateji geliştirmeden kullanıcı analizine, içerik üretiminden sosyal medyaya kadar tüm ihtiyaçlarınız için birlikte çalışabiliriz.",
-                image: 'url(/foto2.jpg)',
               },
               {
                 title: "PR & Marketing",
                 description:
                   "Markanızın, hem sanal dünyada hem de gerçek dünyada bilinirliğini artırmak ve doğru kullanıcılara ulaşmasını sağlamak için hazırız.",
-                image: 'url(/foto2.jpg)',
               },
               {
                 title: "Web Tasarım",
                 description:
                   "Kişisel ve kurumsal kimliğinizi sanal dünyada temsil eden web sitelerinizi, size özel olarak tasarlamak ve üretmek için yanınızdayız.",
-                image: 'url(/foto2.jpg)',
               },
             ].map((card, index) => (
               <Box
                 key={index}
                 sx={{
-                  width: "350px", // Kart genişliği
-                  height: "350px", // Kart yüksekliği
-                  backgroundColor: "background.default", // Arkaplan rengi
-                  borderRadius: "16px", // Köşeleri yuvarla
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Hafif gölge
-                  overflow: "hidden", // Taşan içerikleri gizle
-                  display: "flex", // Flexbox
-                  flexDirection: "column", // Dikey hizala
+                  width: "350px", 
+                  height: "350px", 
+                  backgroundColor: "background.default",
+                  borderRadius: "16px", 
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", 
+                  overflow: "hidden", 
+                  display: "flex", 
+                  flexDirection: "column", 
                   padding: "0px 10px",
-
                 }}
               >
-                
                 <Box
                   sx={{
-                    padding: "16px", // İçerik için boşluk
+                    padding: "16px", 
                     display: "flex",
-                    flexDirection: "column", // Dikey hizala
-                    gap: "25px", // Başlık ve açıklama arasında boşluk
+                    flexDirection: "column", 
+                    gap: "25px", 
                   }}
                 >
                   <Box
                     sx={{
-                      height: "90px", // Sabit yükseklik (2 satır için yeterli)
+                      height: "90px", 
                       display: "flex",
-                      alignItems: "center", // Dikeyde ortalama
-                      justifyContent: "center", // Yatayda ortalama
-                      textAlign: "center", // Metni ortala
-                      borderBottom: "2px solid #10375C", // Yatay çizgi ekleme
+                      alignItems: "center", 
+                      justifyContent: "center", 
+                      textAlign: "center", 
+                      borderBottom: "2px solid #10375C", 
 
                     }}
                   >
@@ -355,12 +335,11 @@ const Home = () => {
                     </Typography>
                   </Box>
 
-                  {/* Açıklama Metni */}
                   <Typography
                     variant="body1"
                     sx={{
                       color: "text.primary",
-                      textAlign: "left", // Açıklamayı sola yasla
+                      textAlign: "left",
                     }}
                   >
                     {card.description}
@@ -372,29 +351,23 @@ const Home = () => {
         </Box>
       </Box>
 
-      {/* Üçüncü Box */}
       <Box
         sx={{
           width: "100%",
         }}
       >
-              <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-              <Introduction />
-    </div>
-    </Box>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+          <IntroductionVersion2 />
+        </div>
+      </Box>
 
-
-
-      
-
-      {/* Beşinci Box */}
       <Box id="contact-section"
         sx={{
           width: "100%",
           height: "400px",
         }}
       >
-              <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <ContactBox />
     </div>
       </Box>
@@ -409,22 +382,21 @@ const Home = () => {
           bottom: "30px",
           right: "30px",
           zIndex: 1000,
-          backgroundColor: "#10375C", // Buton rengi
-          "&:hover": { backgroundColor: "#0d2a46" }, // Hover efekti
-          width: "40px", // Kare buton için genişlik
-          height: "40px", // Kare buton için yükseklik
+          backgroundColor: "#10375C", 
+          "&:hover": { backgroundColor: "#0d2a46" }, 
+          width: "40px", 
+          height: "40px", 
           minWidth: "40px",
-          borderRadius: "8px", // Köşeleri hafif yuvarlatmak için
+          borderRadius: "8px", 
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          boxShadow: "0px 4px 10px rgba(0,0,0,0.2)", // Hafif gölge efekti
+          boxShadow: "0px 4px 10px rgba(0,0,0,0.2)", 
         }}
       >
         <KeyboardArrowUpIcon fontSize="small" />
       </Button>
       )}
-
     </div>
   );
 };

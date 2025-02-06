@@ -1,4 +1,4 @@
-import { createRoot } from "react-dom/client"; // createRoot'u react-dom'dan alın
+import { createRoot } from "react-dom/client"; 
 import App from "./App.jsx";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import './index.css';
@@ -6,7 +6,7 @@ import './index.css';
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#10375C",//"#EB8317", 
+      main: "#10375C",
     },
     secondary: {
       main: "#F3C623", 
@@ -21,7 +21,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Poppins", sans-serif', // Font ailesini buraya ekleyebilirsiniz
+    fontFamily: '"Poppins", sans-serif', 
   },
 });
 

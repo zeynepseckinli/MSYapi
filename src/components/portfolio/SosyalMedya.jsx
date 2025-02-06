@@ -9,7 +9,7 @@ const mediaItems = [
 
 const SosyalMedya = () => {
   const handleMediaClick = (item) => {
-    window.open(item.url, "_blank"); // Yeni sekmede URL aç
+    window.open(item.url, "_blank"); 
   };
 
   return (
@@ -17,7 +17,6 @@ const SosyalMedya = () => {
       <Box sx={{ width: "100%", textAlign: "center",
         padding: { xs: "24px", sm: "80px" },
         backgroundColor: "background.default" }}>
-        {/* İçerik Gösterimi */}
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: { xs: "24px", sm:"40px" }, justifyContent: "center" }}>
           {mediaItems.map((item) => (
             <Box

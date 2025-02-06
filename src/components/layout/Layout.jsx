@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation  } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Container, Box, Button, Drawer, IconButton } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from "react-router-dom";
@@ -8,31 +8,32 @@ const Layout = () => {
   const menuItems = ["Hakkımızda", "Hizmetlerimiz", "Portfolyo", "İletişim"];
   const menuItemsMobil = ["Anasayfa", "Hakkımızda", "Hizmetlerimiz", "Portfolyo", "İletişim"];
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false); // Menü durumunu kontrol etmek için state
+  const location = useLocation();
+  const [open, setOpen] = useState(false); 
 
   const handleContactClick = () => {
-    navigate("/"); // Önce anasayfaya yönlendir
+    navigate("/"); 
     setTimeout(() => {
       window.dispatchEvent(new CustomEvent("scrollToContact"));
-    }, 100); // Kısa bir gecikme ekle
+    }, 100); 
   };
 
   const handleLogoClick = () => {
-    navigate("/"); // StudioBal'a tıklandığında anasayfaya yönlendir
+    navigate("/"); 
   };
 
   const handleHizmetlerimizClick = () => {
-    navigate("/"); // Önce anasayfaya yönlendir
+    navigate("/"); 
     setTimeout(() => {
-      const servicesBox = document.getElementById("services"); // ID'si 'services' olan öğeye ulaş
+      const servicesBox = document.getElementById("services"); 
       if (servicesBox) {
-        servicesBox.scrollIntoView({ behavior: "smooth" }); // Yavaşça kaydır
+        servicesBox.scrollIntoView({ behavior: "smooth" }); 
       }
-    }, 100); // Kısa bir gecikme ekle
+    }, 100); 
   };
 
   const handleMenuToggle = () => {
-    setOpen(!open); // Menü açma / kapama
+    setOpen(!open); 
   };
 
   return (
@@ -49,7 +50,6 @@ const Layout = () => {
         backgroundColor: "background.default",
       }}
     >
-      {/* Header (AppBar) */}
       <AppBar
         position="static"
         sx={{
@@ -59,7 +59,7 @@ const Layout = () => {
         alignItems: "center",
         justifyContent: "center",
           boxShadow: "none",
-          backgroundColor: "transparent",
+          backgroundColor: location.pathname === "/portfolio" ? "#EDEFF3" : "transparent",
           height: "50px",
           zIndex: 2,
         }}
@@ -70,13 +70,12 @@ const Layout = () => {
             alignItems: "center",
             justifyContent: { xs: "space-between", sm: "flex-start" },
             padding: { xs: "20px", sm: "0px" },
-            marginTop: { xs: "20px", sm: "0px" },
+            marginTop: { xs: "10px", sm: "0px" },
             gap: 4,
             height: "50px",
             width: { xs: "100%", sm: "1200px" },
           }}
         >
-          {/* Başlık */}
           <Typography
             variant="h5"
             sx={{
@@ -85,7 +84,7 @@ const Layout = () => {
               cursor: "pointer",
               fontSize: { xs: "1.5rem", sm: "1.5rem" },
             }}
-            onClick={handleLogoClick} // Tıklanırsa anasayfaya git
+            onClick={handleLogoClick} 
           >
             StudioBal
           </Typography>
@@ -95,15 +94,14 @@ const Layout = () => {
               onClick={handleMenuToggle}
               color="#10375C"
               sx={{
-                fontSize: "3rem", // İkonu büyütmek için
-                color: "#10375C", // İkon rengini değiştirmek için
+                fontSize: "3rem", 
+                color: "#10375C", 
               }}
             >
               <MenuIcon />
             </IconButton>
           </Box>
 
-          {/* Menü Butonları (Desktop için) */}
           <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
             {menuItems.map((item) => (
               <Button
@@ -128,66 +126,57 @@ const Layout = () => {
         </Toolbar>
       </AppBar>
 
-      {/* Drawer (Mobil Menü) */}
       <Drawer
-  anchor="right"
-  open={open}
-  onClose={handleMenuToggle} // Menü dışına tıklayınca kapanacak
-  sx={{
-    display: { xs: "block", sm: "none" },
-    height: "100vh", // Menü yüksekliği ekranın tamamı kadar olacak
-    overflow: "hidden", // Kaydırma engelleniyor
-  }}
->
-  <Box
-    sx={{
-      width: 300,
-      height: "100%", // Yüksekliği %100 yaparak ekranı kaplamasını sağlıyoruz
-      padding: 2,
-      backgroundColor: "background.paper", // Arka plan rengi
-      marginTop: 4,
-    }}
-  >
-    {menuItemsMobil.map((item) => (
-      <Button
-        key={item}
-        color="inherit"
+        anchor="right"
+        open={open}
+        onClose={handleMenuToggle} 
         sx={{
-          width: "100%",
-          textTransform: "capitalize",
-          fontSize: "1.3rem",
-          padding: "10px 0",
-          color: "text.secondary", // Metin rengi
+          display: { xs: "block", sm: "none" },
+          height: "100vh", 
+          overflow: "hidden", 
         }}
-        
-        onClick={() => {
-          // Yönlendirmeler
-          if (item === "İletişim") {
-            handleContactClick();
-          } else if (item === "Hizmetlerimiz") {
-            handleHizmetlerimizClick();
-          } else {
-            navigate(
-              item === "Hakkımızda" ? "/about" :
-              item === "Portfolyo" ? "/portfolio" :
-              "/"
-            );
-          }
-      
-          // Menü kapanacak
-          handleMenuToggle();
-        }}
-        
       >
-        {item}
-      </Button>
-    ))}
-  </Box>
-</Drawer>
+        <Box
+          sx={{
+            width: 300,
+            height: "100%", 
+            padding: 2,
+            backgroundColor: "background.paper", 
+            marginTop: 4,
+          }}
+        >
+          {menuItemsMobil.map((item) => (
+            <Button
+              key={item}
+              color="inherit"
+              sx={{
+                width: "100%",
+                textTransform: "capitalize",
+                fontSize: "1.3rem",
+                padding: "10px 0",
+                color: "text.secondary", 
+              }}
+              onClick={() => {
+                if (item === "İletişim") {
+                  handleContactClick();
+                } else if (item === "Hizmetlerimiz") {
+                  handleHizmetlerimizClick();
+                } else {
+                  navigate(
+                    item === "Hakkımızda" ? "/about" :
+                    item === "Portfolyo" ? "/portfolio" :
+                    "/"
+                  );
+                }
+                handleMenuToggle();
+              }}
+            >
+              {item}
+            </Button>
+          ))}
+        </Box>
+      </Drawer>
 
-
-
-      {/* İçerik Alanı */}
       <Container
         maxWidth="100%"
         disableGutters
@@ -200,7 +189,6 @@ const Layout = () => {
         <Outlet />
       </Container>
 
-      {/* Footer */}
       <Box
         component="footer"
         sx={{

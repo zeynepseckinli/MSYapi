@@ -1,8 +1,8 @@
 body {
   background-color: #f0f2f5;
   font-family: 'Poppins', sans-serif;
-  color: #EDEFF3; /* Metin rengini beyaz yapmak isterseniz */
-  font-family: "Poppins", sans-serif; /* Bütün projede Jacquard 24 yazı tipi */
+  color: #EDEFF3; 
+  font-family: "Poppins", sans-serif; 
   font-weight: 100;
 }
 
@@ -12,19 +12,64 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Poppins", sans-serif; /* Başlıklar için Jacquard 24 yazı tipi */
+  font-family: "Poppins", sans-serif; 
   font-weight: 100;
-  color: #EDEFF3; /* Metin rengini beyaz yapmak isterseniz */
+  color: #EDEFF3; 
 
 }
 h1 {
-  font-family: "Poppins", sans-serif; /* Başlıklar için Poppins yazı tipi */
-  font-weight: 700; /* Veya 700 */
-  color: #EDEFF3; /* Metin rengini beyaz yapmak */
+  font-family: "Poppins", sans-serif; 
+  font-weight: 700; 
+  color: #EDEFF3; 
 }
+
+
 
 body, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+
+.slick-dots {
+  bottom: 10px !important; 
+}
+
+.slick-dots li button:before {
+  color: #EDEFF3 !important; 
+  font-size: 10px; 
+  opacity: 1; 
+}
+.slick-dots li.slick-active button:before {
+  color: #F3C623 !important; 
+  opacity: 1; 
+}
+
+.custom-video::before {
+  content: "";
+  background: url('/play.png') center center no-repeat; 
+  background-size: 50px 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  pointer-events: none; 
+  z-index: 10;
+}
+
+.play-icon-overlay {
+  content: "";
+  background: url('/play.png') center center no-repeat;
+  background-size: 50px 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  z-index: 10;
 }

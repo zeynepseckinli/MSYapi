@@ -1,131 +1,210 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography } from "@mui/material";
-import ClassicButton from "../../components/buttons/ClasicButton";
+import { Box, Typography, Button } from "@mui/material";
 import ContactBox from "../../components/contactBox/ContactBox";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-const About = () => {
+const Portfolio = () => {
+  const [showScroll, setShowScroll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleScrollEvent = () => {
-      const contactSection = document.getElementById("contact-section");
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: "smooth" });
-      }
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 850px)").matches);
     };
-  
-    window.addEventListener("scrollToContact", handleScrollEvent);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
     return () => {
-      window.removeEventListener("scrollToContact", handleScrollEvent);
+      window.removeEventListener("resize", checkMobile);
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScroll(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <div style={{ margin: 0, padding: 0 }}>
-      {/* İlk Box - Resim ve Yazı */}
+    <div
+      style={{
+        margin: 0,
+        padding: 0,
+        overflowX: "hidden",
+        width: "100%",
+        maxWidth: "100vw",
+        display: "flex",
+        flexDirection: "column", 
+        minHeight: "100vh", 
+        justifyContent: "space-between",
+      }}
+    >
       <Box
         sx={{
-            width: "100%", // Sayfanın tamamını kapla (genişlik)
-            height: "100vh", // Tam ekran yüksekliği
-            backgroundImage: 'url(/foto1.png)', // Public içindeki foto1'i arka plan olarak kullan
-            backgroundSize: 'cover', // Resmin boyutlarını box'a göre ayarla
-            backgroundPosition: 'center', // Resmin ortalanmasını sağla
-            display: 'flex', // İçeriği yerleştirmek için flex kullan
-            justifyContent: 'flex-start', // Sol tarafa hizala
-            alignItems: 'center', // Dikeyde ortalamak için center
+          width: "100%",
+          minHeight: "100vh", 
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#EDEFF3",
+          position: "relative",
+          backgroundImage: "url('/honey-stick.PNG')",
+          backgroundSize: { xs: "80% auto", sm: "40% auto" },
+          backgroundPosition: "top right", 
+          backgroundRepeat: "no-repeat",
         }}
       >
-        
-
-        {/* Yazı */}
         <Box
           sx={{
-            display: "flex", // Flexbox kullan
-            width: "1200px", // İçeriğin genişliği
-            flexDirection: "column", // Elemanları dikey hizala
-            alignItems: "center", // Yatayda ortala
-            justifyContent: "center", // Dikeyde ortala
-            margin: "0 auto", // Tüm Box'ı ortalamak için margin ayarı
-            gap: "24px", // Yazılar arasında boşluk
-
+            width: "100%",
+            maxWidth: "1200px",
+            minHeight: "100vh", 
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            textAlign: "flext-start",
+            padding: { xs: "24px", sm: "100px" },
+            position: "relative", 
           }}
         >
-          <Box
+          <Typography 
+          variant="h3"
           sx={{
-            display: "flex", // Flexbox kullan
-            width: "1200px", // İçeriğin genişliği
-            flexDirection: "column", // Elemanları dikey hizala
-            alignItems: "flex-start", // Sol tarafa hizala
-            gap: "24px", // Yazılar arasında boşluk
-            zIndex: 2, // Yazıların üstte kalmasını sağlamak için
-
-          }}
-        >
-          <Typography
-            variant="h4"
-            sx={{
-              color: "text.primary", // Tema rengi
-              fontWeight: 600, // Kalın yazı
-            }}
-          >
-            Merhaba, burasi Studio BAL
+            color: "text.primary",
+            fontWeight: 500,
+            fontSize: { xs: "2.5rem", sm: "3rem" }, 
+            mb: 5,
+            mt:{ xs: 15, sm: 5 },
+          }}>
+            Selam! Burası Studio Bal 
           </Typography>
-          <Typography
-            variant="h3" // İkinci yazının boyutunu bir tık küçültebilirsin
-            sx={{
-              color: "text.primary", // Tema rengi
-              fontWeight: 400, // Daha ince yazı
-            }}
-          >
-            ben Berkus 
+          <Typography 
+          variant="body3"
+          sx={{ 
+            color: "text.primary",
+            fontWeight: 400,
+            fontSize: { xs: "1rem", sm: "1rem" }, 
+            mb: 1,
+          }}>
+            Studio Bal, genç, enerjik ve yaratıcı fikirlerin buluştuğu bir alan.<br/> Bir markadan öte bir ortak çalışma alanı, çok ortaklı bir dükkan 🙂  
           </Typography>
-          <ClassicButton
-            sx={{ marginLeft: "1px" }}
-            text="Daha Fazla"
-            onMouseEnter={() => setShowImage(true)}
-            onMouseLeave={() => setShowImage(false)}
-          />
-          
-        </Box>
-        </Box>
+          <Typography 
+          variant="body3"
+          sx={{ 
+            color: "text.primary",
+            fontWeight: 400,
+            fontSize: { xs: "1rem", sm: "1rem" }, 
+          }}>
+            Bal’da projelerinizin ihtiyaçlarına göre şekil alan ekipler oluşturuyor, içerik üretimi, <Box component="br" sx={{ display: { xs: "none", sm: "inline" } }} />  fotoğraf & video prodüksiyon, sosyal medya yönetimi ve web tasarımı gibi alanlarda hizmet veriyoruz.
+          </Typography>
 
+
+
+
+          <Typography 
+          variant="h6" 
+          sx={{ 
+            color: "text.primary",
+            fontWeight: 500,
+            fontSize: { xs: "1.5rem", sm: "2rem" }, 
+            mt: 3,
+            mb: 3,
+          }}>
+            Biraz da sohbet edelim!
+          </Typography>
+          <Typography 
+          variant="body3"
+          sx={{ 
+            color: "text.primary",
+            fontWeight: 400,
+            fontSize: { xs: "1rem", sm: "1rem" }, 
+            mb: 1,
+          }}>
+            Ben Berkay, ekibin daimi üyesi; genelde Berkuş derler. 🐥 
+          </Typography>
+          <Typography 
+          variant="body3"
+          sx={{ 
+            color: "text.primary",
+            fontWeight: 400,
+            fontSize: { xs: "1rem", sm: "1rem" }, 
+            mb: 1,
+          }}>
+            Aslında mimarım ahaha. İki yıl boyunca mimarlık yaptım ama ilk makinemi alınca işler değişti. <br/>Fotoğraf çekmeye ilk kez 14-15 yaşlarındayken, spor kulüplerinin ödünç ekipmanlarıyla başladım. <br/>İlk kendi makinem mi? Benden en az iki kat yaşlı, analog bir makineydi. <br/>Sonra ilk fırsatta bir dijital makine, bir makine daha… ve kendimi dans partilerinde çekim yaparken buldum.
+          </Typography>
+          <Typography 
+          variant="body3"
+          sx={{ 
+            color: "text.primary",
+            fontWeight: 400,
+            fontSize: { xs: "1rem", sm: "1rem" }, 
+            mb: 1,
+          }}>
+            Bir noktada fark ettim ki, güzel anları yakalıyor olmak, mimarlıktan daha fazla heyecan veriyor. İşte o yüzden şimdi buradayım! Bazen ekibimle, bazen tek başıma, <strong>Studio Bal</strong> olarak sizinle hayaller kuruyor, projeler üretiyor ve bunları kaydediyoruz.          
+          </Typography>
+          <Typography 
+          variant="body3"
+          sx={{ 
+            color: "text.primary",
+            fontWeight: 400,
+            fontSize: { xs: "1rem", sm: "1rem" }, 
+            mb: { xs: 5, sm: 0 },
+          }}>
+            Tanıştığımıza memnun oldum! Umarım birlikte harika işler yaparız. 💛
+          </Typography>
+        </Box>
       </Box>
 
-      
-
-    
-
-      {/* Üçüncü Box */}
       <Box
+        id="contact-section"
         sx={{
           width: "100%",
-          height: "100vh",
-          backgroundColor: "#fdffb6", // Açık sarı arka plan
-        }}
-      />
-
-      {/* Dördüncü Box */}
-      <Box
-        sx={{
-          width: "100%",
-          height: "100vh",
-          backgroundColor: "#caffbf", // Açık yeşil arka plan
-        }}
-      />
-
-      {/* Beşinci Box */}
-      <Box id="contact-section"
-        sx={{
-          width: "100%",
-          height: "400px",
-          backgroundColor: "#9bf6ff", // Açık mavi arka plan
+          backgroundColor: "#f8f9fa",
+          padding: "0",
+          display: "flex",
+          justifyContent: "center",
         }}
       >
-              <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <ContactBox />
-    </div>
+        <ContactBox />
       </Box>
+
+      {showScroll && (
+        <Button
+          color="primary"
+          onClick={scrollToTop}
+          sx={{
+            color: "#EDEFF3",
+            position: "fixed",
+            bottom: "30px",
+            right: "30px",
+            zIndex: 1000,
+            backgroundColor: "#10375C",
+            "&:hover": { backgroundColor: "#0d2a46" },
+            width: "40px",
+            height: "40px",
+            minWidth: "40px",
+            borderRadius: "8px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
+          }}
+        >
+          <KeyboardArrowUpIcon fontSize="small" />
+        </Button>
+      )}
     </div>
   );
 };
 
-export default About;
+export default Portfolio;

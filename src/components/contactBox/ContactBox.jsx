@@ -13,7 +13,6 @@ const ContactBox = () => {
         alignItems: "center",
       }}
     >
-      {/* İçerik Kutusu */}
       <Box
         sx={{
           display: "flex",
@@ -53,7 +52,6 @@ const ContactBox = () => {
             🌐 Bağlantıda Kalın
           </Typography>
 
-          {/* Sosyal Medya Simgeleri */}
           <Box
             sx={{
               display: "flex",

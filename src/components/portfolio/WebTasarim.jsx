@@ -9,7 +9,7 @@ const mediaItems = [
 
 const WebTasarim = () => {
   const handleMediaClick = (item) => {
-    window.open(item.url, "_blank"); // Yeni sekmede URL aç
+    window.open(item.url, "_blank"); 
   };
 
   return (
@@ -18,7 +18,6 @@ const WebTasarim = () => {
   <Box sx={{ width: "100%", maxWidth: "1500px", 
     padding: { xs: "24px", sm: "80px" },
     textAlign: "center", backgroundColor: "background.default" }}>
-    {/* İçerik Gösterimi */}
     <Box sx={{ display: "flex", flexWrap: "wrap", gap: "24px", justifyContent: "center" }}>
       {mediaItems.map((item) => (
         <Box
@@ -65,7 +64,6 @@ const WebTasarim = () => {
     </Box>
   </Box>
 </div>
-
   );
 };
 

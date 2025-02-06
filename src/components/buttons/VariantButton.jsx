@@ -8,7 +8,7 @@ const ColorButton = styled(Button)(({ selected }) => ({
   height: "50px",
   borderRadius: "50px",
   border: "2px solid",
-  borderColor: selected ? "#10375C" : "#EDEFF3", // Seçili olunca renk değiştir
+  borderColor: selected ? "#10375C" : "#EDEFF3", 
   color: selected ? "#EDEFF3" : "#10375C",
   fontFamily: "Poppins, sans-serif",
   fontSize: "1rem",
@@ -32,7 +32,7 @@ export default function VariantButton({ text, ...props }) {
     <ColorButton
       {...props}
       selected={selected}
-      onClick={() => setSelected(!selected)} // Tıklanınca durumu değiştir
+      onClick={() => setSelected(!selected)} 
     >
       {text}
     </ColorButton>

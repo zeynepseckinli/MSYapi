@@ -96,7 +96,27 @@ const Portfolio = () => {
             fontSize: { xs: "1rem", sm: "1rem" }, 
             mb: 1,
           }}>
-            Studio Bal, genç, enerjik ve yaratıcı fikirlerin buluştuğu bir alan.<br/> Bir markadan öte bir ortak çalışma alanı, çok ortaklı bir dükkan 🙂  
+            Studio Bal, genç, enerjik ve yaratıcı fikirlerin buluştuğu bir alan.
+          </Typography>
+          <Typography 
+          variant="body3"
+          sx={{ 
+            color: "text.primary",
+            fontWeight: 400,
+            fontSize: { xs: "1rem", sm: "1rem" }, 
+            mb: 1,
+          }}>
+            Bir markadan öte, çok ortaklı bir dükkân ve aynı zamanda bir ortak çalışma alanı. 🙂
+          </Typography>
+          <Typography 
+          variant="body3"
+          sx={{ 
+            color: "text.primary",
+            fontWeight: 400,
+            fontSize: { xs: "1rem", sm: "1rem" }, 
+            mb: 1,
+          }}>
+            Bal’da projelerinizin ihtiyaçlarına göre şekillenen ekipler oluşturuyoruz ve içerik üretimi, 
           </Typography>
           <Typography 
           variant="body3"
@@ -105,9 +125,8 @@ const Portfolio = () => {
             fontWeight: 400,
             fontSize: { xs: "1rem", sm: "1rem" }, 
           }}>
-            Bal’da projelerinizin ihtiyaçlarına göre şekil alan ekipler oluşturuyor, içerik üretimi, <Box component="br" sx={{ display: { xs: "none", sm: "inline" } }} />  fotoğraf & video prodüksiyon, sosyal medya yönetimi ve web tasarımı gibi alanlarda hizmet veriyoruz.
+            fotoğraf & video prodüksiyon, sosyal medya yönetimi ve web tasarımı gibi alanlarda hizmet veriyoruz.
           </Typography>
-
 
 
 
@@ -130,7 +149,7 @@ const Portfolio = () => {
             fontSize: { xs: "1rem", sm: "1rem" }, 
             mb: 1,
           }}>
-            Ben Berkay, ekibin daimi üyesi; genelde Berkuş derler. 🐥 
+            Ben Berkay, ekibin daimi üyesiyim. Genelde bana Berkuş derler. 🐥 
           </Typography>
           <Typography 
           variant="body3"
@@ -140,7 +159,7 @@ const Portfolio = () => {
             fontSize: { xs: "1rem", sm: "1rem" }, 
             mb: 1,
           }}>
-            Aslında mimarım ahaha. İki yıl boyunca mimarlık yaptım ama ilk makinemi alınca işler değişti. <br/>Fotoğraf çekmeye ilk kez 14-15 yaşlarındayken, spor kulüplerinin ödünç ekipmanlarıyla başladım. <br/>İlk kendi makinem mi? Benden en az iki kat yaşlı, analog bir makineydi. <br/>Sonra ilk fırsatta bir dijital makine, bir makine daha… ve kendimi dans partilerinde çekim yaparken buldum.
+            Aslında mimarım, ahaha! İki yıl boyunca mimarlık yaptım ama ilk makinemi aldıktan sonra işler değişti. 
           </Typography>
           <Typography 
           variant="body3"
@@ -150,7 +169,47 @@ const Portfolio = () => {
             fontSize: { xs: "1rem", sm: "1rem" }, 
             mb: 1,
           }}>
-            Bir noktada fark ettim ki, güzel anları yakalıyor olmak, mimarlıktan daha fazla heyecan veriyor. İşte o yüzden şimdi buradayım! Bazen ekibimle, bazen tek başıma, <strong>Studio Bal</strong> olarak sizinle hayaller kuruyor, projeler üretiyor ve bunları kaydediyoruz.          
+            Fotoğraf çekmeye ilk kez 14-15 yaşlarındayken, spor kulüplerinin ödünç ekipmanlarıyla başladım. 
+          </Typography>
+          <Typography 
+          variant="body3"
+          sx={{ 
+            color: "text.primary",
+            fontWeight: 400,
+            fontSize: { xs: "1rem", sm: "1rem" }, 
+            mb: 1,
+          }}>
+            Peki ya ilk kendi makinem? Benden en az iki kat yaşlı, analog bir makineydi. 
+          </Typography>
+          <Typography 
+          variant="body3"
+          sx={{ 
+            color: "text.primary",
+            fontWeight: 400,
+            fontSize: { xs: "1rem", sm: "1rem" }, 
+            mb: 1,
+          }}>
+            Sonrasında, ilk fırsatta bir dijital makine aldım, sonra bir tane daha… ve kendimi dans partilerinde çekim yaparken buldum!
+          </Typography>
+          <Typography 
+          variant="body3"
+          sx={{ 
+            color: "text.primary",
+            fontWeight: 400,
+            fontSize: { xs: "1rem", sm: "1rem" }, 
+            mb: 1,
+          }}>
+            Bir noktada fark ettim ki güzel anları yakalamak, mimarlıktan daha fazla heyecan veriyor. İşte o yüzden şimdi buradayım!          
+          </Typography>
+          <Typography 
+          variant="body3"
+          sx={{ 
+            color: "text.primary",
+            fontWeight: 400,
+            fontSize: { xs: "1rem", sm: "1rem" }, 
+            mb: 1,
+          }}>
+            Bazen ekibimle, bazen tek başıma, <strong>Studio Bal</strong> olarak sizinle hayaller kuruyor, projeler üretiyor ve bunları kaydediyoruz.          
           </Typography>
           <Typography 
           variant="body3"

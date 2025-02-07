@@ -274,21 +274,19 @@ const Home = () => {
             {[
               {
                 title: "Fotoğraf ve Video Prodüksiyon",
-                description: "Tüm etkinlikleriniz, reklam ve tanıtım içerikleriniz veya özel günleriniz kısacası kayıt altına almak ve kitlelere ulaştırmak istediğiniz tüm anlar için burdayız.",
+                description: "Etkinlikleriniz, reklam ve tanıtım içerikleriniz, özel günleriniz… Kısacası, kaydetmek ve kitlelere ulaştırmak istediğiniz her an için buradayız!",
               },
               {
                 title: "Sosyal Medya",
-                description: "Strateji geliştirmeden kullanıcı analizine, içerik üretiminden sosyal medyaya kadar tüm ihtiyaçlarınız için birlikte çalışabiliriz.",
+                description: "Strateji geliştirmeden kullanıcı analizine, içerik üretiminden sosyal medya yönetimine kadar tüm ihtiyaçlarınız için birlikte çalışmaya hazırız!",
               },
               {
                 title: "PR & Marketing",
-                description:
-                  "Markanızın, hem sanal dünyada hem de gerçek dünyada bilinirliğini artırmak ve doğru kullanıcılara ulaşmasını sağlamak için hazırız.",
+                description: "Markanızı hem dijitalde hem de gerçek dünyada daha görünür hale getirmek ve doğru kitlelere ulaştırmak için buradayız!",
               },
               {
                 title: "Web Tasarım",
-                description:
-                  "Kişisel ve kurumsal kimliğinizi sanal dünyada temsil eden web sitelerinizi, size özel olarak tasarlamak ve üretmek için yanınızdayız.",
+                description: "Kişisel veya kurumsal kimliğinizi dijital dünyada yansıtan web sitelerinizi, size özel tasarlıyor ve hayata geçiriyoruz!",
               },
             ].map((card, index) => (
               <Box

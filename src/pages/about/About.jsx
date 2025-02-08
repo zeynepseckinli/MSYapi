@@ -114,7 +114,7 @@ const Portfolio = () => {
               color: "text.primary",
               fontWeight: 400,
               fontSize: { xs: "1rem", sm: "1rem" }, 
-              mb: 1,
+            //  mb: 1,
             }}
           >
             Bal’da projelerinizin ihtiyaçlarına göre şekillenen ekipler oluşturuyoruz ve içerik üretimi, 

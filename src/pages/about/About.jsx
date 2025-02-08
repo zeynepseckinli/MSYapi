@@ -109,23 +109,18 @@ const Portfolio = () => {
             Bir markadan öte, çok ortaklı bir dükkân ve aynı zamanda bir ortak çalışma alanı. 🙂
           </Typography>
           <Typography 
-          variant="body3"
-          sx={{ 
-            color: "text.primary",
-            fontWeight: 400,
-            fontSize: { xs: "1rem", sm: "1rem" }, 
-            mb: 1,
-          }}>
+            variant="body3"
+            sx={{ 
+              color: "text.primary",
+              fontWeight: 400,
+              fontSize: { xs: "1rem", sm: "1rem" }, 
+              mb: 1,
+            }}
+          >
             Bal’da projelerinizin ihtiyaçlarına göre şekillenen ekipler oluşturuyoruz ve içerik üretimi, 
-          </Typography>
-          <Typography 
-          variant="body3"
-          sx={{ 
-            color: "text.primary",
-            fontWeight: 400,
-            fontSize: { xs: "1rem", sm: "1rem" }, 
-          }}>
-            fotoğraf & video prodüksiyon, sosyal medya yönetimi ve web tasarımı gibi alanlarda hizmet veriyoruz.
+            <Box component="span" sx={{ display: { xs: "inline", sm: "block" }, marginTop: { xs:0, sm: 1} }}>
+              fotoğraf & video prodüksiyon, sosyal medya yönetimi ve web tasarımı gibi alanlarda hizmet veriyoruz.
+            </Box>
           </Typography>
 
 

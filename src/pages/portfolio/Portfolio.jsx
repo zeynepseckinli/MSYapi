@@ -237,7 +237,7 @@ Fotoğraf ve Vİdeo Prodüksİyon
   <Box id="contact-section"
             sx={{
               width: "100%",
-              height: "400px",
+              height: { xs: "300px", sm: "400px" },
             }}
           >
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">

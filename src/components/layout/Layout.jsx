@@ -201,7 +201,7 @@ const Layout = () => {
         }}
       >
         <Typography variant="body2" sx={{ fontSize: { xs: "0.75rem", sm: "1rem" } }}>
-          © 2025 Journey. Made by{" "}
+          © 2025 Made by{" "}
           <a
             href="https://www.zeynepse.com"
             target="_blank"

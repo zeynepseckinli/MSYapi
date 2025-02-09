@@ -236,7 +236,7 @@ const Home = () => {
             alignItems: "flex-start", 
             justifyContent: "center", 
             margin: "0 auto", 
-            gap: "24px", 
+            gap: { xs: "0px", sm: "24px" },
             padding: { xs: "36px 24px", sm: "0rem" },
           }}
         >
@@ -245,7 +245,7 @@ const Home = () => {
             display: "flex", 
             flexDirection: "column", 
             alignItems: "flex-start", 
-            gap: "24px", 
+          //  gap: "24px", 
           }}
         >
           <Typography
@@ -253,7 +253,7 @@ const Home = () => {
             sx={{
               color: "text.primary",
               fontWeight: 500,
-              fontSize: { xs: "2.5rem", sm: "3rem" }, 
+              fontSize: { xs: "1.8rem", sm: "3rem" }, 
             }}
           >
             Nasıl yardımcı olabiliriz?
@@ -267,8 +267,9 @@ const Home = () => {
               flexDirection: { xs: "column", sm: "row" }, 
               alignItems: "center", 
               justifyContent: "center", 
-              gap: "40px", 
-              padding: "20px 0px", 
+              gap: { xs: "24px", sm: "40px" }, 
+              padding: { xs: "0px", sm: "20px 0px" }, 
+              paddingTop: { xs: "20px", sm: "0px" }, 
             }}
           >
             {[
@@ -292,7 +293,8 @@ const Home = () => {
               <Box
                 key={index}
                 sx={{
-                  width: "350px", 
+                  width: { xs: "100%", sm: "350px" },
+                  maxWidth: "350px",
                   height: "350px", 
                   backgroundColor: "background.default",
                   borderRadius: "16px", 
@@ -300,7 +302,7 @@ const Home = () => {
                   overflow: "hidden", 
                   display: "flex", 
                   flexDirection: "column", 
-                  padding: "0px 10px",
+                  padding: "0px 10px", 
                 }}
               >
                 <Box
@@ -362,7 +364,7 @@ const Home = () => {
       <Box id="contact-section"
         sx={{
           width: "100%",
-          height: "400px",
+          height: { xs: "300px", sm: "400px" },
         }}
       >
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">

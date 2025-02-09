@@ -82,7 +82,7 @@ const Portfolio = () => {
           sx={{
             color: "text.primary",
             fontWeight: 500,
-            fontSize: { xs: "2.5rem", sm: "3rem" }, 
+            fontSize: { xs: "2rem", sm: "3rem" }, 
             mb: 5,
             mt:{ xs: 15, sm: 5 },
           }}>

@@ -6,7 +6,7 @@ const ContactBox = () => {
     <Box
       sx={{
         width: "100%",
-        height: "400px",
+        height: { xs: "300px", sm: "400px" },
         backgroundColor: "secondary.main",
         display: "flex",
         justifyContent: "flex-end",
@@ -36,7 +36,7 @@ const ContactBox = () => {
             gap: "16px",
           }}
         >
-          <Typography variant="h3" sx={{color: "text.primary", fontWeight: 500 }}>
+          <Typography variant="h3" sx={{color: "text.primary", fontWeight: 500, fontSize: { xs: "1.8rem", sm: "3rem" },  }}>
             Hadi Çalışalım!
           </Typography>
           <Typography variant="body1" sx={{  fontWeight: 400 }}>

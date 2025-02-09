@@ -154,7 +154,7 @@ const IntroductionVersion2 = () => {
               width: "100%",
               maxWidth: "1200px",
               paddingLeft: { xs: "24px", sm:"0px" },
-              paddingTop: { xs: "24px", sm:"50px" },
+              paddingTop: { xs: "36px", sm:"50px" },
               paddingBottom: { xs: "0px", sm:"0px" },
               paddingRight: { xs: "0px", sm:"180px" },
             }}
@@ -164,7 +164,7 @@ const IntroductionVersion2 = () => {
               sx={{
                 color: "text.primary",
                 fontWeight: 500,
-                fontSize: { xs: "2.5rem", sm: "3rem" }, 
+                fontSize: { xs: "1.8rem", sm: "3rem" }, 
               }}
             >
               Neler Yaptık?        

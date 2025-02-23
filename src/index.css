@@ -1,28 +1,30 @@
 body {
   background-color: #f0f2f5;
-  font-family: 'Poppins', sans-serif;
-  color: #EDEFF3; 
-  font-family: "Poppins", sans-serif; 
+  font-family: "Nunito Sans", sans-serif;
+  color: #EDEFF3;
   font-weight: 100;
 }
 
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Poppins", sans-serif; 
-  font-weight: 100;
-  color: #EDEFF3; 
-
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Cormorant Garamond", serif; /* Yeni font */
+  font-weight: 600; /* Daha belirgin olması için */
+  color: #EDEFF3;
 }
 h1 {
-  font-family: "Poppins", sans-serif; 
-  font-weight: 700; 
-  color: #EDEFF3; 
+  font-weight: 700; /* En kalın */
 }
 
+h2 {
+  font-weight: 600;
+}
+
+h3, h4, h5, h6 {
+  font-weight: 500;
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3; /* Satır aralığını artır */
+  letter-spacing: 0.5px; /* Harfler biraz daha belirgin olsun */
+}
 
 
 body, html {
@@ -32,18 +34,10 @@ body, html {
 }
 
 
-.slick-dots {
-  bottom: 10px !important; 
-}
-
-.slick-dots li button:before {
-  color: #EDEFF3 !important; 
-  font-size: 10px; 
-  opacity: 1; 
-}
-.slick-dots li.slick-active button:before {
-  color: #F3C623 !important; 
-  opacity: 1; 
+button {
+  font-family: "Nunito Sans", serif;
+  font-size: 0.9rem;
+  text-transform: capitalize;
 }
 
 .custom-video::before {

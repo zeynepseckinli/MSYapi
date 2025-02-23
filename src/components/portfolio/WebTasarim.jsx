@@ -1,70 +1,146 @@
 import React, { useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Button, Typography, IconButton } from "@mui/material";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
 const mediaItems = [
-  { id: 1, name: "Sanatolia Akademi", src: "https://res.cloudinary.com/dy20zavvv/image/upload/v1738315279/123_qt2z7z.png", url: "https://www.sanatoliaakademi.com" },
-  { id: 2, name: "Zeynepse", src: "https://res.cloudinary.com/dy20zavvv/image/upload/v1738315100/Screenshot_2025-01-31_121702_lgkfym.png", url: "https://www.zeynepse.com" },
-  { id: 3, name: "Studio Bal", src: "https://res.cloudinary.com/dy20zavvv/image/upload/v1738315098/Screenshot_2025-01-31_121744_mhtwyz.png", url: "https://www.studiobal.art" },
+  { id: 1, name: "Konut Rekonstrüksiyonu", src: "/a.jpg", url: "" },
+  { id: 2, name: "Konut Rekonstrüksiyonu", src: "/b.jpg", url: "" },
+  { id: 3, name: "Konut Rekonstrüksiyonu", src: "/c.jpg", url: "" },
 ];
 
-const WebTasarim = () => {
-  const handleMediaClick = (item) => {
-    window.open(item.url, "_blank"); 
+const Projects = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % mediaItems.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + mediaItems.length) % mediaItems.length);
+  };
+
+  const handleMediaClick = (url) => {
+    window.open(url, "_blank");
   };
 
   return (
-    <div style={{ margin: 0,  
-    display: "flex", justifyContent: "center" }}>
-  <Box sx={{ width: "100%", maxWidth: "1500px", 
-    padding: { xs: "24px", sm: "80px" },
-    textAlign: "center", backgroundColor: "background.default" }}>
-    <Box sx={{ display: "flex", flexWrap: "wrap", gap: "24px", justifyContent: "center" }}>
-      {mediaItems.map((item) => (
+    <Box sx={{ width: "100%", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+      {/* Başlık Alanı */}
+      <Box sx={{ 
+    maxWidth: "1000px", // 1000px sınırı koyar ama dar ekranda küçülebilir
+    width: "100%", 
+    padding: { xs: "24px", sm: "0px" },
+    display: "flex", 
+    flexDirection: "column", 
+    alignItems: "flex-start", // Sol hizalama sağlar
+    margin: "100px",
+}}>
+      <Typography variant="subtitle2" sx={{ fontSize: "0.9rem", fontWeight: "500", marginTop: "6px", marginBottom: "15px", color: "#E2AD7E" }}>
+        PROJELERİMİZ
+      </Typography>
+      <Typography variant="h1" sx={{ fontSize: "4rem", fontWeight: "bold", color: "text.primary",  lineHeight: 1.2 }}>
+        Örnek Projeler
+      </Typography>
+      </Box>
+      {/* Carousel Alanı */}
+      <Box sx={{ width: "100%", maxWidth: "1300px", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", marginBottom: "100px" }}>
+        {/* Sol Buton */}
+        <IconButton 
+  onClick={handlePrev} 
+  sx={{ 
+    position: "absolute", 
+    left: 0, 
+    zIndex: 2, 
+    backgroundColor: "transparent", 
+    border: "1px solid #E2AD7E",
+    "&:hover": { backgroundColor: "#E2AD7E" },
+    width: "100px", // Buton boyutu (ikon ile uyumlu olmalı)
+    height: "100px"
+  }}
+>
+  <img 
+    src="/sol.PNG" // PNG ikonunun yolu
+    alt="Geri"
+    style={{ width: "50px", height: "50px", objectFit: "contain" }} // İkon boyutu
+  />
+</IconButton>
+
+        {/* Proje Görseli */}
         <Box
-          key={item.id}
           sx={{
+            width: "1000px",
+            height: "500px",
             position: "relative",
-            maxWidth: "400px",
-            height: "300px",
-            borderRadius: "8px",
             overflow: "hidden",
             cursor: "pointer",
-            transition: "transform 0.2s",
-            "&:hover": {
-              transform: "scale(1.03)",
-              boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)",
-            },
           }}
-          onClick={() => handleMediaClick(item)}
+          onClick={() => handleMediaClick(mediaItems[currentIndex].url)}
         >
-          <img src={item.src} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          {/* Proje Resmi */}
+          <img src={mediaItems[currentIndex].src} alt={mediaItems[currentIndex].name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+
+          {/* Hover Efekti */}
           <Box
             sx={{
               position: "absolute",
-              bottom: "0",
+              top: 0,
+              left: 0,
               width: "100%",
-              height: "50px",
-              backgroundColor: "#10375C99",
+              height: "100%",
+              backgroundColor: "background.paper",
+              opacity: 0,
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              color: "text.secondary",
-              fontSize: "16px",
-              fontWeight: "bold",
-              padding: "0 10px",
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
+              transition: "opacity 0.3s",
+              "&:hover": { opacity: 0.9 },
             }}
           >
-            {item.name}
+            <Typography variant="subtitle2" sx={{ fontSize: "0.9rem", fontWeight: "600", color: "#E2AD7E"}}>
+            PROJEYİ GÖRÜNTÜLE
+              </Typography>
+           
+          </Box>
+
+          <Box
+            sx={{
+              position: "absolute",
+              bottom: "30px",
+              left: "30px",
+              color: "white",
+              padding: "6px 12px",
+              borderRadius: "4px",
+            }}
+          >
+            <Typography variant="h2" sx={{ fontSize: "4rem", fontWeight: "bold", color: "text.secondary" }}>
+              {mediaItems[currentIndex].name}
+            </Typography>
           </Box>
         </Box>
-      ))}
+
+        {/* Sağ Buton */}
+        <IconButton 
+  onClick={handlePrev} 
+  sx={{ 
+    position: "absolute", 
+    right: 0, 
+    zIndex: 2, 
+    backgroundColor: "transparent", 
+    border: "1px solid #E2AD7E",
+    "&:hover": { backgroundColor: "#E2AD7E" },
+    width: "100px", // Buton boyutu (ikon ile uyumlu olmalı)
+    height: "100px"
+  }}
+>
+  <img 
+    src="/sag2.png" // PNG ikonunun yolu
+    alt="Geri"
+    style={{ width: "50px", height: "50px", objectFit: "contain" }} // İkon boyutu
+  />
+</IconButton>
+      </Box>
     </Box>
-  </Box>
-</div>
   );
 };
 
-export default WebTasarim;
+export default Projects;

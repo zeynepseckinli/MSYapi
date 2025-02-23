@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef  } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import ClassicButton from "../../components/buttons/ClasicButton";
 import ContactBox from "../../components/contactBox/ContactBox";
-import Introduction from "../../components/portfolio/Introduction";
+import WebTasarim from "../../components/portfolio/WebTasarim";
 import IntroductionVersion2 from "../../components/portfolio/IntroductionVersion2";
 import { useNavigate } from "react-router-dom";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"; 
@@ -10,8 +10,6 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 const Home = () => {
   const [showScroll, setShowScroll] = useState(false);
 
-  const [showImage, setShowImage] = useState(false);
-  const [showImageProfil, setShowImageProfil] = useState(false);
   const navigate = useNavigate();
 
   const videoRef = useRef(null);
@@ -71,155 +69,114 @@ const Home = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  
+    const items = [
+      { number: "1", title: "Mühendislik", description: "Yapısal analizler ve modern mühendislik çözümleri ile güvenli yapılar inşa ediyoruz." },
+      { number: "2", title: "Restorasyon", description: "Tarihi yapıların özgün dokusunu koruyarak modern tekniklerle restore ediyoruz." },
+      { number: "3", title: "Rekonstrüksiyon", description: "Geçmişin izlerini günümüz teknolojisiyle birleştirerek yapıları yeniden hayata kazandırıyoruz." }
+    ];
+  
+
   return (
     <div style={{ margin: 0, padding: 0, width: "100%",
       maxWidth: "100vw",  overflowX: "hidden", 
-       backgroundColor: "#EDEFF3", }}>
-    <div style={{ margin: 0, padding: 0,  display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#EDEFF3", }}>
-      <Box
-        sx={{
-          position: "relative", 
-          width: "100%",
-          maxWidth: "1200px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#EDEFF3",
-          height: { xs: "500px", sm: "800px" },
-          paddingBottom: "0px",
-          marginBottom: "0px",
-          overflow: "hidden", 
-          borderRight: "15px solid #EDEFF3", 
-        }}
-      >
-        {isMobile || videoFailed ? (
-        <img
-          src="/3.jpg"
-          alt="Background"
-          style={{
-            paddingBottom: "0px",
-            marginBottom: "0px",
-            width: { xs: "100%", sm: "1200px" },
-            height: { xs: "500px", sm: "800px" },
-            objectFit: "cover",
-            objectPosition: "center bottom", 
-            transform: "scale(0.7)", 
-            zIndex: 1,
-            transition: "opacity 0.3s ease-in-out",
-          }}
-        />
-      ) : (
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          playsInline
-          onEnded={handleVideoEnd} 
-          onError={handleVideoError}
-          style={{
-            paddingTop: "0px",
-            marginBottom: "0px",
-            width: { xs: "100%", sm: "1200px" },
-            height: "800px",
-            objectFit: "contain",
-            zIndex: 0,
-            outline: "none",
-          }}
-        >
-          <source
-            src="https://res.cloudinary.com/dy20zavvv/video/upload/v1738307113/hikayenin_devam%C4%B1_i%C3%A7in_6_zobc4r.mp4"
-            type="video/mp4"
-          />
-        </video>
-      )}
+       backgroundColor: "#EFEBE6", }}>
+    <div style={{ margin: 0, padding: 0, maxWidth: "100vw", 
+                  height: "100vh" ,
+                    display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "center", backgroundColor: "#05151B", }}>
+                      <Box
+                        sx={{
+                          position: "relative",
+                          maxWidth: "100vw",
+                          height: "70%" ,
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          backgroundColor: "#f0f1f5",
+                          paddingBottom: "0px",
+                          marginBottom: "0px",
+                        }}
+                      >
+                        {isMobile || videoFailed ? (
+                        <img
+                          src="https://res.cloudinary.com/dy20zavvv/image/upload/v1738596978/225ae210-b83e-41f3-a05e-685c9a0e75a8_rw_1920_cwsgkt.jpg"
+                          alt="Background"
+                          style={{
+                            paddingBottom: "0px",
+                            marginBottom: "0px",
+                            width: "100%",
+                            maxWidth: "2000px",
+                            height:  "100%",
+                            objectFit: "cover",
+                            zIndex: 1,
+                            transition: "opacity 0.3s ease-in-out",
+                          }}
+                        />
+                      ) : (
+                        <video
+                          ref={videoRef}
+                          autoPlay
+                          muted
+                          playsInline
+                          loop  
+                          onError={handleVideoError} 
+                          onEnded={() => videoRef.current.play()} 
+                          style={{
+                            paddingTop: "0px",
+                            marginBottom: "0px",
+                            width: "100vw",
+                            height: "100%",
+                            objectFit: "cover",
+                            zIndex: 0,
+                          }}
+                        >
+                          <source
+                            src="/MS_5.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      )}
+                
+    </Box>
+    <Box
+    sx={{
+      position: "absolute", // Mutlak konumlandırma
+      bottom: 0, // Alt kenara sabitle
+      left: "50%", // Ortala
+      transform: "translateX(-50%)", // Ortalamayı düzelt
+      width: "1000px", // Tam genişlikte
+      maxWidth: "100vw",
+      height: "50vh", // Ekranın kalan %30'unu kaplasın
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      justifyContent: "center",
+      
+      zIndex: 2, // Videonun üstünde olsun
+      paddingBottom: "200px",
+    }}
+  >
+  <Typography variant="subtitle2" sx={{ fontSize: "0.8rem", fontWeight: "500",  marginBottom: "50px",  textShadow: "3px 3px 4px rgba(0, 0, 0, 0.9)", color: "#E2AD7E"}}>
+  Geçmişi Koruyor, Geleceği İnşa Ediyoruz
+  </Typography>
+  <Typography variant="h1" sx={{ fontWeight: "bold", color: "text.secondary", marginBottom: 0,  textShadow: "3px 3px 4px rgba(0, 0, 0, 0.6)", lineHeight: 1 }}>
+    MS YAPI
+  </Typography>
+  <Typography variant="h4" sx={{ fontWeight: "bold", color: "text.secondary", marginTop: 0,  textShadow: "3px 3px 4px rgba(0, 0, 0, 0.9)", lineHeight: 1 }}>
+  Mühendislik-Restorasyon-Rekonstrüksiyon
+  </Typography>
+  <Typography variant="body1" sx={{ fontSize: "0.9rem", textAlign: "flex-start",  marginTop: "50px", color: "#AFB4B6" }}>
+    Tarihi yapıları geleceğe taşırken, modern teknolojilerle <br/>güvenilir, sürdürülebilir ve yenilikçi çözümler sunuyoruz.
+  </Typography>
+</Box>
 
-        {showImage && (
-          <img
-            src="/4.jpg"
-            alt="Background"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: { xs: "100%", sm: "1200px" },
-              height: "800px",
-              objectFit: "cover",
-              zIndex: 1,
-              transition: "opacity 0.3s ease-in-out",
-            }}
-          />
-        )}
-
-        {showImageProfil && (
-          <img
-            src="/5.jpg"
-            alt="Background"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: { xs: "100%", sm: "1200px" },
-              height: "800px",
-              objectFit: "cover",
-              zIndex: 1,
-              transition: "opacity 0.3s ease-in-out",
-            }}
-          />
-        )}
-
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)", 
-            width: "100%",
-            maxWidth: "1200px",
-            display: { xs: "none", md: "flex" },
-            flexDirection: "column",
-            alignItems: "flex-start",
-            zIndex: 2,
-          }}
-        >
-          <ClassicButton
-            sx={{  width: "200px", marginTop: "500px" }}
-            text="Hakkımızda"
-            onMouseEnter={() => setShowImageProfil(true)}
-            onMouseLeave={() => setShowImageProfil(false)}
-            onClick={() => navigate("/about")}
-
-          />
-        </Box>
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)", 
-            width: "100%",
-            maxWidth: "1200px",
-            display: { xs: "none", md: "flex" },
-            flexDirection: "column",
-            alignItems: "flex-end",
-            zIndex: 2,
-          }}
-        >
-          <ClassicButton
-            sx={{marginBottom: "200px",width: "200px", }}
-            text="Portfolyo"
-            onMouseEnter={() => setShowImage(true)}
-            onMouseLeave={() => setShowImage(false)}
-            onClick={() => navigate("/portfolio")}
-          />
-        </Box>
-      </Box>
-      </div>
+    </div>
       
       <Box id="services"
         sx={{
           width: "100%", 
-          height: { xs: "100%", sm: "600px" },
+          height: { xs: "100%", sm: "1000px" },
           display: 'flex', 
           justifyContent: 'center', 
           alignItems: 'center', 
@@ -231,10 +188,10 @@ const Home = () => {
           sx={{
             display: "flex", 
             width: "100%", 
-            maxWidth: "1200px", 
-            flexDirection: "column", 
+            maxWidth: "1000px", 
+            flexDirection: "row", 
             alignItems: "flex-start", 
-            justifyContent: "center", 
+            justifyContent: "flex-start", 
             margin: "0 auto", 
             gap: { xs: "0px", sm: "24px" },
             padding: { xs: "36px 24px", sm: "0rem" },
@@ -245,111 +202,182 @@ const Home = () => {
             display: "flex", 
             flexDirection: "column", 
             alignItems: "flex-start", 
-          //  gap: "24px", 
+            width: "100%", 
+            maxWidth: "500px", 
+            paddingRight: "50px",
           }}
         >
-          <Typography
-            variant="h3"
-            sx={{
-              color: "text.primary",
-              fontWeight: 500,
-              fontSize: { xs: "1.8rem", sm: "3rem" }, 
-            }}
-          >
-            Nasıl yardımcı olabiliriz?
-          </Typography>
+          <Typography variant="subtitle2" sx={{ fontSize: "0.9rem", fontWeight: "500",  marginBottom: "30px", color: "#E2AD7E"}}>
+          HİZMETLERİMİZ
+  </Typography>
+  <Typography variant="h1" sx={{ fontSize: "4rem",fontWeight: "bold", color: "text.primary", marginBottom: 0, lineHeight: 1 }}>
+  Neler yapıyoruz?
+  </Typography>
+  
+  <Typography variant="body1" sx={{ fontSize: "1rem", textAlign: "flex-start",  marginTop: "40px", color: "text.primary" }}>
+  Geçmişin mirasını koruyarak, modern mühendislik çözümleriyle yapıların geleceğe taşınmasını sağlıyoruz. Restorasyon, mühendislik ve rekonstrüksiyon alanlarında uzman ekibimizle estetik, güvenli ve dayanıklı yapılar inşa ediyoruz.
+  </Typography>
         </Box>
-        <Box 
-            sx={{
-              display: "flex", 
-              width: "100%",
-              maxWidth: "1200px",
-              flexDirection: { xs: "column", sm: "row" }, 
-              alignItems: "center", 
-              justifyContent: "center", 
-              gap: { xs: "24px", sm: "40px" }, 
-              padding: { xs: "0px", sm: "20px 0px" }, 
-              paddingTop: { xs: "20px", sm: "0px" }, 
-            }}
-          >
-            {[
-              {
-                title: "Fotoğraf ve Video Prodüksiyon",
-                description: "Etkinlikleriniz, reklam ve tanıtım içerikleriniz, özel günleriniz… Kısacası, kaydetmek ve kitlelere ulaştırmak istediğiniz her an için buradayız!",
-              },
-              {
-                title: "Sosyal Medya",
-                description: "Strateji geliştirmeden kullanıcı analizine, içerik üretiminden sosyal medya yönetimine kadar tüm ihtiyaçlarınız için birlikte çalışmaya hazırız!",
-              },
-              {
-                title: "PR & Marketing",
-                description: "Markanızı hem dijitalde hem de gerçek dünyada daha görünür hale getirmek ve doğru kitlelere ulaştırmak için buradayız!",
-              },
-              {
-                title: "Web Tasarım",
-                description: "Kişisel veya kurumsal kimliğinizi dijital dünyada yansıtan web sitelerinizi, size özel tasarlıyor ve hayata geçiriyoruz!",
-              },
-            ].map((card, index) => (
-              <Box
-                key={index}
-                sx={{
-                  width: { xs: "100%", sm: "350px" },
-                  maxWidth: "350px",
-                  height: "350px", 
-                  backgroundColor: "background.default",
-                  borderRadius: "16px", 
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", 
-                  overflow: "hidden", 
-                  display: "flex", 
-                  flexDirection: "column", 
-                  padding: "0px 10px", 
-                }}
-              >
-                <Box
-                  sx={{
-                    padding: "16px", 
-                    display: "flex",
-                    flexDirection: "column", 
-                    gap: "25px", 
-                  }}
-                >
-                  <Box
-                    sx={{
-                      height: "90px", 
-                      display: "flex",
-                      alignItems: "center", 
-                      justifyContent: "center", 
-                      textAlign: "center", 
-                      borderBottom: "2px solid #10375C", 
-
-                    }}
-                  >
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        fontWeight: "bold",
-                        color: "text.primary",
-                      }}
-                    >
-                      {card.title}
-                    </Typography>
-                  </Box>
-
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "text.primary",
-                      textAlign: "left",
-                    }}
-                  >
-                    {card.description}
-                  </Typography>
-                </Box>
-              </Box>
-            ))}
+        <Box sx={{ maxWidth: "500px", margin: "auto", borderTop: "1px solid #05151B", borderBottom: "1px solid black" }}>
+      {items.map((item, index) => (
+        <Box key={item.number} sx={{ display: "flex", alignItems: "center", padding: "16px", borderBottom: index < items.length - 1 ? "1px solid black" : "none" }}>
+          <Typography variant="h1" sx={{ fontWeight: "bold", minWidth: "40px", color: "text.primary" , margin: 0, paddingBottom: "30px" }}>
+            {item.number}
+          </Typography>
+          <Box sx={{ marginLeft: "40px", gap: 3 }}>
+            <Typography variant="h4" sx={{ fontWeight: "bold", color: "text.primary", marginBottom: "8px"  }}>
+              {item.title}
+            </Typography>
+            <Typography variant="body1" sx={{ color: "text.primary" }}>
+              {item.description}
+            </Typography>
           </Box>
         </Box>
+      ))}
+    </Box>
+        </Box>
       </Box>
+
+
+      <Box id="about"
+        sx={{
+          width: "100%", 
+          height: { xs: "100%", sm: "900px" },
+          display: 'flex', 
+          flexDirection: 'row',
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          backgroundColor: "secondary.main",
+          zIndex: 20,
+          position: "relative",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex", 
+            width: "50%", 
+            height: "100%",
+            maxWidth: "900px", 
+            flexDirection: "row", 
+            alignItems: "flex-end", 
+            justifyContent: "flex-end", 
+            margin: "0 auto", 
+            gap: { xs: "0px", sm: "24px" },
+            padding: { xs: "36px 24px", sm: "0rem" },
+            backgroundColor: "background.paper",
+          }}
+        >
+          <Box
+          sx={{
+            display: "flex", 
+            flexDirection: "column", 
+            alignItems: "flex-start", 
+            justifyContent: "flex-start",
+            width: "730px", 
+            height: "500px",
+            maxWidth: "730px", 
+            marginRight: "-180px",
+            marginBottom: "300px",
+            zIndex: 50,
+            backgroundColor: "background.default",
+            padding: "50px",
+          }}
+        >
+          <Typography variant="subtitle2" sx={{ fontSize: "0.9rem", fontWeight: "500", marginTop: "6px", marginBottom: "15px", color: "#E2AD7E"}}>
+          HAKKIMIZDA
+  </Typography>
+  <Typography variant="h1" sx={{ fontSize: "4rem",fontWeight: "bold", color: "text.primary", marginBottom: 0, lineHeight: 1.2 }}>
+  
+Geçmişi Koruyor, Geleceği İnşa Ediyoruz
+  </Typography>
+  
+  <Typography variant="body1" sx={{ fontSize: "1rem", fontWeight: 300, textAlign: "flex-start",  marginTop: "30px", color: "text.primary" }}>
+  10 yıllık restorasyon tecrübemizle, alanında uzman ekibimizle tarihi dokulara yeniden hayat veriyoruz. Geleneksel mimariye saygılı, sürdürülebilir ve estetik çözümler üreterek projelerimizi titizlikle hayata geçiriyoruz.  
+  </Typography>
+
+<Button
+    onClick={() => navigate("/about")}
+    sx={{
+      borderRadius: "50px", // Tam yuvarlak görünüm
+      width: "200px",
+      height: "50px",
+      marginTop: "40px",
+      backgroundColor: "transparent", // Normalde arka plan rengi
+      color: "#05151B", // Normalde yazı rengi (primary)
+      border: "1px solid #E2AD7E", // Kenarlık rengi
+      transition: "all 0.3s ease", // Geçiş efektleri
+      "&:hover": {
+        backgroundColor: "#E2AD7E", // Üzerine gelince arka plan transparan olacak
+      //  color: "#EFEBE6", // Yazı rengi secondary olacak
+      },
+    }}
+  >
+    DAHA FAZLA
+  </Button>
+        </Box>
+        </Box>
+
+
+        <Box
+          sx={{
+            display: "flex", 
+            width: "50%", 
+            height: "100%",
+            maxWidth: "900px", 
+            flexDirection: "row", 
+            alignItems: "flex-start", 
+            justifyContent: "flex-start", 
+            margin: "0 auto", 
+            gap: { xs: "0px", sm: "24px" },
+            padding: { xs: "36px 24px", sm: "0rem" },
+          }}
+        >
+          {isMobile || videoFailed ? (
+                        <img
+                          src="https://res.cloudinary.com/dy20zavvv/image/upload/v1738596978/225ae210-b83e-41f3-a05e-685c9a0e75a8_rw_1920_cwsgkt.jpg"
+                          alt="Background"
+                          style={{
+                            paddingBottom: "0px",
+                            marginBottom: "0px",
+                            width: "100%",
+                            maxWidth: "2000px",
+                            height:  "100%",
+                            objectFit: "cover",
+                            zIndex: 1,
+                            transition: "opacity 0.3s ease-in-out",
+                          }}
+                        />
+                      ) : (
+                        <video
+                          ref={videoRef}
+                          autoPlay
+                          muted
+                          playsInline
+                          loop  
+                          onError={handleVideoError} 
+                          onEnded={() => videoRef.current.play()} 
+                          style={{
+                            paddingTop: "0px",
+                            marginBottom: "0px",
+                            width: "100vw",
+                            height: "100%",
+                            objectFit: "cover",
+                            zIndex: 0,
+                          }}
+                        >
+                          <source
+                            src="/MS_6.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      )}
+          
+        </Box>
+      </Box>
+
+
+
+
 
       <Box
         sx={{
@@ -357,14 +385,14 @@ const Home = () => {
         }}
       >
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-          <IntroductionVersion2 />
+          <WebTasarim />
         </div>
       </Box>
 
       <Box id="contact-section"
         sx={{
           width: "100%",
-          height: { xs: "300px", sm: "400px" },
+          height: { xs: "300px", sm: "700px" },
         }}
       >
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
@@ -377,13 +405,14 @@ const Home = () => {
         color="primary"
         onClick={scrollToTop}
         sx={{
-          color: "#EDEFF3",
+          color: "secondary",
           position: "fixed",
           bottom: "30px",
-          right: "30px",
+          right: "130px",
           zIndex: 1000,
-          backgroundColor: "#10375C", 
-          "&:hover": { backgroundColor: "#0d2a46" }, 
+          border: "2px solid #E2AD7E", // Kenarlık rengi
+          backgroundColor: "#E2AD7E", 
+          "&:hover": { backgroundColor: "transparent", color: "#E2AD7E" }, 
           width: "40px", 
           height: "40px", 
           minWidth: "40px",

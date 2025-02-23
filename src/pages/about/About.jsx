@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, List, Button, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import ContactBox from "../../components/contactBox/ContactBox";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+
 
 const Portfolio = () => {
   const [showScroll, setShowScroll] = useState(false);
@@ -51,172 +53,131 @@ const Portfolio = () => {
       <Box
         sx={{
           width: "100%",
-          minHeight: "100vh", 
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#EDEFF3",
-          position: "relative",
-          backgroundImage: "url('/honey-stick.PNG')",
-          backgroundSize: { xs: "80% auto", sm: "40% auto" },
-          backgroundPosition: "top right", 
-          backgroundRepeat: "no-repeat",
+    minWidth: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#EDEFF3",
+    position: "relative",
+    backgroundImage: "url('/122.jpg')",
+    backgroundSize: "cover", // Resmi oranlarını bozmadan sığdırır
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center", // Ortaya hizalar
+    height: "500px", // Sabit 500px yükseklik
         }}
       >
-        <Box
-          sx={{
-            width: "100%",
-            maxWidth: "1200px",
-            minHeight: "100vh", 
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            justifyContent: "center",
-            textAlign: "flext-start",
-            padding: { xs: "24px", sm: "100px" },
-            position: "relative", 
-          }}
-        >
-          <Typography 
-          variant="h3"
-          sx={{
-            color: "text.primary",
-            fontWeight: 500,
-            fontSize: { xs: "2rem", sm: "3rem" }, 
-            mb: 5,
-            mt:{ xs: 15, sm: 5 },
-          }}>
-            Selam! Burası Studio Bal 
-          </Typography>
-          <Typography 
-          variant="body3"
-          sx={{ 
-            color: "text.primary",
-            fontWeight: 400,
-            fontSize: { xs: "1rem", sm: "1rem" }, 
-            mb: 1,
-          }}>
-            Studio Bal, genç, enerjik ve yaratıcı fikirlerin buluştuğu bir alan.
-          </Typography>
-          <Typography 
-          variant="body3"
-          sx={{ 
-            color: "text.primary",
-            fontWeight: 400,
-            fontSize: { xs: "1rem", sm: "1rem" }, 
-            mb: 1,
-          }}>
-            Bir markadan öte, çok ortaklı bir dükkân ve aynı zamanda bir ortak çalışma alanı. 🙂
-          </Typography>
-          <Typography 
-            variant="body3"
-            sx={{ 
-              color: "text.primary",
-              fontWeight: 400,
-              fontSize: { xs: "1rem", sm: "1rem" }, 
-            //  mb: 1,
-            }}
-          >
-            Bal’da projelerinizin ihtiyaçlarına göre şekillenen ekipler oluşturuyoruz ve içerik üretimi, 
-            <Box component="span" sx={{ display: { xs: "inline", sm: "block" }, marginTop: { xs:0, sm: 1} }}>
-              fotoğraf & video prodüksiyon, sosyal medya yönetimi ve web tasarımı gibi alanlarda hizmet veriyoruz.
-            </Box>
-          </Typography>
-
-
-
-          <Typography 
-          variant="h6" 
-          sx={{ 
-            color: "text.primary",
-            fontWeight: 500,
-            fontSize: { xs: "1.5rem", sm: "2rem" }, 
-            mt: 3,
-            mb: 3,
-          }}>
-            Biraz da sohbet edelim!
-          </Typography>
-          <Typography 
-          variant="body3"
-          sx={{ 
-            color: "text.primary",
-            fontWeight: 400,
-            fontSize: { xs: "1rem", sm: "1rem" }, 
-            mb: 1,
-          }}>
-            Ben Berkay, ekibin daimi üyesiyim. Genelde bana Berkuş derler. 🐥 
-          </Typography>
-          <Typography 
-          variant="body3"
-          sx={{ 
-            color: "text.primary",
-            fontWeight: 400,
-            fontSize: { xs: "1rem", sm: "1rem" }, 
-            mb: 1,
-          }}>
-            Aslında mimarım, ahaha! İki yıl boyunca mimarlık yaptım ama ilk makinemi aldıktan sonra işler değişti. 
-          </Typography>
-          <Typography 
-          variant="body3"
-          sx={{ 
-            color: "text.primary",
-            fontWeight: 400,
-            fontSize: { xs: "1rem", sm: "1rem" }, 
-            mb: 1,
-          }}>
-            Fotoğraf çekmeye ilk kez 14-15 yaşlarındayken, spor kulüplerinin ödünç ekipmanlarıyla başladım. 
-          </Typography>
-          <Typography 
-          variant="body3"
-          sx={{ 
-            color: "text.primary",
-            fontWeight: 400,
-            fontSize: { xs: "1rem", sm: "1rem" }, 
-            mb: 1,
-          }}>
-            Peki ya ilk kendi makinem? Benden en az iki kat yaşlı, analog bir makineydi. 
-          </Typography>
-          <Typography 
-          variant="body3"
-          sx={{ 
-            color: "text.primary",
-            fontWeight: 400,
-            fontSize: { xs: "1rem", sm: "1rem" }, 
-            mb: 1,
-          }}>
-            Sonrasında, ilk fırsatta bir dijital makine aldım, sonra bir tane daha… ve kendimi dans partilerinde çekim yaparken buldum!
-          </Typography>
-          <Typography 
-          variant="body3"
-          sx={{ 
-            color: "text.primary",
-            fontWeight: 400,
-            fontSize: { xs: "1rem", sm: "1rem" }, 
-            mb: 1,
-          }}>
-            Bir noktada fark ettim ki güzel anları yakalamak, mimarlıktan daha fazla heyecan veriyor. İşte o yüzden şimdi buradayım!          
-          </Typography>
-          <Typography 
-          variant="body3"
-          sx={{ 
-            color: "text.primary",
-            fontWeight: 400,
-            fontSize: { xs: "1rem", sm: "1rem" }, 
-            mb: 1,
-          }}>
-            Bazen ekibimle, bazen tek başıma, <strong>Studio Bal</strong> olarak sizinle hayaller kuruyor, projeler üretiyor ve bunları kaydediyoruz.          
-          </Typography>
-          <Typography 
-          variant="body3"
-          sx={{ 
-            color: "text.primary",
-            fontWeight: 400,
-            fontSize: { xs: "1rem", sm: "1rem" }, 
-            mb: { xs: 5, sm: 0 },
-          }}>
-            Tanıştığımıza memnun oldum! Umarım birlikte harika işler yaparız. 💛
-          </Typography>
-        </Box>
+        <Box sx={{
+      width: "100%",
+      maxWidth: "1200px",
+      minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      justifyContent: "center",
+      textAlign: "left",
+      padding: { xs: "24px", sm: "100px" },
+      position: "relative",
+    }}>
+      <Typography variant="h1" sx={{ fontSize: "4rem",fontWeight: "bold", color: "text.primary", marginBottom: 0, lineHeight: 1 }}>
+      Geçmişi Koruyor, Geleceği İnşa Ediyoruz
+        </Typography>
+      
+      </Box>
+      
+    </Box>
+    <Box
+        sx={{
+          width: "100%",
+    minWidth: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#EDEFF3",
+    position: "relative",
+    
+  //  height: "500px", // Sabit 500px yükseklik
+        }}
+      >
+        <Box sx={{
+      width: "100%",
+      maxWidth: "1200px",
+      minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      justifyContent: "center",
+      textAlign: "left",
+      padding: { xs: "24px", sm: "100px" },
+      position: "relative",
+    }}>
+      
+      <Typography variant="body1" paragraph>
+        Konya’da faaliyet gösteren MS Yapı tarihi ve kültürel mirasımızı koruma tutkusuyla restorasyon, rekonstrüksiyon ve güçlendirme alanlarında uzmanlaşmış bir mühendislik firmasıdır. 
+        Tarihi yapıları geleceğe taşırken, modern teknolojilerle yenilikçi çözümler sunuyoruz.
+      </Typography>
+      
+      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "#10375C", mt: 4 }}>
+        Kimiz?
+      </Typography>
+      <Typography variant="body1" paragraph>
+        10 yıllık restorasyon tecrübemizle, alanında uzman ekibimizle tarihi dokulara yeniden hayat veriyoruz. Geleneksel mimariye saygılı, sürdürülebilir ve estetik çözümler üreterek projelerimizi titizlikle hayata geçiriyoruz.
+      </Typography>
+      
+      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "#10375C", mt: 4 }}>
+        Ne Yapıyoruz?
+      </Typography>
+      <List>
+        {["Restorasyon – Tescilli yapıların aslına uygun şekilde korunması ve yeniden işlevlendirilmesi",
+          "Rekonstrüksiyon – Kaybolmuş ya da zarar görmüş tarihi yapıların bilimsel verilerle yeniden inşası",
+          "Güçlendirme – Tarihi yapıların statik dayanıklılığını artırarak uzun ömürlü hale getirilmesi",
+          "Danışmanlık & Proje Yönetimi – Restorasyon sürecinin her aşamasında uzman rehberlik ve teknik destek"]
+          .map((item, index) => (
+            <ListItem key={index}>
+              <ListItemIcon>
+                <CheckCircleIcon sx={{ color: "#10375C" }} />
+              </ListItemIcon>
+              <ListItemText primary={item} />
+            </ListItem>
+          ))}
+      </List>
+      
+      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "#10375C", mt: 4 }}>
+        Misyonumuz
+      </Typography>
+      <Typography variant="body1" paragraph>
+        Kültürel mirasımızı geleceğe taşırken, kaliteli ve güvenilir hizmet anlayışımızla, projelerimizde estetik ve işlevselliği bir araya getirmek.
+      </Typography>
+      
+      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "#10375C", mt: 4 }}>
+        Vizyonumuz
+      </Typography>
+      <Typography variant="body1" paragraph>
+        Türkiye’nin önde gelen restorasyon ve mühendislik firmalarından biri olarak, yenilikçi teknolojilerle tarihi yapıları modern dünyaya uyarlamak ve sektörde sürdürülebilir çözümlerle fark yaratmak.
+      </Typography>
+      
+      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "#10375C", mt: 4 }}>
+        Neden Biz?
+      </Typography>
+      <List>
+        {["Uzman Kadro – Restorasyon, mühendislik ve mimarlık alanlarında deneyimli profesyoneller",
+          "Teknolojik Yaklaşım – Yapı analizleri ve mühendislik çözümlerinde en son teknolojiler",
+          "Kurul Onaylı Projeler – Resmi kurumlardan onaylı ve belgeli restorasyon süreçleri",
+          "Kalite & Güven – Tüm projelerde titizlikle uygulanan yüksek kalite standartları"]
+          .map((item, index) => (
+            <ListItem key={index}>
+              <ListItemIcon>
+                <CheckCircleIcon sx={{ color: "#10375C" }} />
+              </ListItemIcon>
+              <ListItemText primary={item} />
+            </ListItem>
+          ))}
+      </List>
+      
+      <Typography variant="body1" paragraph sx={{ mt: 4, fontWeight: "bold", color: "#10375C" }}>
+        Gelenek ile geleceği buluşturan projelerimizle, kültürel mirasın korunmasına katkı sağlamaya devam ediyoruz. Siz de bizimle bu yolculuğa katılın!
+      </Typography>
+      
+    </Box>
       </Box>
 
       <Box

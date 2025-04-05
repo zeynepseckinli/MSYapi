@@ -4,8 +4,8 @@ import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
 const mediaItems = [
   { id: 1, name: "Konut Rekonstrüksiyonu", src: "/a.jpg", url: "" },
-  { id: 2, name: "Konut Rekonstrüksiyonu", src: "/b.jpg", url: "" },
-  { id: 3, name: "Konut Rekonstrüksiyonu", src: "/c.jpg", url: "" },
+  { id: 2, name: "ev Rekonstrüksiyonu", src: "/b.jpg", url: "" },
+  { id: 3, name: "home Rekonstrüksiyonu", src: "/c.jpg", url: "" },
 ];
 
 const Projects = () => {
@@ -35,7 +35,7 @@ const Projects = () => {
     alignItems: "flex-start", // Sol hizalama sağlar
     margin: "100px",
 }}>
-      <Typography variant="subtitle2" sx={{ fontSize: "0.9rem", fontWeight: "500", marginTop: "6px", marginBottom: "15px", color: "#E2AD7E" }}>
+      <Typography variant="subtitle2" sx={{ fontSize: "0.9rem", fontWeight: "500", marginTop: "6px", marginBottom: "15px", color: "#9e7a68" }}>
         PROJELERİMİZ
       </Typography>
       <Typography variant="h1" sx={{ fontSize: "4rem", fontWeight: "bold", color: "text.primary",  lineHeight: 1.2 }}>
@@ -52,8 +52,8 @@ const Projects = () => {
     left: 0, 
     zIndex: 2, 
     backgroundColor: "transparent", 
-    border: "1px solid #E2AD7E",
-    "&:hover": { backgroundColor: "#E2AD7E" },
+    border: "1px solid #9e7a68",
+    "&:hover": { backgroundColor: "#9e7a68" },
     width: "100px", // Buton boyutu (ikon ile uyumlu olmalı)
     height: "100px"
   }}
@@ -96,7 +96,7 @@ const Projects = () => {
               "&:hover": { opacity: 0.9 },
             }}
           >
-            <Typography variant="subtitle2" sx={{ fontSize: "0.9rem", fontWeight: "600", color: "#E2AD7E"}}>
+            <Typography variant="subtitle2" sx={{ fontSize: "0.9rem", fontWeight: "600", color: "#9e7a68"}}>
             PROJEYİ GÖRÜNTÜLE
               </Typography>
            
@@ -112,7 +112,7 @@ const Projects = () => {
               borderRadius: "4px",
             }}
           >
-            <Typography variant="h2" sx={{ fontSize: "4rem", fontWeight: "bold", color: "text.secondary" }}>
+            <Typography variant="h3" sx={{  fontWeight: "bold", color: "text.secondary" }}>
               {mediaItems[currentIndex].name}
             </Typography>
           </Box>
@@ -126,8 +126,8 @@ const Projects = () => {
     right: 0, 
     zIndex: 2, 
     backgroundColor: "transparent", 
-    border: "1px solid #E2AD7E",
-    "&:hover": { backgroundColor: "#E2AD7E" },
+    border: "1px solid #9e7a68",
+    "&:hover": { backgroundColor: "#9e7a68" },
     width: "100px", // Buton boyutu (ikon ile uyumlu olmalı)
     height: "100px"
   }}

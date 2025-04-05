@@ -70,11 +70,6 @@ const Home = () => {
   };
 
   
-    const items = [
-      { number: "1", title: "Mühendislik", description: "Yapısal analizler ve modern mühendislik çözümleri ile güvenli yapılar inşa ediyoruz." },
-      { number: "2", title: "Restorasyon", description: "Tarihi yapıların özgün dokusunu koruyarak modern tekniklerle restore ediyoruz." },
-      { number: "3", title: "Rekonstrüksiyon", description: "Geçmişin izlerini günümüz teknolojisiyle birleştirerek yapıları yeniden hayata kazandırıyoruz." }
-    ];
   
 
   return (
@@ -85,58 +80,36 @@ const Home = () => {
                   height: "100vh" ,
                     display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "center", backgroundColor: "#05151B", }}>
                       <Box
-                        sx={{
-                          position: "relative",
-                          maxWidth: "100vw",
-                          height: "70%" ,
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          backgroundColor: "#f0f1f5",
-                          paddingBottom: "0px",
-                          marginBottom: "0px",
-                        }}
-                      >
-                        {isMobile || videoFailed ? (
-                        <img
-                          src="https://res.cloudinary.com/dy20zavvv/image/upload/v1738596978/225ae210-b83e-41f3-a05e-685c9a0e75a8_rw_1920_cwsgkt.jpg"
-                          alt="Background"
-                          style={{
-                            paddingBottom: "0px",
-                            marginBottom: "0px",
-                            width: "100%",
-                            maxWidth: "2000px",
-                            height:  "100%",
-                            objectFit: "cover",
-                            zIndex: 1,
-                            transition: "opacity 0.3s ease-in-out",
-                          }}
-                        />
-                      ) : (
-                        <video
-                          ref={videoRef}
-                          autoPlay
-                          muted
-                          playsInline
-                          loop  
-                          onError={handleVideoError} 
-                          onEnded={() => videoRef.current.play()} 
-                          style={{
-                            paddingTop: "0px",
-                            marginBottom: "0px",
-                            width: "100vw",
-                            height: "100%",
-                            objectFit: "cover",
-                            zIndex: 0,
-                          }}
-                        >
-                          <source
-                            src="/MS_5.mp4"
-                            type="video/mp4"
-                          />
-                        </video>
-                      )}
+  sx={{
+    position: "relative",
+    width: "100vw",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f0f1f5",
+    paddingBottom: 0,
+    marginBottom: 0,
+    overflow: "hidden",
+  }}
+>
+  <img
+    src="/home.PNG"
+    alt="Background"
+    style={{
+      width: "100vw",
+      height: "100%",
+      maxWidth: "none",
+      objectFit: "cover",
+      objectPosition: "top",
+      zIndex: 1,
+      transition: "opacity 0.3s ease-in-out",
+    }}
+  />
+
+
+                      
                 
     </Box>
     <Box
@@ -145,249 +118,301 @@ const Home = () => {
       bottom: 0, // Alt kenara sabitle
       left: "50%", // Ortala
       transform: "translateX(-50%)", // Ortalamayı düzelt
-      width: "1000px", // Tam genişlikte
+      width: "1200px", // Tam genişlikte
       maxWidth: "100vw",
       height: "50vh", // Ekranın kalan %30'unu kaplasın
       display: "flex",
       flexDirection: "column",
-      alignItems: "flex-start",
+      alignItems: "flex-end",
       justifyContent: "center",
       
       zIndex: 2, // Videonun üstünde olsun
-      paddingBottom: "200px",
+      paddingBottom: "250px",
     }}
   >
-  <Typography variant="subtitle2" sx={{ fontSize: "0.8rem", fontWeight: "500",  marginBottom: "50px",  textShadow: "3px 3px 4px rgba(0, 0, 0, 0.9)", color: "#E2AD7E"}}>
-  Geçmişi Koruyor, Geleceği İnşa Ediyoruz
-  </Typography>
-  <Typography variant="h1" sx={{ fontWeight: "bold", color: "text.secondary", marginBottom: 0,  textShadow: "3px 3px 4px rgba(0, 0, 0, 0.6)", lineHeight: 1 }}>
-    MS YAPI
-  </Typography>
-  <Typography variant="h4" sx={{ fontWeight: "bold", color: "text.secondary", marginTop: 0,  textShadow: "3px 3px 4px rgba(0, 0, 0, 0.9)", lineHeight: 1 }}>
-  Mühendislik-Restorasyon-Rekonstrüksiyon
-  </Typography>
-  <Typography variant="body1" sx={{ fontSize: "0.9rem", textAlign: "flex-start",  marginTop: "50px", color: "#AFB4B6" }}>
-    Tarihi yapıları geleceğe taşırken, modern teknolojilerle <br/>güvenilir, sürdürülebilir ve yenilikçi çözümler sunuyoruz.
-  </Typography>
-</Box>
-
-    </div>
-      
-      <Box id="services"
-        sx={{
-          width: "100%", 
-          height: { xs: "100%", sm: "1000px" },
-          display: 'flex', 
-          justifyContent: 'center', 
-          alignItems: 'center', 
-          backgroundColor: "secondary.main",
-          zIndex: 20,
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex", 
-            width: "100%", 
-            maxWidth: "1000px", 
-            flexDirection: "row", 
-            alignItems: "flex-start", 
-            justifyContent: "flex-start", 
-            margin: "0 auto", 
-            gap: { xs: "0px", sm: "24px" },
-            padding: { xs: "36px 24px", sm: "0rem" },
-          }}
-        >
-          <Box
-          sx={{
-            display: "flex", 
-            flexDirection: "column", 
-            alignItems: "flex-start", 
-            width: "100%", 
-            maxWidth: "500px", 
-            paddingRight: "50px",
-          }}
-        >
-          <Typography variant="subtitle2" sx={{ fontSize: "0.9rem", fontWeight: "500",  marginBottom: "30px", color: "#E2AD7E"}}>
-          HİZMETLERİMİZ
-  </Typography>
-  <Typography variant="h1" sx={{ fontSize: "4rem",fontWeight: "bold", color: "text.primary", marginBottom: 0, lineHeight: 1 }}>
-  Neler yapıyoruz?
-  </Typography>
   
-  <Typography variant="body1" sx={{ fontSize: "1rem", textAlign: "flex-start",  marginTop: "40px", color: "text.primary" }}>
-  Geçmişin mirasını koruyarak, modern mühendislik çözümleriyle yapıların geleceğe taşınmasını sağlıyoruz. Restorasyon, mühendislik ve rekonstrüksiyon alanlarında uzman ekibimizle estetik, güvenli ve dayanıklı yapılar inşa ediyoruz.
+  <Typography variant="h1" sx={{  color: "text.primary", marginBottom: 0,  lineHeight: 1 }}>
+  Kenan Beyazkılınç
   </Typography>
-        </Box>
-        <Box sx={{ maxWidth: "500px", margin: "auto", borderTop: "1px solid #05151B", borderBottom: "1px solid black" }}>
-      {items.map((item, index) => (
-        <Box key={item.number} sx={{ display: "flex", alignItems: "center", padding: "16px", borderBottom: index < items.length - 1 ? "1px solid black" : "none" }}>
-          <Typography variant="h1" sx={{ fontWeight: "bold", minWidth: "40px", color: "text.primary" , margin: 0, paddingBottom: "30px" }}>
-            {item.number}
-          </Typography>
-          <Box sx={{ marginLeft: "40px", gap: 3 }}>
-            <Typography variant="h4" sx={{ fontWeight: "bold", color: "text.primary", marginBottom: "8px"  }}>
-              {item.title}
-            </Typography>
-            <Typography variant="body1" sx={{ color: "text.primary" }}>
-              {item.description}
-            </Typography>
-          </Box>
-        </Box>
-      ))}
-    </Box>
-        </Box>
-      </Box>
-
-
-      <Box id="about"
-        sx={{
-          width: "100%", 
-          height: { xs: "100%", sm: "900px" },
-          display: 'flex', 
-          flexDirection: 'row',
-          justifyContent: 'center', 
-          alignItems: 'center', 
-          backgroundColor: "secondary.main",
-          zIndex: 20,
-          position: "relative",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex", 
-            width: "50%", 
-            height: "100%",
-            maxWidth: "900px", 
-            flexDirection: "row", 
-            alignItems: "flex-end", 
-            justifyContent: "flex-end", 
-            margin: "0 auto", 
-            gap: { xs: "0px", sm: "24px" },
-            padding: { xs: "36px 24px", sm: "0rem" },
-            backgroundColor: "background.paper",
-          }}
-        >
-          <Box
-          sx={{
-            display: "flex", 
-            flexDirection: "column", 
-            alignItems: "flex-start", 
-            justifyContent: "flex-start",
-            width: "730px", 
-            height: "500px",
-            maxWidth: "730px", 
-            marginRight: "-180px",
-            marginBottom: "300px",
-            zIndex: 50,
-            backgroundColor: "background.default",
-            padding: "50px",
-          }}
-        >
-          <Typography variant="subtitle2" sx={{ fontSize: "0.9rem", fontWeight: "500", marginTop: "6px", marginBottom: "15px", color: "#E2AD7E"}}>
-          HAKKIMIZDA
+  <Typography variant="h3" sx={{  color: "text.primary", marginTop: 4,  lineHeight: 1 }}>
+  Zarafetin ve Stilin Buluştuğu Adres
   </Typography>
-  <Typography variant="h1" sx={{ fontSize: "4rem",fontWeight: "bold", color: "text.primary", marginBottom: 0, lineHeight: 1.2 }}>
-  
-Geçmişi Koruyor, Geleceği İnşa Ediyoruz
+  <Typography variant="body1" sx={{ fontWeight: "bold",textAlign: "right",  marginTop: "50px", color: "text.primary" }}>
+  2003’ten beri İstanbul’un kalbinde, <br/>kişisel tarzınızı en iyi şekilde yansıtmanız için buradayız. <br/>Modern teknikler ve ustalıkla, saçınızı sanat eserine dönüştürüyoruz.
   </Typography>
-  
-  <Typography variant="body1" sx={{ fontSize: "1rem", fontWeight: 300, textAlign: "flex-start",  marginTop: "30px", color: "text.primary" }}>
-  10 yıllık restorasyon tecrübemizle, alanında uzman ekibimizle tarihi dokulara yeniden hayat veriyoruz. Geleneksel mimariye saygılı, sürdürülebilir ve estetik çözümler üreterek projelerimizi titizlikle hayata geçiriyoruz.  
-  </Typography>
-
-<Button
-    onClick={() => navigate("/about")}
+  <Button
+    onClick={() => {
+      const contactSection = document.getElementById("contact-section");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }}
     sx={{
-      borderRadius: "50px", // Tam yuvarlak görünüm
+      borderRadius: "0", // Tam yuvarlak görünüm
       width: "200px",
       height: "50px",
       marginTop: "40px",
       backgroundColor: "transparent", // Normalde arka plan rengi
       color: "#05151B", // Normalde yazı rengi (primary)
-      border: "1px solid #E2AD7E", // Kenarlık rengi
+      border: "2px solid #05151B", // Kenarlık rengi
       transition: "all 0.3s ease", // Geçiş efektleri
       "&:hover": {
-        backgroundColor: "#E2AD7E", // Üzerine gelince arka plan transparan olacak
+        backgroundColor: "#9e7a68", // Üzerine gelince arka plan transparan olacak
       //  color: "#EFEBE6", // Yazı rengi secondary olacak
       },
     }}
   >
-    DAHA FAZLA
+    RANDEVU AL
   </Button>
-        </Box>
-        </Box>
+</Box>
 
-
-        <Box
-          sx={{
-            display: "flex", 
-            width: "50%", 
-            height: "100%",
-            maxWidth: "900px", 
-            flexDirection: "row", 
-            alignItems: "flex-start", 
-            justifyContent: "flex-start", 
-            margin: "0 auto", 
-            gap: { xs: "0px", sm: "24px" },
-            padding: { xs: "36px 24px", sm: "0rem" },
-          }}
-        >
-          {isMobile || videoFailed ? (
-                        <img
-                          src="https://res.cloudinary.com/dy20zavvv/image/upload/v1738596978/225ae210-b83e-41f3-a05e-685c9a0e75a8_rw_1920_cwsgkt.jpg"
-                          alt="Background"
-                          style={{
-                            paddingBottom: "0px",
-                            marginBottom: "0px",
-                            width: "100%",
-                            maxWidth: "2000px",
-                            height:  "100%",
-                            objectFit: "cover",
-                            zIndex: 1,
-                            transition: "opacity 0.3s ease-in-out",
-                          }}
-                        />
-                      ) : (
-                        <video
-                          ref={videoRef}
-                          autoPlay
-                          muted
-                          playsInline
-                          loop  
-                          onError={handleVideoError} 
-                          onEnded={() => videoRef.current.play()} 
-                          style={{
-                            paddingTop: "0px",
-                            marginBottom: "0px",
-                            width: "100vw",
-                            height: "100%",
-                            objectFit: "cover",
-                            zIndex: 0,
-                          }}
-                        >
-                          <source
-                            src="/MS_6.mp4"
-                            type="video/mp4"
-                          />
-                        </video>
-                      )}
-          
-        </Box>
-      </Box>
+    </div>
 
 
 
+    <Box
+  id="about"
+  sx={{
+    width: "100vw",
+    height: { xs: "100%", sm: "100vh" },
+    display: "flex",
+    flexDirection: "row",
+    backgroundColor: "black",
+    zIndex: 20,
+    position: "relative",
+    overflow: "hidden",
+  }}
+>
+<Box
+  sx={{
+    width: "50%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "flex-end",
+    
+    zIndex: 2,
+  }}
+>
+  <Box
+    sx={{
+      width: "600px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start", // bu da yazıların sağa yaslanmasını sağlar
+    }}
+  >
+    <Typography
+      variant="h3"
+      sx={{
+        fontSize: "3rem",
+        color: "text.secondary",
+        marginBottom: 0,
+        lineHeight: 1.2,
+      
+      }}
+    >
+      22 Yıllık Deneyim, Kusursuz Sanat
+    </Typography>
+
+    <Typography
+      variant="body1"
+      sx={{
+        fontSize: "1.2rem",
+        fontWeight: 300,
+        marginTop: "60px",
+        color: "text.secondary",
+       
+      }}
+    >
+      Saç kesimi bir sanattır ve biz bu sanatı tutkuyla icra ediyoruz.
+    </Typography>
+
+    <Button
+      onClick={() => navigate("/about")}
+      sx={{
+        borderRadius: "0",
+        width: "200px",
+        height: "50px",
+        marginTop: "80px",
+        backgroundColor: "transparent",
+        color: "#EFEBE6",
+        border: "2px solid #EFEBE6",
+        transition: "all 0.3s ease",
+        "&:hover": {
+          backgroundColor: "#9e7a68",
+        },
+      }}
+    >
+      HİKAYEMİZİ KEŞFET
+    </Button>
+  </Box>
+</Box>
 
 
-      <Box
+  {/* SAĞ: Görsel */}
+  <Box
+    sx={{
+      width: "50%",
+      height: "100%",
+      padding: "0px",
+    }}
+  >
+    <img
+      src="/KB_SALON-37.jpg"
+      alt="Salon"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        objectPosition: "center",
+      }}
+    />
+  </Box>
+</Box>
+
+
+
+
+
+<Box
+  id="services"
+  sx={{
+    width: "100vw",
+    height: { xs: "100%", sm: "100vh" },
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "secondary.main",
+    zIndex: 20,
+    position: "relative",
+    overflow: "hidden",
+  }}
+>
+  {/* İçerik Box */}
+  <Box
+    sx={{
+      display: "flex",
+      width: "1200px",
+      height: "100%",
+      maxWidth: "100vw",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      margin: "0 auto",
+      gap: { xs: "0px", sm: "0px" },
+      padding: { xs: "36px 24px", sm: "0rem" },
+      position: "relative",
+      zIndex: 2,
+    }}
+  >
+    {/* Sağ Tarafa GIF */}
+    <Box
+  sx={{
+    width: "50%",
+    height: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "relative",
+  }}
+>
+  <video
+    src="https://res.cloudinary.com/dfoi520wc/video/upload/v1741289714/MN_KB_V1_l6aq3k.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+    }}
+  />
+</Box>
+
+    {/* Metin İçeriği */}
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        justifyContent: "center",
+        width: "50%",
+        maxWidth: "600px",
+        paddingLeft: "50px",
+        backgroundColor: "transparent",
+        position: "relative",
+        zIndex: 3,
+      }}
+    >
+      <Typography
+        variant="h3"
         sx={{
-          width: "100%",
+          fontSize: "3rem",
+          color: "text.primary",
+          marginBottom: 0,
+          lineHeight: 1.2,
         }}
       >
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-          <WebTasarim />
-        </div>
-      </Box>
+        Size Özel Dokunuşlar
+      </Typography>
+
+      <Typography
+        variant="body1"
+        sx={{
+          fontSize: "1rem",
+        //  fontWeight: 300,
+          textAlign: "left",
+          marginTop: "40px",
+          color: "text.primary",
+          display: "flex",
+          flexDirection: "column",
+          gap: "12px", // Alt alta boşluk bırakır
+        }}
+      >
+        <span><strong>Kesim & Şekillendirme</strong> – Yüz hatlarınıza ve stilinize uygun modern kesimler</span>
+        <span><strong>Renk & Balayage</strong> – Son trend renklendirme teknikleriyle yenilenin</span>
+        <span><strong>Bakım & Onarım</strong> – Saçınızın sağlığını ön planda tutan özel bakımlar</span>
+        <span><strong>Profesyonel Styling</strong> – Özel günler için kusursuz saç tasarımları</span>
+      </Typography>
+
+      <Button
+        onClick={() => navigate("/services")}
+        sx={{
+          borderRadius: "0",
+          width: "200px",
+          height: "50px",
+          marginTop: "80px",
+          backgroundColor: "transparent",
+          color: "black",
+          border: "2px solid black",
+          transition: "all 0.3s ease",
+          "&:hover": {
+            backgroundColor: "#9e7a68",
+          },
+        }}
+      >
+        TÜM HİZMETLERİ GÖR
+      </Button>
+    </Box>
+
+    
+  </Box>
+</Box>
+
+
+
+
+
+      
+      
+
+
+
+
+
 
       <Box id="contact-section"
         sx={{
@@ -410,9 +435,9 @@ Geçmişi Koruyor, Geleceği İnşa Ediyoruz
           bottom: "30px",
           right: "130px",
           zIndex: 1000,
-          border: "2px solid #E2AD7E", // Kenarlık rengi
-          backgroundColor: "#E2AD7E", 
-          "&:hover": { backgroundColor: "transparent", color: "#E2AD7E" }, 
+          border: "2px solid #9e7a68", // Kenarlık rengi
+          backgroundColor: "#9e7a68", 
+          "&:hover": { backgroundColor: "transparent", color: "#9e7a68" }, 
           width: "40px", 
           height: "40px", 
           minWidth: "40px",

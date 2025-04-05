@@ -1,4 +1,4 @@
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { Box, Typography } from "@mui/material";
 
 const ContactBox = () => {
@@ -6,109 +6,84 @@ const ContactBox = () => {
     <Box
       sx={{
         width: "100%",
-        height: "700px", // Toplam yükseklik kesin olarak 700px olacak
+        height: "700px",
         display: "flex",
-        flexDirection: "column", // Dikey hizalama için column
+        flexDirection: "row",
         alignItems: "center",
+        justifyContent: "center",
         backgroundColor: "background.paper",
+        gap: "40px",
       }}
     >
-      {/* Üst Box - 300px */}
+      {/* Google Haritalar */}
       <Box
         sx={{
-          display: "flex",
-          width: "1000px",
-          height: "200px", // Sabit yükseklik
-          backgroundColor: "background.paper",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: "16px",
+          width: "40%",
+          height: "400px",
+          borderRadius: "8px",
+          overflow: "hidden",
+          boxShadow: "3px 3px 10px rgba(0, 0, 0, 0.5)",
         }}
       >
-        <Typography variant="h1" sx={{ fontSize: "4rem",fontWeight: "bold", textAlign: "center", color: "text.secondary", marginBottom: 0, lineHeight: 1.2 }}>
-        İletişime Geçin
-        </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            gap: "16px",
-            alignItems: "center",
-          }}
-        >
-          <a href="https://www.instagram.com/msyapimuh.rest.rekn/" target="_blank" rel="noopener noreferrer">
-            <FaInstagram size={40} color="#EFEBE6" />
-          </a>
-          <a href="#" rel="noopener noreferrer">
-            <FaLinkedin size={40} color="#EFEBE6" />
-          </a>
-        </Box>
-        
+        <iframe
+          title="Google Maps"
+          width="100%"
+          height="400"
+          frameBorder="0"
+          style={{ border: 0 }}
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3111.631020625216!2d29.05522207582292!3d40.970444271207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac70dc6f3b363%3A0x621b25f22a691757!2zU3VhZGl5ZSBNYWhhbGxlc2kgS2F6xLFtIMWeemFscCBTb2thaywgxLBhxZ9rxLFuYmFra2FsIE5vOjQ4LCAzNDc0MCBLYWTDvGvDvHk!5e0!3m2!1str!2str!4v1741344055286!5m2!1str!2str"
+          allowFullScreen
+        ></iframe>
       </Box>
 
-      {/* Alt Box - 400px (Arka Plan Fotoğrafı) */}
-      <Box
-  sx={{
-    display: "flex",
-    width: "100%",
-    height: "500px",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "40px",
-    position: "relative",
-    color: "#fff",
-    backgroundImage: "url('/2.jpg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    "&::after": {
-      content: '""',
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      backgroundColor: "rgba(0, 0, 0, 0.7)", // Siyah, %50 opaklık
-      zIndex: 1,
-    },
-  }}
->
-      
+      {/* İletişim Bilgileri */}
+      <Box sx={{ textAlign: "left", width: "40%" }}>
+        <Typography
+                variant="h3"
+                sx={{
+                  fontSize: "3rem",
+                  color: "text.secondary",
+                  marginBottom: "10px",
+                  lineHeight: 1.2,
+                }}
+              >
+          Randevu İçin Arayın
+        </Typography>
 
-      {/* E-mail Bilgisi */}
-      <Box sx={{ textAlign: "center", width: "300px", zIndex: 10, }}>
-        <Typography variant="body1" sx={{ fontWeight: "bold", color: "#E2AD7E", marginBottom: "20px" , textShadow: "3px 3px 4px rgba(0, 0, 0, 0.9)", }}>
-          📩 EMAIL
-        </Typography>
-        <Typography variant="h5" sx={{ fontWeight: "bold", color: "#EFEBE6" }}>
-          <a
-            href="mailto:info@msyapirestorasyon.com"
-            style={{ color: "#EFEBE6", textShadow: "3px 3px 4px rgba(0, 0, 0, 0.9)", textDecoration: "none" }}
-          >
-            info@msyapirestorasyon.com
-          </a>
-        </Typography>
-      </Box>
-
-      {/* Adres Bilgisi */}
-      <Box sx={{ textAlign: "center", width: "300px",  zIndex: 10, }}>
-        <Typography variant="body1" sx={{ fontWeight: "bold", color: "#E2AD7E", marginBottom: "20px", textShadow: "3px 3px 4px rgba(0, 0, 0, 0.9)", }}>
-          📍 ADRES
-        </Typography>
-        <Typography variant="h5" sx={{ fontWeight: "bold", color: "#EFEBE6", textShadow: "3px 3px 4px rgba(0, 0, 0, 0.9)", }}>
-          Malazgirt Mahallesi Eyüp Sultan Caddesi 57/1 B2 Giriş 1.Kat No:102
-          <br /> Selçuklu/Konya
-        </Typography>
-      </Box>
-
-      {/* Telefon Bilgisi */}
-      <Box sx={{ textAlign: "center", width: "300px", zIndex: 10, }}>
-        <Typography variant="body1" sx={{ fontWeight: "bold", color: "#E2AD7E", textShadow: "3px 3px 4px rgba(0, 0, 0, 0.9)", marginBottom: "20px" }}>
+        <Typography variant="body1" sx={{fontWeight: "bold",  color: "#9e7a68", marginBottom: "10px" }}>
           📞 TELEFON
         </Typography>
-        <Typography variant="h5" sx={{ fontWeight: "bold", textShadow: "3px 3px 4px rgba(0, 0, 0, 0.9)", color: "#EFEBE6" }}>
-          +90 545 335 45 95</Typography>
+        <Typography variant="h5" sx={{  color: "#EFEBE6" }}>
+          0216 360 34 62
+        </Typography>
+
+        <Typography variant="body1" sx={{ fontWeight: "bold", color: "#9e7a68", marginTop: "20px", marginBottom: "10px" }}>
+          📍 ADRES
+        </Typography>
+        <Typography variant="h5" sx={{ color: "#EFEBE6" }}>
+          Suadiye Mahallesi Kazım Özalp Sokak, Şaşkınbakkal No:48, 34740 Kadıköy/İstanbul
+        </Typography>
+
+        <Typography variant="body1" sx={{ fontWeight: "bold", color: "#9e7a68", marginTop: "20px", marginBottom: "10px" }}>
+          ⏰ ÇALIŞMA SAATLERİ
+        </Typography>
+        <Typography variant="h5" sx={{  color: "#EFEBE6" }}>
+          Salı - Pazar: 09:00 - 19:00
+          <br /> Pazartesi: Kapalı
+        </Typography>
+
+        <Box sx={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "20px" }}>
+          <FaInstagram size={30} color="#9e7a68" />
+          <a
+            href="https://www.instagram.com/kenanbeyazkilinc/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#9e7a68", fontSize: "1.2rem", textDecoration: "none" }}
+          >
+            Bizi Instagram'da takip edin!
+          </a>
+        </Box>
       </Box>
-    </Box>
     </Box>
   );
 };

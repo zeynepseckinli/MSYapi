@@ -1,13 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography, List, Button, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import { Box, Typography, Grid, Fade , List, Button, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import ContactBox from "../../components/contactBox/ContactBox";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { textAlign } from "@mui/system";
 
 
-const Portfolio = () => {
+const About = () => {
   const [showScroll, setShowScroll] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
+
+
+  const teamMembers = [
+    { name: "Ahmet ", photo: "/111.JPG" },
+    { name: "Fuat ", photo: "/KB_SALON-19.jpg" },
+    { name: "Kenan ", photo: "/120.JPG" },
+    { name: "Burak ", photo: "/119.JPG" },
+    { name: "Mehmet ", photo: "/112.JPG" },
+    { name: "Elif ", photo: "/113.JPG" },
+    { name: "Burak ", photo: "/115.JPG" },
+    { name: "Burak ", photo: "/118.JPG" },
+    { name: "Burak ", photo: "/117.JPG" },
+  ];
+
+  const salonPhotos = [
+    "/KB_SALON-34.jpg",
+    "/KB_SALON-46.jpg",
+    "/KB_SALON-45.jpg",
+    "/KB_SALON-42.jpg",
+    "/KB_SALON-44.jpg",
+    "/KB_SALON-52.jpg",
+    "/KB_SALON-49.jpg",
+    "/KB_SALON-53.jpg",
+    "/KB_SALON-47.jpg",
+  ];
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -36,6 +63,11 @@ const Portfolio = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+
+    
+  
+    
+
   return (
     <div
       style={{
@@ -50,148 +82,158 @@ const Portfolio = () => {
         justifyContent: "space-between",
       }}
     >
+      
       <Box
         sx={{
           width: "100%",
-    minWidth: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#EDEFF3",
-    position: "relative",
-    backgroundImage: "url('/122.jpg')",
-    backgroundSize: "cover", // Resmi oranlarını bozmadan sığdırır
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center", // Ortaya hizalar
-    height: "500px", // Sabit 500px yükseklik
-        }}
-      >
-        <Box sx={{
-      width: "100%",
-      maxWidth: "1200px",
-      minHeight: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-      justifyContent: "center",
-      textAlign: "left",
-      padding: { xs: "24px", sm: "100px" },
-      position: "relative",
-    }}>
-      <Typography variant="h1" sx={{ fontSize: "4rem",fontWeight: "bold", color: "text.primary", marginBottom: 0, lineHeight: 1 }}>
-      Geçmişi Koruyor, Geleceği İnşa Ediyoruz
-        </Typography>
-      
-      </Box>
-      
-    </Box>
-    <Box
-        sx={{
-          width: "100%",
-    minWidth: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#EDEFF3",
-    position: "relative",
-    
-  //  height: "500px", // Sabit 500px yükseklik
-        }}
-      >
-        <Box sx={{
-      width: "100%",
-      maxWidth: "1200px",
-      minHeight: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-      justifyContent: "center",
-      textAlign: "left",
-      padding: { xs: "24px", sm: "100px" },
-      position: "relative",
-    }}>
-      
-      <Typography variant="body1" paragraph>
-        Konya’da faaliyet gösteren MS Yapı tarihi ve kültürel mirasımızı koruma tutkusuyla restorasyon, rekonstrüksiyon ve güçlendirme alanlarında uzmanlaşmış bir mühendislik firmasıdır. 
-        Tarihi yapıları geleceğe taşırken, modern teknolojilerle yenilikçi çözümler sunuyoruz.
-      </Typography>
-      
-      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "#10375C", mt: 4 }}>
-        Kimiz?
-      </Typography>
-      <Typography variant="body1" paragraph>
-        10 yıllık restorasyon tecrübemizle, alanında uzman ekibimizle tarihi dokulara yeniden hayat veriyoruz. Geleneksel mimariye saygılı, sürdürülebilir ve estetik çözümler üreterek projelerimizi titizlikle hayata geçiriyoruz.
-      </Typography>
-      
-      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "#10375C", mt: 4 }}>
-        Ne Yapıyoruz?
-      </Typography>
-      <List>
-        {["Restorasyon – Tescilli yapıların aslına uygun şekilde korunması ve yeniden işlevlendirilmesi",
-          "Rekonstrüksiyon – Kaybolmuş ya da zarar görmüş tarihi yapıların bilimsel verilerle yeniden inşası",
-          "Güçlendirme – Tarihi yapıların statik dayanıklılığını artırarak uzun ömürlü hale getirilmesi",
-          "Danışmanlık & Proje Yönetimi – Restorasyon sürecinin her aşamasında uzman rehberlik ve teknik destek"]
-          .map((item, index) => (
-            <ListItem key={index}>
-              <ListItemIcon>
-                <CheckCircleIcon sx={{ color: "#10375C" }} />
-              </ListItemIcon>
-              <ListItemText primary={item} />
-            </ListItem>
-          ))}
-      </List>
-      
-      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "#10375C", mt: 4 }}>
-        Misyonumuz
-      </Typography>
-      <Typography variant="body1" paragraph>
-        Kültürel mirasımızı geleceğe taşırken, kaliteli ve güvenilir hizmet anlayışımızla, projelerimizde estetik ve işlevselliği bir araya getirmek.
-      </Typography>
-      
-      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "#10375C", mt: 4 }}>
-        Vizyonumuz
-      </Typography>
-      <Typography variant="body1" paragraph>
-        Türkiye’nin önde gelen restorasyon ve mühendislik firmalarından biri olarak, yenilikçi teknolojilerle tarihi yapıları modern dünyaya uyarlamak ve sektörde sürdürülebilir çözümlerle fark yaratmak.
-      </Typography>
-      
-      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "#10375C", mt: 4 }}>
-        Neden Biz?
-      </Typography>
-      <List>
-        {["Uzman Kadro – Restorasyon, mühendislik ve mimarlık alanlarında deneyimli profesyoneller",
-          "Teknolojik Yaklaşım – Yapı analizleri ve mühendislik çözümlerinde en son teknolojiler",
-          "Kurul Onaylı Projeler – Resmi kurumlardan onaylı ve belgeli restorasyon süreçleri",
-          "Kalite & Güven – Tüm projelerde titizlikle uygulanan yüksek kalite standartları"]
-          .map((item, index) => (
-            <ListItem key={index}>
-              <ListItemIcon>
-                <CheckCircleIcon sx={{ color: "#10375C" }} />
-              </ListItemIcon>
-              <ListItemText primary={item} />
-            </ListItem>
-          ))}
-      </List>
-      
-      <Typography variant="body1" paragraph sx={{ mt: 4, fontWeight: "bold", color: "#10375C" }}>
-        Gelenek ile geleceği buluşturan projelerimizle, kültürel mirasın korunmasına katkı sağlamaya devam ediyoruz. Siz de bizimle bu yolculuğa katılın!
-      </Typography>
-      
-    </Box>
-      </Box>
-
-      <Box
-        id="contact-section"
-        sx={{
-          width: "100%",
-          backgroundColor: "#f8f9fa",
-          padding: "0",
           display: "flex",
           justifyContent: "center",
+          alignItems: "center",
+          backgroundImage: 'url("/3.JPG")',
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          height: "600px",
         }}
-      >
-        <ContactBox />
-      </Box>
+      />
+
+      {/* Kuaför Hakkında */}
+      {/* Hakkımızda */}
+      <Box
+  sx={{
+    width: "100%",
+    minHeight: "600px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "40px",
+  }}
+>
+  {/* Başlık */}
+  <Typography variant="h4" align="center" gutterBottom  paddingBottom={"40px"}>
+    Hakkımızda
+  </Typography>
+
+  {/* İçerik Alanı */}
+  <Box sx={{ maxWidth: "1000px", textAlign: "left" }}>
+    <Typography variant="body1" sx={{ mb: 2 }}>
+      2003 yılında kurulan kuaför salonumuz, güzellik ve bakım sektöründe fark yaratmaya devam ediyor. 
+      Sektördeki gelişmeleri yakından takip eden ekibimizle, müşterilerimize en iyi hizmeti sunuyoruz. 
+      Kişiye özel stil danışmanlığı ile sadece saç kesimi ve renklendirme değil, aynı zamanda güven ve 
+      özgüven kazandırıyoruz. Profesyonellik, samimiyet ve müşteri memnuniyeti ilkeleriyle, her ziyaretinizi 
+      unutulmaz bir deneyime dönüştürüyoruz.
+    </Typography>
+    <Typography variant="body1" sx={{ mb: 2 }}>
+      Salonumuzda kullanılan tüm ürünler, yüksek kalite standartlarına sahiptir ve saç sağlığını ön planda tutar. 
+      Ekip olarak, dünya çapındaki güzellik trendlerini takip ediyor, düzenli olarak eğitimlere katılıyor ve 
+      yeteneklerimizi sürekli geliştiriyoruz. Bu sayede, en yeni kesim, renklendirme ve bakım tekniklerini uygulayarak 
+      müşterilerimize modern ve kişiye özel çözümler sunabiliyoruz.
+    </Typography>
+    <Typography variant="body1" sx={{ mb: 2 }}>
+      Yıllardır süregelen profesyonellik, samimiyet ve müşteri memnuniyeti anlayışımızla, her ziyaretinizde kendinizi 
+      özel hissetmenizi sağlamak için buradayız. Çünkü biz, sadece saç kesmiyor veya şekillendirmiyoruz; müşterilerimize 
+      kendilerini iyi hissettirecek bir deneyim sunuyoruz.
+    </Typography>
+    <Typography variant="body1">
+      Siz de güzelliğinize değer katmak ve kendinizi özel hissetmek için bizimle tanışın.
+    </Typography>
+  </Box>
+</Box>
+
+
+     
+<Box sx={{ backgroundColor: "background.paper", height: "auto", padding: "90px" }}>
+  <Typography variant="h4" gutterBottom textAlign="center" color="white" paddingBottom={"40px"}>
+    Ekibimiz
+  </Typography>
+
+  {/* İlk 5 kişi */}
+  <Grid container columnSpacing={4} rowSpacing={3} justifyContent="center">
+    {teamMembers.slice(0, 5).map((member, index) => (
+      <Grid item key={index}>
+        <Box sx={{ textAlign: "center", width: "200px" }}>
+          {/* Sadece fotoğraf çerçeve içinde */}
+          <Box sx={{ border: "2px solid white", padding: "10px" }}>
+            <img
+              src={member.photo}
+              alt={member.name}
+              style={{
+                width: "100%",
+                height: "300px",
+                objectFit: "cover"
+              }}
+            />
+          </Box>
+          {/* İsim çerçevenin dışında */}
+          <Typography variant="h5" sx={{ marginTop: "10px", color: "white" }}>
+            {member.name}
+          </Typography>
+        </Box>
+      </Grid>
+    ))}
+  </Grid>
+
+  {/* Satır arası boşluk */}
+  <Box sx={{ height: "60px" }} />
+
+  {/* Kalan ekip üyeleri */}
+  <Grid container columnSpacing={4} rowSpacing={3} justifyContent="center">
+    {teamMembers.slice(5).map((member, index) => (
+      <Grid item key={index + 5}>
+        <Box sx={{ textAlign: "center", width: "200px" }}>
+          <Box sx={{ border: "2px solid white", padding: "10px" }}>
+            <img
+              src={member.photo}
+              alt={member.name}
+              style={{
+                width: "100%",
+                height: "300px",
+                objectFit: "cover"
+              }}
+            />
+          </Box>
+          <Typography variant="h5" sx={{ marginTop: "10px", color: "white" }}>
+            {member.name}
+          </Typography>
+        </Box>
+      </Grid>
+    ))}
+  </Grid>
+</Box>
+
+
+
+
+      {/* Salon Fotoğrafları */}
+<Box sx={{ padding: "80px", textAlign: "center" }}>
+  <Typography
+    variant="h4"
+    gutterBottom
+    paddingBottom={"40px"}
+    paddingTop={"20px"}
+  >
+    Salonumuz
+  </Typography>
+
+  <Grid container spacing={4} justifyContent="center">
+    {salonPhotos.map((photo, index) => (
+      <Grid item key={index} xs={12} sm={6} md={4}>
+        <Box>
+          <img
+            src={photo}
+            alt={`Salon fotoğrafı ${index + 1}`}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </Box>
+      </Grid>
+    ))}
+  </Grid>
+</Box>
 
       {showScroll && (
         <Button
@@ -203,7 +245,7 @@ const Portfolio = () => {
             bottom: "30px",
             right: "30px",
             zIndex: 1000,
-            backgroundColor: "#10375C",
+            backgroundColor: "#9e7a68",
             "&:hover": { backgroundColor: "#0d2a46" },
             width: "40px",
             height: "40px",
@@ -222,4 +264,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default About;

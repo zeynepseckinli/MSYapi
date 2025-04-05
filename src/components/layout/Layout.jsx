@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { display } from "@mui/system";
 
 const Layout = () => {
-  const menuItems = ["ANASAYFA", "HAKKIMIZDA", "HİZMETLERİMİZ", "PROJELERİMİZ"];
-  const menuItemsMobil = ["ANASAYFA", "HAKKIMIZDA", "HİZMETLERİMİZ", "PROJELERİMİZ", "İLETİŞİM"];
+  const menuItems = ["ANASAYFA", "HAKKIMIZDA", "HİZMETLERİMİZ", "İLETİŞİM"];
+  const menuItemsMobil = ["ANASAYFA", "HAKKIMIZDA", "HİZMETLERİMİZ",  "İLETİŞİM"];
   const navigate = useNavigate();
   const location = useLocation();
   const [open, setOpen] = useState(false); 
@@ -22,16 +22,6 @@ const Layout = () => {
 
   const handleLogoClick = () => {
     navigate("/"); 
-  };
-
-  const handleHizmetlerimizClick = () => {
-    navigate("/"); 
-    setTimeout(() => {
-      const servicesBox = document.getElementById("services"); 
-      if (servicesBox) {
-        servicesBox.scrollIntoView({ behavior: "smooth" }); 
-      }
-    }, 100); 
   };
 
   const handleMenuToggle = () => {
@@ -71,92 +61,90 @@ const Layout = () => {
         alignItems: "center",
         justifyContent: "center",
           boxShadow: "none",
-          backgroundColor: isScrolled ? "#05151BF2" : "transparent",
-          height: "100px",
+          backgroundColor:   isScrolled ? "#9e7a68F2" : "transparent", //"#9e7a68",
+          height: "80px",
           zIndex: 1000,
-          borderBottom: "1px solid #EFEBE680", // Alt çizgi ekleme
+          borderBottom: "1px solid black", // Alt çizgi ekleme
           transition: "background-color 0.3s ease-in-out, border-bottom 0.3s ease-in-out",
         }}
       >
+        
         <Toolbar
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: { xs: "space-between", sm: "space-between" },
-            padding: { xs: "20px", sm: "0px" },
-            paddingRight: { xs: "0px", sm: "40px" },
-            marginTop: { xs: "10px", sm: "0px" },
-            gap: 4,
-            height: "100px",
-            width: { xs: "100%", sm: "1200px" },
-            marginRight: { xs: "0px", sm: "0px" },
-
-          }}
-        >
-          <Box sx={{ display:"flex",  }}>
-          <Box sx={{ flexShrink: 0, cursor: "pointer", margin: "0px" }} onClick={handleLogoClick}>
-    <img
-      src="/MS_İKON2.png" // Public klasöründeki logo.png dosyasına ulaşmak için
-      alt="MS Yapı Logo"
-      style={{ height: "90px", width: "auto" }} // İstediğiniz boyutları buradan ayarlayabilirsiniz
-    />
+  sx={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between", // iki kutuyu ayırır
+    padding: { xs: "20px", sm: "0px" },
+    paddingRight: { xs: "0px", sm: "30px" },
+    marginTop: { xs: "10px", sm: "0px" },
+    gap: 4,
+    height: "80px",
+    width: { xs: "100%", sm: "1200px" },
+    marginRight: { xs: "0px", sm: "0px" },
+  }}
+>
+  {/* Sol kısım - Logo */}
+  <Box sx={{ display: "flex", alignItems: "center" }}>
+    <Box sx={{ flexShrink: 0, cursor: "pointer", margin: "0px" }} onClick={handleLogoClick}>
+      <img
+        src="/ikon3.PNG"
+        alt="Logo"
+        style={{ height: "60px", width: "auto" }}
+      />
+    </Box>
   </Box>
 
-          <Box sx={{ display: { xs: "flex", sm: "none" } }}>
-            <IconButton
-              onClick={handleMenuToggle}
-              color="#EFEBE6"
-              sx={{
-                fontSize: "3rem", 
-                color: "#EFEBE6", 
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Box>
+  {/* Sağ kısım - Menü */}
+  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+    {/* Mobil ikon */}
+    <Box sx={{ display: { xs: "flex", sm: "none" } }}>
+      <IconButton
+        onClick={handleMenuToggle}
+        color="black"
+        sx={{
+          fontSize: "3rem",
+          color: "black",
+        }}
+      >
+        <MenuIcon />
+      </IconButton>
+    </Box>
 
-          <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2, paddingLeft: "20px" }}>
-            {menuItems.map((item) => (
-              <Button
-                key={item}
-                color="inherit"
-                sx={{
-                  color: "text.secondary",
-                  
-                }}
-                onClick={item === "İLETİŞİM" ? handleContactClick : item === "HİZMETLERİMİZ" ? handleHizmetlerimizClick : () => navigate(
-                  item === "HAKKIMIZDA" ? "/about" :
-                  item === "ANASAYFA" ? "/" :
-                  item === "PROJELERİMİZ" ? "/projects" :
-                  "/"
-                )}
-              >
-                {item}
-              </Button>
-            ))}
-          </Box>
-          </Box>
-          <Box>
-  <Button
-    sx={{
-      borderRadius: "50px", // Tam yuvarlak görünüm
-      width: "200px",
-      height: "50px",
-      backgroundColor: "#E2AD7E", // Normalde arka plan rengi
-      color: "#05151B", // Normalde yazı rengi (primary)
-      border: "1px solid #E2AD7E", // Kenarlık rengi
-      transition: "all 0.3s ease", // Geçiş efektleri
-      "&:hover": {
-        backgroundColor: "transparent", // Üzerine gelince arka plan transparan olacak
-        color: "#EFEBE6", // Yazı rengi secondary olacak
-      },
-    }}
-  >
-    İLETİŞİM
-  </Button>
+    {/* Desktop menü */}
+    <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
+      {menuItems.map((item) => (
+        <Button
+          key={item}
+          color="inherit"
+          sx={{
+            color: "black",
+            fontSize: "1rem",
+            
+            
+          }}
+          onClick={
+            item === "İLETİŞİM"
+              ? handleContactClick
+              : () =>
+                  navigate(
+                    item === "HAKKIMIZDA"
+                      ? "/about"
+                      : item === "ANASAYFA"
+                      ? "/"
+                      : item === "HİZMETLERİMİZ"
+                      ? "/services"
+                      : "/"
+                  )
+          }
+        >
+          {item}
+        </Button>
+      ))}
+    </Box>
+  </Box>
+</Toolbar>
 
-          </Box>
-        </Toolbar>
+
       </AppBar>
 
       <Drawer
@@ -192,12 +180,11 @@ const Layout = () => {
               onClick={() => {
                 if (item === "İLETİŞİM") {
                   handleContactClick();
-                } else if (item === "HİZMETLERİMİZ") {
-                  handleHizmetlerimizClick();
                 } else {
                   navigate(
                     item === "HAKKIMIZDA" ? "/about" :
-                    item === "PROJELERİMİZ" ? "/projects" :
+                    item === "HİZMETLERİMİZ" ? "/services":
+                    item === "ANASAYFA" ? "/" :
                     "/"
                   );
                 }
@@ -235,6 +222,7 @@ const Layout = () => {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    borderTop: "1px solid #EFEBE680", // Alt çizgi ekleme
   }}
 >
   <Typography

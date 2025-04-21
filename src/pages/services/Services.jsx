@@ -61,7 +61,7 @@ const Services = () => {
       {/* Hizmetler Bölümü */}
       <Box
   sx={{
-    width: "100vw",
+    width: "100%",
     height: { xs: "100vh", sm: "800px" },
     display: "flex",
     flexDirection: { xs: "column", sm: "row" },

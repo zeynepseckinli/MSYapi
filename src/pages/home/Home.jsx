@@ -486,14 +486,13 @@ const Home = () => {
         color="primary"
         onClick={scrollToTop}
         sx={{
-          color: "secondary",
+          color: "#EDEFF3",
           position: "fixed",
           bottom: "30px",
-          right: { xs: "30px", sm: "130px" },
+          right: "30px",
           zIndex: 1000,
-          border: "2px solid #9e7a68", // Kenarlık rengi
-          backgroundColor: "#9e7a68", 
-          "&:hover": { backgroundColor: "transparent", color: "#9e7a68" }, 
+          backgroundColor: "#9e7a68",
+            "&:hover": { backgroundColor: "#0d2a46" },
           width: "40px", 
           height: "40px", 
           minWidth: "40px",

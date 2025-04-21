@@ -124,20 +124,44 @@ const Home = () => {
       display: "flex",
       flexDirection: "column",
       alignItems: "flex-end",
-      justifyContent: "center",
+      justifyContent: {xs: "flex-end", sm: "center"},
       
       zIndex: 2, // Videonun üstünde olsun
-      paddingBottom: "250px",
+      paddingBottom: {xs: "50px", sm: "250px"},
+      paddingRight: {xs: "10px", sm: "0px"},
     }}
   >
   
-  <Typography variant="h1" sx={{  color: "text.primary", marginBottom: 0,  lineHeight: 1 }}>
-  Kenan Beyazkılınç
+  <Typography variant="h1" sx={{  color: "text.primary", marginBottom: 0,  lineHeight: 1,  textAlign: {
+      xs: "right", // Mobilde sağa yaslı
+      sm: "left", // Tablet ve yukarısı da sağa
+    }, fontSize: {
+      xs: "2rem", 
+      sm: "3.5rem",
+    }, }}>
+  <Box sx={{ display: { xs: "inline", sm: "none" } }}>
+    Kenan<br />Beyazkılınç
+  </Box>
+  <Box sx={{ display: { xs: "none", sm: "inline" } }}>
+    Kenan Beyazkılınç
+  </Box>
   </Typography>
-  <Typography variant="h3" sx={{  color: "text.primary", marginTop: 4,  lineHeight: 1 }}>
+  <Typography variant="h3" sx={{  color: "text.primary", marginTop:{xs: 3, sm: 4},  lineHeight: 1,  textAlign: {
+      xs: "right", // Mobilde sağa yaslı
+      sm: "left", // Tablet ve yukarısı da sağa
+    },  fontSize: {
+      xs: "1rem", 
+      sm: "1.7rem",
+    }, }}>
   Zarafetin ve Stilin Buluştuğu Adres
   </Typography>
-  <Typography variant="body1" sx={{ fontWeight: "bold",textAlign: "right",  marginTop: "50px", color: "text.primary" }}>
+  <Typography variant="body1" sx={{ fontWeight: "bold", marginTop: {xs: "20px", sm: "50px"}, color: "text.primary",  textAlign: {
+      xs: "right", // Mobilde sağa yaslı
+      sm: "right", // Tablet ve yukarısı da sağa
+    },  fontSize: {
+      xs: "0.8rem", 
+      sm: "1rem",
+    },}}>
   2003’ten beri İstanbul’un kalbinde, <br/>kişisel tarzınızı en iyi şekilde yansıtmanız için buradayız. <br/>Modern teknikler ve ustalıkla, saçınızı sanat eserine dönüştürüyoruz.
   </Typography>
   <Button
@@ -149,9 +173,9 @@ const Home = () => {
     }}
     sx={{
       borderRadius: "0", // Tam yuvarlak görünüm
-      width: "200px",
+      width: {xs: "200px", sm: "200px"},
       height: "50px",
-      marginTop: "40px",
+      marginTop: {xs: "40px", sm: "40px"},
       backgroundColor: "transparent", // Normalde arka plan rengi
       color: "#05151B", // Normalde yazı rengi (primary)
       border: "2px solid #05151B", // Kenarlık rengi
@@ -174,88 +198,88 @@ const Home = () => {
   id="about"
   sx={{
     width: "100vw",
-    height: { xs: "100%", sm: "100vh" },
+    height: { xs: "100vh", sm: "100vh" },
     display: "flex",
-    flexDirection: "row",
+    flexDirection: { xs: "column", sm: "row" },
     backgroundColor: "black",
     zIndex: 20,
     position: "relative",
     overflow: "hidden",
   }}
 >
-<Box
-  sx={{
-    width: "50%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "flex-end",
-    
-    zIndex: 2,
-  }}
->
+  {/* YAZILAR - Sol tarafta kalacak */}
   <Box
     sx={{
-      width: "600px",
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "50%", sm: "100%" },
       display: "flex",
       flexDirection: "column",
-      alignItems: "flex-start", // bu da yazıların sağa yaslanmasını sağlar
+      justifyContent: "center",
+      alignItems: { xs: "center", sm: "flex-end" },
+      zIndex: 2,
+      backgroundColor: "black",
+      paddingX: { xs: 2, sm: 0 },
     }}
   >
-    <Typography
-      variant="h3"
+    <Box
       sx={{
-        fontSize: "3rem",
-        color: "text.secondary",
-        marginBottom: 0,
-        lineHeight: 1.2,
-      
+        width: { xs: "100%", sm: "600px" },
+        display: "flex",
+        flexDirection: "column",
+        alignItems: { xs: "center", sm: "flex-start" },
+        textAlign: { xs: "center", sm: "left" },
       }}
     >
-      22 Yıllık Deneyim, Kusursuz Sanat
-    </Typography>
+      <Typography
+        variant="h3"
+        sx={{
+          fontSize: { xs: "2rem", sm: "3rem" },
+          color: "text.secondary",
+          lineHeight: 1.2,
+        }}
+      >
+        22 Yıllık Deneyim, Kusursuz Hizmet
+      </Typography>
 
-    <Typography
-      variant="body1"
-      sx={{
-        fontSize: "1.2rem",
-        fontWeight: 300,
-        marginTop: "60px",
-        color: "text.secondary",
-       
-      }}
-    >
-      Saç kesimi bir sanattır ve biz bu sanatı tutkuyla icra ediyoruz.
-    </Typography>
+      <Typography
+        variant="body1"
+        sx={{
+          fontSize: { xs: "1rem", sm: "1.2rem" },
+          fontWeight: 300,
+          marginTop: "30px",
+          color: "text.secondary",
+        }}
+      >
+        Saç kesimi bir sanattır ve biz bu sanatı tutkuyla icra ediyoruz.
+      </Typography>
 
-    <Button
-      onClick={() => navigate("/about")}
-      sx={{
-        borderRadius: "0",
-        width: "200px",
-        height: "50px",
-        marginTop: "80px",
-        backgroundColor: "transparent",
-        color: "#EFEBE6",
-        border: "2px solid #EFEBE6",
-        transition: "all 0.3s ease",
-        "&:hover": {
-          backgroundColor: "#9e7a68",
-        },
-      }}
-    >
-      HİKAYEMİZİ KEŞFET
-    </Button>
+      <Button
+        onClick={() => navigate("/about")}
+        sx={{
+          borderRadius: "0",
+          width: "200px",
+          height: "50px",
+          marginTop: "50px",
+          backgroundColor: "transparent",
+          color: "#EFEBE6",
+          border: "2px solid #EFEBE6",
+          transition: "all 0.3s ease",
+          "&:hover": {
+            backgroundColor: "#9e7a68",
+          },
+        }}
+      >
+        HİKAYEMİZİ KEŞFET
+      </Button>
+    </Box>
   </Box>
-</Box>
 
-
-  {/* SAĞ: Görsel */}
+  {/* GÖRSEL - Sağda olacak */}
   <Box
     sx={{
-      width: "50%",
-      height: "100%",
-      padding: "0px",
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "50%", sm: "100%" },
+      padding: 0,
     }}
   >
     <img
@@ -279,80 +303,65 @@ const Home = () => {
   id="services"
   sx={{
     width: "100vw",
-    height: { xs: "100%", sm: "100vh" },
+    height: { xs: "120vh", sm: "100vh" },
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "secondary.main",
+    flexDirection: { xs: "column", sm: "row" },
+    backgroundColor: "white",
     zIndex: 20,
     position: "relative",
     overflow: "hidden",
   }}
 >
-  {/* İçerik Box */}
-  <Box
+<Box
     sx={{
-      display: "flex",
-      width: "1200px",
-      height: "100%",
-      maxWidth: "100vw",
-      flexDirection: "row",
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "50%", sm: "100%" },
+      
+      display: { xs: "none", sm: "flex" }, // Mobilde görünmez, sm ve üzeri görünür
+      justifyContent: "center",
       alignItems: "center",
-      justifyContent: "space-between",
-      margin: "0 auto",
-      gap: { xs: "0px", sm: "0px" },
-      padding: { xs: "36px 24px", sm: "0rem" },
       position: "relative",
-      zIndex: 2,
     }}
   >
-    {/* Sağ Tarafa GIF */}
-    <Box
-  sx={{
-    width: "50%",
-    height: "100%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "relative",
-  }}
->
-  <video
-    src="https://res.cloudinary.com/dfoi520wc/video/upload/v1741289714/MN_KB_V1_l6aq3k.mp4"
-    autoPlay
-    loop
-    muted
-    playsInline
-    style={{
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
+    <video
+      src="https://res.cloudinary.com/dfoi520wc/video/upload/v1744197539/KB_TURUNCU_1_ulcr6h.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+      }}
+    />
+  </Box>
+  {/* METİN ALANI */}
+  <Box
+    sx={{
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "50%", sm: "100%" },
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: { xs: "center", sm: "flex-start" },
+      padding: { xs: "24px", sm: "0 50px" },
+      backgroundColor: "transparent",
+      zIndex: 3,
     }}
-  />
-</Box>
-
-    {/* Metin İçeriği */}
+  >
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        justifyContent: "center",
-        width: "50%",
         maxWidth: "600px",
-        paddingLeft: "50px",
-        backgroundColor: "transparent",
-        position: "relative",
-        zIndex: 3,
+        width: "100%",
+        textAlign: { xs: "center", sm: "left" },
       }}
     >
       <Typography
         variant="h3"
         sx={{
-          fontSize: "3rem",
+          fontSize: { xs: "2rem", sm: "3rem" },
           color: "text.primary",
-          marginBottom: 0,
           lineHeight: 1.2,
         }}
       >
@@ -360,31 +369,53 @@ const Home = () => {
       </Typography>
 
       <Typography
-        variant="body1"
+  variant="body1"
+  sx={{
+    fontSize: { xs: "0.8rem", sm: "1rem" },
+    marginTop: "30px",
+    color: "text.primary",
+    display: "flex",
+    flexDirection: "column",
+    gap: { xs: "12px", sm: "12px" },
+  }}
+>
+  {[
+    { title: "Kesim & Şekillendirme", desc: "Yüz hatlarınıza ve stilinize uygun modern kesimler" },
+    { title: "Renk & Balayage", desc: "Son trend renklendirme teknikleriyle yenilenin" },
+    { title: "Bakım & Onarım", desc: "Saçınızın sağlığını ön planda tutan özel bakımlar" },
+    { title: "Profesyonel Styling", desc: "Özel günler için kusursuz saç tasarımları" },
+  ].map((item, idx) => (
+    <Box key={idx} sx={{ display: "flex", flexDirection: "column" }}>
+      <Typography
+        component="span"
         sx={{
-          fontSize: "1rem",
-        //  fontWeight: 300,
-          textAlign: "left",
-          marginTop: "40px",
-          color: "text.primary",
-          display: "flex",
-          flexDirection: "column",
-          gap: "12px", // Alt alta boşluk bırakır
+          fontWeight: "bold",
+          fontSize: { xs: "0.85rem", sm: "1rem" },
         }}
       >
-        <span><strong>Kesim & Şekillendirme</strong> – Yüz hatlarınıza ve stilinize uygun modern kesimler</span>
-        <span><strong>Renk & Balayage</strong> – Son trend renklendirme teknikleriyle yenilenin</span>
-        <span><strong>Bakım & Onarım</strong> – Saçınızın sağlığını ön planda tutan özel bakımlar</span>
-        <span><strong>Profesyonel Styling</strong> – Özel günler için kusursuz saç tasarımları</span>
+        {item.title}
       </Typography>
+      <Typography
+        component="span"
+        sx={{
+          display: { xs: "block", sm: "inline" },
+          fontSize: { xs: "0.75rem", sm: "1rem" },
+        }}
+      >
+        {item.desc}
+      </Typography>
+    </Box>
+  ))}
+</Typography>
 
+     
       <Button
         onClick={() => navigate("/services")}
         sx={{
           borderRadius: "0",
           width: "200px",
           height: "50px",
-          marginTop: "80px",
+          marginTop: { xs: "30px", sm: "50px" },
           backgroundColor: "transparent",
           color: "black",
           border: "2px solid black",
@@ -397,10 +428,35 @@ const Home = () => {
         TÜM HİZMETLERİ GÖR
       </Button>
     </Box>
+  </Box>
 
-    
+  {/* VİDEO ALANI */}
+  <Box
+    sx={{
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "50%", sm: "100%" },
+      display: { xs: "flex", sm: "none" },
+      
+      justifyContent: "center",
+      alignItems: "center",
+      position: "relative",
+    }}
+  >
+    <video
+      src="https://res.cloudinary.com/dfoi520wc/video/upload/v1744197539/KB_TURUNCU_1_ulcr6h.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+      }}
+    />
   </Box>
 </Box>
+
 
 
 
@@ -433,7 +489,7 @@ const Home = () => {
           color: "secondary",
           position: "fixed",
           bottom: "30px",
-          right: "130px",
+          right: { xs: "30px", sm: "130px" },
           zIndex: 1000,
           border: "2px solid #9e7a68", // Kenarlık rengi
           backgroundColor: "#9e7a68", 

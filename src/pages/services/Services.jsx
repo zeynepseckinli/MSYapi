@@ -61,61 +61,85 @@ const Services = () => {
       {/* Hizmetler Bölümü */}
       <Box
   sx={{
-    width: "100%",
-    height: "600px",
+    width: "100vw",
+    height: { xs: "100vh", sm: "800px" },
     display: "flex",
+    flexDirection: { xs: "column", sm: "row" },
+    marginTop: { xs: "80px", sm: "0" },
+    position: "relative",
+    overflow: "hidden",
   }}
 >
+<Box
+    sx={{
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "50%", sm: "100%" },
+      backgroundImage: 'url("/sac2.jpg")',
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      display: { xs: "flex", sm: "none" },
+    }}
+  />
   {/* Sol Taraf (İçerik) */}
   <Box
     sx={{
-      width: "50%",
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "50%", sm: "100%" },
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "flex-end",
     //  padding: "100px",
-      backgroundColor: "#8C96A0",
-      paddingTop: "80px",
+      backgroundColor: "black",
+      paddingTop: { xs: "30px", sm: "80px" },
+      padding: { xs: "30px", sm: "0" },
     }}
   >
-    <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", paddingBottom: "80px", width: "600px" }}>
-      SAÇ İŞLEMLERİ
-    </Typography>
-    <Grid container spacing={0} sx={{ width: "600px" }} >
+    <Typography
+              variant="h3"
+              sx={{
+                fontSize: { xs: "2rem", sm: "3rem" },
+                color: "white",
+                marginBottom: 0,
+                lineHeight: 1.2,
+                paddingBottom: { xs: "20px", sm: "40px" },
+                width: { xs: "100%", sm: "600px" },
+              }}
+            >
+              Saç İşlemleri
+            </Typography>
+    <Grid container spacing={0} sx={{ width: { xs: "100%", sm: "600px" }, }} >
       <Grid item xs={5}>
         {[
           "Fön",
-          "Botox",
           "Kesim",
           "Topuz",
           "Maşa",
-          "Dip Boya",
-          "Boya Değişim",
-          "Röfle",
-          "Cila",
-          "Ombre",
+          "Örgü",
+          "Perma",
+          "Koruyucu Bakım",
+          "Keratin Bakım",
+          "Mikro Kaynak",
+          
         ].map((item, index) => (
-          <Typography key={index} variant="body2" sx={{ marginBottom: "4px" }}>
+          <Typography key={index} variant="body1" sx={{ marginBottom: "4px", color: "white" }}>
             {item}
           </Typography>
         ))}
       </Grid>
       <Grid item xs={7}>
         {[
-          "Koruyucu Bakım",
+          "Dip Boya",
+          "Boya Değişim",
+          "Röfle",
+          "Cila",
+          "Ombre",
           "Geçiş Renklendirme",
-          "Sombre",
           "Pigmentasyon",
-          "Keratin Bakım",
-          "Komple Boya",
-          "Perma",
-          "Transparan Boya",
           "Dip Açma Boyama",
           "Organik Boya",
-          "Mikro Kaynak",
         ].map((item, index) => (
-          <Typography key={index} variant="body2" sx={{ marginBottom: "4px" }}>
+          <Typography key={index} variant="body1" sx={{ marginBottom: "4px", color: "white"  }}>
             {item}
           </Typography>
         ))}
@@ -126,26 +150,35 @@ const Services = () => {
   {/* Sağ Taraf (Fotoğraf) */}
   <Box
     sx={{
-      width: "50%",
-      backgroundImage: 'url("/sac.JPG")',
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "50%", sm: "100%" },
+      backgroundImage: 'url("/sac2.jpg")',
       backgroundSize: "cover",
       backgroundPosition: "center",
+      display: { xs: "none", sm: "flex" },
     }}
   />
 </Box>
 
+
+
 <Box
   sx={{
     width: "100%",
-    height: "600px",
+    height: { xs: "100vh", sm: "700px" },
     display: "flex",
+    flexDirection: { xs: "column", sm: "row" },
+    position: "relative",
+    overflow: "hidden",
   }}
 >
   {/* Sağ Taraf (Fotoğraf) */}
   <Box
     sx={{
-      width: "50%",
-      backgroundImage: 'url("/makyaj.jpg")',
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "50%", sm: "100%" },
+      
+      backgroundImage: 'url("/gelin3.JPG")',
       backgroundSize: "cover",
       backgroundPosition: "center",
     }}
@@ -153,19 +186,103 @@ const Services = () => {
   {/* Sol Taraf (İçerik) */}
   <Box
     sx={{
-      width: "50%",
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "50%", sm: "100%" },
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "flex-start",
-      backgroundColor: "#D2C8BF",
-      paddingLeft: "100px",
+      backgroundColor: "white",
+      paddingLeft: { xs: "30px", sm: "100px" },
     }}
   >
-    <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", paddingBottom: "80px", width: "600px" }}>
-    MAKYAJ
-    </Typography>
+    <Typography
+              variant="h3"
+              sx={{
+                fontSize: { xs: "2rem", sm: "3rem" },
+                color: "black",
+                marginBottom: 0,
+                lineHeight: 1.2,
+                paddingBottom: "40px",
+                width: "600px",
+              }}
+            >
+              Gelin Paketleri
+            </Typography>
+    
     <Grid container spacing={0} sx={{ width: "600px" }} >
+      <Grid item xs={5}>
+        {[
+          "Gelin Saç & Makyaj",
+
+          "Nişan Saç & Makyaj",
+          
+          "Gelin Dış Çekim (Saç & Makyaj)",
+
+          "Nişan Dış Çekim (Saç & Makyaj)",
+        ].map((item, index) => (
+          <Typography key={index} variant="body1" sx={{ marginBottom: "4px" }}>
+            {item}
+          </Typography>
+        ))}
+      </Grid>
+      
+    </Grid>
+  </Box>
+
+  
+</Box>
+
+<Box
+  sx={{
+    width: "100%",
+    height: { xs: "100vh", sm: "700px" },
+    display: "flex",
+    flexDirection: { xs: "column", sm: "row" },
+    position: "relative",
+    overflow: "hidden",
+  }}
+>
+
+<Box
+    sx={{
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "50%", sm: "100%" },
+      backgroundImage: 'url("/makyaj3.JPG")',
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      display: { xs: "flex", sm: "none" },
+    }}
+  />
+  
+  {/* Sol Taraf (İçerik) */}
+  <Box
+    sx={{
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "50%", sm: "100%" },
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "flex-end",
+      backgroundColor: "black",
+      padding: { xs: "30px", sm: "0" },
+    }}
+  >
+    <Typography
+              variant="h3"
+              sx={{
+                fontSize: { xs: "2rem", sm: "3rem" },
+                color: "white",
+                marginBottom: 0,
+                lineHeight: 1.2,
+                paddingBottom:  { xs: "20px", sm: "40px" },
+                width: { xs: "100%", sm: "600px" },
+              }}
+            >
+              Makyaj
+            </Typography>
+    
+    <Grid container spacing={0} sx={{ width:{ xs: "100%", sm: "600px" }, }} >
       <Grid item xs={5}>
         {[
           "Günlük Makyaj",
@@ -174,7 +291,7 @@ const Services = () => {
           
           "Kalıcı Makyaj" ,
           
-          "Dudak Gençleştirme",
+          "Göz Makyajı",
           
           "Takma Kirpik",
           
@@ -184,9 +301,8 @@ const Services = () => {
           
           "Kirpik Boyama",
           
-          "Kaş Vitamini",
         ].map((item, index) => (
-          <Typography key={index} variant="body2" sx={{ marginBottom: "4px" }}>
+          <Typography key={index} variant="body1" sx={{ marginBottom: "4px", color: "white" }}>
             {item}
           </Typography>
         ))}
@@ -194,80 +310,41 @@ const Services = () => {
       
     </Grid>
   </Box>
-
+{/* Sağ Taraf (Fotoğraf) */}
+<Box
+    sx={{
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "50%", sm: "100%" },
+      backgroundImage: 'url("/makyaj3.JPG")',
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      display: { xs: "none", sm: "flex" },
+    }}
+  />
   
 </Box>
 
 
-<Box
-  sx={{
-    width: "100%",
-    height: "600px",
-    display: "flex",
-  }}
->
-  {/* Sol Taraf (İçerik) */}
-  <Box
-    sx={{
-      width: "50%",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "flex-end",
-      backgroundColor: "#8C96A0",
-    }}
-  >
-    <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", paddingBottom: "80px", width: "600px" }}>
-    MANİKÜR & BAKIM
-    </Typography>
-    <Grid container spacing={0} sx={{ width: "600px" }} >
-      <Grid item xs={5}>
-        {[
-          "Manikür",
 
-          "Pedikür",
-          
-          "Kaş Alma",
-          
-          "Kalıcı Oje" ,
-          
-          "Üst Dudak Alımı",
-          
-          "Kaş + Dudak Üstü",
-          
-          "Komple Yüz Alımı",
-        ].map((item, index) => (
-          <Typography key={index} variant="body2" sx={{ marginBottom: "4px" }}>
-            {item}
-          </Typography>
-        ))}
-      </Grid>
-    </Grid>
-  </Box>
 
-  {/* Sağ Taraf (Fotoğraf) */}
-  <Box
-    sx={{
-      width: "50%",
-      backgroundImage: 'url("/tirnak.jpg")',
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }}
-  />
-</Box>
+
 
 <Box
   sx={{
     width: "100%",
-    height: "600px",
+    height: { xs: "110vh", sm: "700px" },
     display: "flex",
+    flexDirection: { xs: "column", sm: "row" },
+    position: "relative",
+    overflow: "hidden",
   }}
 >
-  {/* Sağ Taraf (Fotoğraf) */}
-  <Box
+   {/* Sağ Taraf (Fotoğraf) */}
+   <Box
     sx={{
-      width: "50%",
-      backgroundImage: 'url("/gelin.jpg")',
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "45%", sm: "100%" },
+      backgroundImage: 'url("/tirnak2.JPG")',
       backgroundSize: "cover",
       backgroundPosition: "center",
     }}
@@ -275,39 +352,54 @@ const Services = () => {
   {/* Sol Taraf (İçerik) */}
   <Box
     sx={{
-      width: "50%",
+      width: { xs: "100%", sm: "50%" },
+      height: { xs: "55%", sm: "100%" },
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "flex-start",
-      backgroundColor: "#D2C8BF",
-      paddingLeft: "100px",
+      backgroundColor: "white",
+      paddingLeft: { xs: "30px", sm: "100px" },
     }}
   >
-    <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", paddingBottom: "80px", width: "600px" }}>
-    GELİN PAKETLERİ
-    </Typography>
-    <Grid container spacing={0} sx={{ width: "600px" }} >
+    <Typography
+              variant="h3"
+              sx={{
+                fontSize: { xs: "2rem", sm: "3rem" },
+                color: "black",
+                marginBottom: 0,
+                lineHeight: 1.2,
+                paddingBottom: { xs: "20px", sm: "40px" },
+                width: { xs: "100%", sm: "600px" },
+              }}
+            >
+              Manikür & Bakım
+            </Typography>
+    
+    <Grid container spacing={0} sx={{ width: { xs: "100%", sm: "600px" }, }} >
       <Grid item xs={5}>
         {[
-          "Gelin Saç & Makyaj",
-
-          "Nişan Saç & Makyaj",
-          
-          "Kına Saç & Makyaj",
-          
-          "Gelin Dış Çekim (Saç & Makyaj)",
+          "Manikür",
+          "Pedikür",
+          "Oje El-Ayak",
+          "Kalıcı Oje El-Ayak" ,
+          "Kaş Alımı",
+          "Üst Dudak Alımı",
+          "Kaş + Dudak Üstü",
+          "Komple Yüz Alımı",
+          "Kol Alımı",
+          "Bacak Alımı",
+          "Bikini Alımı",
         ].map((item, index) => (
-          <Typography key={index} variant="body2" sx={{ marginBottom: "4px" }}>
+          <Typography key={index} variant="body1" sx={{ marginBottom: "4px" }}>
             {item}
           </Typography>
         ))}
       </Grid>
-      
     </Grid>
   </Box>
 
-  
+ 
 </Box>
 
 

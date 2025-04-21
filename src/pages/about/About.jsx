@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ImageModal from './ImageModal';
 import { Box, Typography, Grid, Fade , List, Button, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import ContactBox from "../../components/contactBox/ContactBox";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -9,18 +10,26 @@ const About = () => {
   const [showScroll, setShowScroll] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  const [selectedImage, setSelectedImage] = useState(null);
 
+  const handleImageClick = (url) => {
+    setSelectedImage(url);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+  };
 
   const teamMembers = [
-    { name: "Ahmet ", photo: "/111.JPG" },
-    { name: "Fuat ", photo: "/KB_SALON-19.jpg" },
-    { name: "Kenan ", photo: "/120.JPG" },
-    { name: "Burak ", photo: "/119.JPG" },
-    { name: "Mehmet ", photo: "/112.JPG" },
-    { name: "Elif ", photo: "/113.JPG" },
-    { name: "Burak ", photo: "/115.JPG" },
-    { name: "Burak ", photo: "/118.JPG" },
-    { name: "Burak ", photo: "/117.JPG" },
+    { name: "Hüseyin", photo: "/111.JPG" },
+    { name: "Fuat", photo: "/122.JPG" },
+    { name: "Kenan", photo: "/120.JPG" },
+    { name: "Şenay", photo: "/119.JPG" },
+    { name: "Emrah", photo: "/112.JPG" },
+    { name: "Çiğdem", photo: "/113.JPG" },
+    { name: "Mehmet", photo: "/115.JPG" },
+    { name: "Tuğba", photo: "/118.JPG" },
+    { name: "Mülazım", photo: "/117.JPG" },
   ];
 
   const salonPhotos = [
@@ -87,13 +96,14 @@ const About = () => {
         sx={{
           width: "100%",
           display: "flex",
+          marginTop: { xs: "40px", sm: "0px" },
           justifyContent: "center",
           alignItems: "center",
           backgroundImage: 'url("/3.JPG")',
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          height: "600px",
+          height: isMobile ? "220px" : "600px",
         }}
       />
 
@@ -107,16 +117,26 @@ const About = () => {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    padding: "40px",
+    padding: { xs: "30px", sm: "40px" },
+    backgroundColor: "white",
   }}
 >
   {/* Başlık */}
-  <Typography variant="h4" align="center" gutterBottom  paddingBottom={"40px"}>
-    Hakkımızda
-  </Typography>
+  <Typography
+          variant="h3"
+          sx={{
+            fontSize: { xs: "2rem", sm: "3rem" },
+            color: "text.primary",
+            marginBottom: 0,
+            lineHeight: 1.2,
+            paddingBottom: { xs: "20px", sm: "40px" },
+          }}
+        >
+          Hakkımızda
+        </Typography>
 
   {/* İçerik Alanı */}
-  <Box sx={{ maxWidth: "1000px", textAlign: "left" }}>
+  <Box sx={{ maxWidth: "1000px", textAlign: "left", paddingBottom: { xs: "20px", sm: "40px" }, }}>
     <Typography variant="body1" sx={{ mb: 2 }}>
       2003 yılında kurulan kuaför salonumuz, güzellik ve bakım sektöründe fark yaratmaya devam ediyor. 
       Sektördeki gelişmeleri yakından takip eden ekibimizle, müşterilerimize en iyi hizmeti sunuyoruz. 
@@ -143,10 +163,20 @@ const About = () => {
 
 
      
-<Box sx={{ backgroundColor: "background.paper", height: "auto", padding: "90px" }}>
-  <Typography variant="h4" gutterBottom textAlign="center" color="white" paddingBottom={"40px"}>
-    Ekibimiz
-  </Typography>
+<Box sx={{ backgroundColor: "background.paper", height: "auto", padding: { xs: "30px", sm: "90px" }, }}>
+<Typography
+          variant="h3"
+          sx={{
+            fontSize: { xs: "2rem", sm: "3rem" },
+            color: "white",
+            marginBottom: 0,
+            lineHeight: 1.2,
+            paddingBottom: "40px",
+            textAlign: "center"
+          }}
+        >
+          Ekibimiz
+        </Typography>
 
   {/* İlk 5 kişi */}
   <Grid container columnSpacing={4} rowSpacing={3} justifyContent="center">
@@ -166,7 +196,7 @@ const About = () => {
             />
           </Box>
           {/* İsim çerçevenin dışında */}
-          <Typography variant="h5" sx={{ marginTop: "10px", color: "white" }}>
+          <Typography variant="h5" sx={{ marginTop: "10px", color: "white", marginBottom: { xs: "2rem", sm: "0" } }}>
             {member.name}
           </Typography>
         </Box>
@@ -175,7 +205,7 @@ const About = () => {
   </Grid>
 
   {/* Satır arası boşluk */}
-  <Box sx={{ height: "60px" }} />
+  <Box sx={{ height: { xs: "2rem", sm: "60px" } }} />
 
   {/* Kalan ekip üyeleri */}
   <Grid container columnSpacing={4} rowSpacing={3} justifyContent="center">
@@ -193,7 +223,7 @@ const About = () => {
               }}
             />
           </Box>
-          <Typography variant="h5" sx={{ marginTop: "10px", color: "white" }}>
+          <Typography variant="h5" sx={{ marginTop: "10px", color: "white", marginBottom: { xs: "2rem", sm: "0" } }}>
             {member.name}
           </Typography>
         </Box>
@@ -206,15 +236,21 @@ const About = () => {
 
 
       {/* Salon Fotoğrafları */}
-<Box sx={{ padding: "80px", textAlign: "center" }}>
+<Box sx={{ padding: { xs: "30px", sm: "80px" }, textAlign: "center",     backgroundColor: "white", }}>
+  
+
   <Typography
-    variant="h4"
-    gutterBottom
-    paddingBottom={"40px"}
-    paddingTop={"20px"}
-  >
-    Salonumuz
-  </Typography>
+          variant="h3"
+          sx={{
+            fontSize: { xs: "2rem", sm: "3rem" },
+            color: "text.primary",
+            marginBottom: 0,
+            lineHeight: 1.2,
+            paddingBottom: "40px",
+          }}
+        >
+          Salonumuz
+        </Typography>
 
   <Grid container spacing={4} justifyContent="center">
     {salonPhotos.map((photo, index) => (
@@ -227,11 +263,19 @@ const About = () => {
               width: "100%",
               height: "100%",
               objectFit: "cover",
+              cursor: "pointer", // kullanıcı anlayabilsin diye
             }}
+            onClick={() => handleImageClick(photo)}
           />
         </Box>
       </Grid>
     ))}
+    <ImageModal
+        isOpen={!!selectedImage}
+        onRequestClose={handleCloseModal}
+        imageUrl={selectedImage}
+        shouldCloseOnOverlayClick={true}
+      />
   </Grid>
 </Box>
 

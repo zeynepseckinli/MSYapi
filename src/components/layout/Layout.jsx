@@ -61,7 +61,11 @@ const Layout = () => {
         alignItems: "center",
         justifyContent: "center",
           boxShadow: "none",
-          backgroundColor:   isScrolled ? "#9e7a68F2" : "transparent", //"#9e7a68",
+          backgroundColor:
+            location.pathname === "/" && !isScrolled
+              ? "transparent"
+              : "#9e7a68F2",
+        //  backgroundColor:   isScrolled ? "#9e7a68F2" : "transparent", //"#9e7a68",
           height: "80px",
           zIndex: 1000,
           borderBottom: "1px solid black", // Alt çizgi ekleme
@@ -85,7 +89,7 @@ const Layout = () => {
 >
   {/* Sol kısım - Logo */}
   <Box sx={{ display: "flex", alignItems: "center" }}>
-    <Box sx={{ flexShrink: 0, cursor: "pointer", margin: "0px" }} onClick={handleLogoClick}>
+    <Box sx={{ flexShrink: 0, cursor: "pointer", margin: "0px" , marginLeft: { xs: "-30px", sm: "0px" }}} onClick={handleLogoClick}>
       <img
         src="/ikon3.PNG"
         alt="Logo"
@@ -104,6 +108,7 @@ const Layout = () => {
         sx={{
           fontSize: "3rem",
           color: "black",
+          marginRight: "30px",
         }}
       >
         <MenuIcon />
@@ -225,15 +230,24 @@ const Layout = () => {
     borderTop: "1px solid #EFEBE680", // Alt çizgi ekleme
   }}
 >
-  <Typography
-    variant="body2"
-    sx={{
-      fontSize: { xs: "0.75rem", sm: "1rem" },
-      color: "text.secondary",
-    }}
+<Typography
+  variant="body2"
+  sx={{
+    fontSize: { xs: "0.75rem", sm: "1rem" },
+    color: "text.secondary",
+  }}
+>
+  © 2025 | Made by{" "}
+  <a
+    href="https://www.zeynepse.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ color: "inherit", textDecoration: "underline" }}
   >
-    © 2025 | Made by <strong>zeynepse</strong>
-  </Typography>
+    zeynepse
+  </a>
+</Typography>
+
 </Box>
     </div>
   );
